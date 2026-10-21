@@ -1,0 +1,16 @@
+@model StudentFormViewModel
+@{
+    var editing = !string.IsNullOrEmpty(Model.UserId);
+    ViewData["Title"] = editing ? "Edit student" : "Add student";
+}
+<div class="page-heading"><div><span class="eyebrow">PEOPLE</span><h1>@ViewData["Title"]</h1><p>@(editing ? "Update student account details." : "A unique student username will be generated automatically.")</p></div></div>
+<div class="form-panel">
+    <form asp-action="@(editing ? "Edit" : "Create")" asp-route-id="@Model.UserId" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+        @if (editing) { <input asp-for="UserId" type="hidden" /><div class="mb-3"><label class="form-label">Username</label><input class="form-control" value="@Model.UserName" readonly /></div> }
+        <div class="mb-3"><label asp-for="DisplayName" class="form-label">Full name</label><input asp-for="DisplayName" class="form-control" /><span asp-validation-for="DisplayName" class="text-danger"></span></div>
+        <div class="mb-3"><label asp-for="Email" class="form-label"></label><input asp-for="Email" class="form-control" /><span asp-validation-for="Email" class="text-danger"></span></div>
+        <div class="form-actions"><a asp-action="Index" class="btn btn-light">Cancel</a><button class="btn btn-primary">@(editing ? "Save changes" : "Create student")</button></div>
+    </form>
+</div>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

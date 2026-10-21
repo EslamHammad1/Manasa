@@ -1,0 +1,31 @@
+@model StudentListViewModel
+@{
+    ViewData["Title"] = "Students";
+}
+<div class="page-heading"><div><span class="eyebrow">PEOPLE</span><h1>Students</h1><p>Search accounts and manage student access.</p></div><a class="btn btn-primary" asp-action="Create">＋ Add student</a></div>
+@if (TempData["AccountSetupUrl"] is string setupUrl)
+{
+    <div class="alert alert-info"><strong>Student @TempData["CreatedUserName"] created.</strong> <a href="@setupUrl" class="alert-link" target="_blank" rel="noopener">Open one-time account setup</a><div class="small mt-1">Copy the link and share it with the student. It is not sent by email.</div></div>
+}
+<div class="panel-card">
+    <form method="get" class="filter-bar"><label class="visually-hidden" for="search">Search students</label><input class="form-control" id="search" name="search" value="@Model.Search" placeholder="Search username, name, or email" /><button class="btn btn-outline-secondary">Search</button></form>
+    @if (Model.Items.Count == 0) { <div class="empty-state"><span>♧</span><h3>No students found</h3><p>Student accounts will appear here when created.</p></div> }
+    else
+    {
+        <div class="table-responsive"><table class="table align-middle admin-table"><thead><tr><th>Username</th><th>Student</th><th>Email</th><th>Status</th><th></th></tr></thead><tbody>
+        @foreach (var student in Model.Items)
+        {
+            <tr><td><span class="username-chip">@student.UserName</span></td><td>@(student.DisplayName ?? "—")</td><td>@(student.Email ?? "—")</td><td><span class="status-pill @(student.IsActive ? "status-live" : "status-draft")">@(student.IsActive ? "Active" : "Inactive")</span></td><td class="text-end text-nowrap"><a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@student.UserId">Edit</a><form asp-action="ToggleActive" asp-route-id="@student.UserId" method="post" class="d-inline"><input type="hidden" name="page" value="@Model.PageNumber" /><input type="hidden" name="search" value="@Model.Search" /><button class="btn btn-sm btn-outline-secondary">@(student.IsActive ? "Deactivate" : "Activate")</button></form></td></tr>
+        }
+        </tbody></table></div>
+        @if (Model.TotalPages > 1)
+        {
+            <nav aria-label="Student pages" class="mt-3"><ul class="pagination pagination-sm mb-0">
+            @for (var pageNumber = 1; pageNumber <= Model.TotalPages; pageNumber++)
+            {
+                <li class="page-item @(pageNumber == Model.PageNumber ? "active" : "")"><a class="page-link" asp-action="Index" asp-route-search="@Model.Search" asp-route-page="@pageNumber">@pageNumber</a></li>
+            }
+            </ul></nav>
+        }
+    }
+</div>

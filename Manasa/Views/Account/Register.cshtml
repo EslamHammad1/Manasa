@@ -1,0 +1,76 @@
+@model Manasa.ViewModels.Account.RegisterViewModel
+@{
+    ViewData["Title"] = "Create account";
+}
+<div class="setup-card register-card">
+    <div class="setup-mark">M</div>
+    <span class="eyebrow">MANASA LEARNING</span>
+    <h1>Create your student account</h1>
+    <p>Join your classes and continue learning at your own pace.</p>
+    <form asp-action="Register" method="post" id="registerForm">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+        <div class="mb-3">
+            <label asp-for="FullName" class="form-label"></label><span class="required-mark"> *</span>
+            <input asp-for="FullName" class="form-control" autocomplete="name" required />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label><span class="required-mark"> *</span>
+            <input asp-for="Email" class="form-control" autocomplete="email" required />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="PhoneNumber" class="form-label"></label>
+            <input asp-for="PhoneNumber" class="form-control" autocomplete="tel" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label"></label><span class="required-mark"> *</span>
+            <div class="input-group">
+                <input asp-for="Password" class="form-control" autocomplete="new-password" required />
+                <button class="btn btn-outline-secondary" type="button" data-toggle-password="Password">Show</button>
+            </div>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ConfirmPassword" class="form-label"></label><span class="required-mark"> *</span>
+            <div class="input-group">
+                <input asp-for="ConfirmPassword" class="form-control" autocomplete="new-password" required />
+                <button class="btn btn-outline-secondary" type="button" data-toggle-password="ConfirmPassword">Show</button>
+            </div>
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+        <div class="form-check mb-4">
+            <input asp-for="AcceptTerms" class="form-check-input" required />
+            <label asp-for="AcceptTerms" class="form-check-label"></label>
+            <span asp-validation-for="AcceptTerms" class="text-danger d-block"></span>
+        </div>
+        <button class="btn btn-primary w-100" type="submit" id="registerButton">
+            <span class="submit-label">Create account</span>
+            <span class="spinner-border spinner-border-sm d-none" aria-hidden="true"></span>
+        </button>
+    </form>
+    <div class="register-login-link">Already have an account? <a asp-action="Login">Sign in</a></div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.querySelectorAll("[data-toggle-password]").forEach(button => {
+            button.addEventListener("click", () => {
+                const input = document.getElementById(button.dataset.togglePassword);
+                const showPassword = input.type === "password";
+                input.type = showPassword ? "text" : "password";
+                button.textContent = showPassword ? "Hide" : "Show";
+                button.setAttribute("aria-label", `${showPassword ? "Hide" : "Show"} ${input.name}`);
+            });
+        });
+
+        document.getElementById("registerForm").addEventListener("submit", event => {
+            if (!event.target.checkValidity() || !$(event.target).valid()) return;
+            const button = document.getElementById("registerButton");
+            button.disabled = true;
+            button.querySelector(".submit-label").textContent = "Creating account…";
+            button.querySelector(".spinner-border").classList.remove("d-none");
+        });
+    </script>
+}

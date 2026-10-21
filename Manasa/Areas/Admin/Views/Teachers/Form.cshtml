@@ -1,0 +1,21 @@
+@model TeacherFormViewModel
+@{
+    var editing = Model.Id != 0;
+    ViewData["Title"] = editing ? "Edit teacher" : "Add teacher";
+}
+<div class="page-heading"><div><span class="eyebrow">PEOPLE</span><h1>@ViewData["Title"]</h1><p>@(editing ? "Update the teacher profile and subject access." : "Create a teacher account and profile. A one-time setup link will be generated.")</p></div></div>
+<div class="form-panel">
+    <form asp-action="@(editing ? "Edit" : "Create")" asp-route-id="@Model.Id" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+        <div class="row g-3"><div class="col-md-6"><label asp-for="FullName" class="form-label"></label><input asp-for="FullName" class="form-control" /><span asp-validation-for="FullName" class="text-danger"></span></div>
+        <div class="col-md-6"><label asp-for="Email" class="form-label"></label><input asp-for="Email" class="form-control" /><span asp-validation-for="Email" class="text-danger"></span></div>
+        <div class="col-12"><label asp-for="Biography" class="form-label"></label><textarea asp-for="Biography" class="form-control" rows="4"></textarea><span asp-validation-for="Biography" class="text-danger"></span></div>
+        <div class="col-md-6"><label asp-for="Specialization" class="form-label"></label><input asp-for="Specialization" class="form-control" /><span asp-validation-for="Specialization" class="text-danger"></span></div>
+        <div class="col-md-6"><label asp-for="ExperienceYears" class="form-label">Years of experience</label><input asp-for="ExperienceYears" class="form-control" /><span asp-validation-for="ExperienceYears" class="text-danger"></span></div>
+        <div class="col-12"><label asp-for="ProfileImageUrl" class="form-label">Profile image URL</label><input asp-for="ProfileImageUrl" class="form-control" /><span asp-validation-for="ProfileImageUrl" class="text-danger"></span></div>
+        <div class="col-12"><label asp-for="SelectedSubjectIds" class="form-label">Assigned subjects</label><select asp-for="SelectedSubjectIds" asp-items="Model.Subjects" class="form-select" multiple size="5"></select><span asp-validation-for="SelectedSubjectIds" class="text-danger"></span><div class="form-text">Courses can only be assigned to a teacher who is linked to the course subject.</div></div></div>
+        <div class="form-check mt-3 mb-4"><input asp-for="IsActive" class="form-check-input" /><label asp-for="IsActive" class="form-check-label">Active profile</label></div>
+        <div class="form-actions"><a asp-action="Index" class="btn btn-light">Cancel</a><button class="btn btn-primary">@(editing ? "Save changes" : "Create teacher")</button></div>
+    </form>
+</div>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

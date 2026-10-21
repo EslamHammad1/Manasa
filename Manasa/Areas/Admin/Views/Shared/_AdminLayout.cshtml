@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Manasa Admin</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="admin-body">
+    <div class="admin-shell">
+        <aside class="admin-sidebar">
+            <a class="admin-brand" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                <span class="brand-mark">M</span><span>Manasa <small>ADMIN</small></span>
+            </a>
+            <div class="sidebar-label">WORKSPACE</div>
+            <nav class="admin-nav" aria-label="Administration">
+                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"><span>◫</span> Overview</a>
+                <a asp-area="Admin" asp-controller="Subjects" asp-action="Index"><span>▦</span> Subjects</a>
+                <a asp-area="Admin" asp-controller="Teachers" asp-action="Index"><span>♙</span> Teachers</a>
+                <a asp-area="Admin" asp-controller="Students" asp-action="Index"><span>♧</span> Students</a>
+                <a asp-area="Admin" asp-controller="Courses" asp-action="Index"><span>▤</span> Courses</a>
+                <a asp-area="Admin" asp-controller="CoursePackages" asp-action="Index"><span>◇</span> Course packages</a>
+            </nav>
+            <div class="admin-sidebar-bottom">
+                <a asp-area="" asp-controller="Home" asp-action="Index">← View site</a>
+                <span>Signed in as administrator</span>
+                <form asp-area="" asp-controller="Account" asp-action="Logout" method="post"><button class="btn btn-link p-0 text-start text-decoration-none text-light">Sign out</button></form>
+            </div>
+        </aside>
+        <main class="admin-main">
+            <header class="admin-topbar">
+                <span>Administration</span>
+                <span class="admin-avatar">@((User.Identity?.Name ?? "A")[..1].ToUpperInvariant())</span>
+            </header>
+            <div class="admin-content">
+                @if (TempData["StatusMessage"] is string statusMessage)
+                {
+                    <div class="alert alert-success alert-dismissible fade show" role="status">
+                        @statusMessage<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+                @if (TempData["ErrorMessage"] is string errorMessage)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        @errorMessage<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+                @RenderBody()
+            </div>
+        </main>
+    </div>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
