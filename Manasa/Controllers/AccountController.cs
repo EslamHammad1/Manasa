@@ -1,10 +1,12 @@
 using Manasa.Models;
+using Manasa.Localization;
 using Manasa.ViewModels.Account;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Manasa.Data;
+using Microsoft.Extensions.Localization;
 
 namespace Manasa.Controllers;
 
@@ -12,7 +14,8 @@ public class AccountController(
     UserManager<ApplicationUser> userManager,
     SignInManager<ApplicationUser> signInManager,
     ApplicationDbContext dbContext,
-    ILogger<AccountController> logger) : Controller
+    ILogger<AccountController> logger,
+    IStringLocalizer<SharedResource> text) : Controller
 {
     [AllowAnonymous]
     public IActionResult Register()
@@ -30,7 +33,7 @@ public class AccountController(
 
         if (await userManager.FindByEmailAsync(model.Email.Trim()) is not null)
         {
-            ModelState.AddModelError(nameof(model.Email), "An account with this email already exists.");
+            ModelState.AddModelError(nameof(model.Email), text["An account with this email already exists."]);
             return View(model);
         }
 
@@ -61,7 +64,7 @@ public class AccountController(
                 await transaction.RollbackAsync();
                 logger.LogError("Could not assign Student role to registered account {UserId}: {Errors}",
                     student.Id, string.Join(", ", roleResult.Errors.Select(error => error.Code)));
-                ModelState.AddModelError(string.Empty, "We could not complete your registration. Please try again.");
+                ModelState.AddModelError(string.Empty, text["We could not complete your registration. Please try again."]);
                 return View(model);
             }
 
@@ -72,7 +75,7 @@ public class AccountController(
         catch (Exception exception)
         {
             logger.LogError(exception, "Student registration failed.");
-            ModelState.AddModelError(string.Empty, "We could not complete your registration. Please try again.");
+            ModelState.AddModelError(string.Empty, text["We could not complete your registration. Please try again."]);
             return View(model);
         }
     }
@@ -96,7 +99,7 @@ public class AccountController(
             ?? await userManager.FindByEmailAsync(identifier);
         if (user is null)
         {
-            ModelState.AddModelError(string.Empty, "The sign-in details were not accepted.");
+            ModelState.AddModelError(string.Empty, text["The sign-in details were not accepted."]);
             return View(model);
         }
 
@@ -107,12 +110,21 @@ public class AccountController(
             lockoutOnFailure: true);
         if (result.Succeeded)
         {
-            return Url.IsLocalUrl(model.ReturnUrl)
-                ? LocalRedirect(model.ReturnUrl!)
-                : RedirectToAction("Index", "Home");
+            if (Url.IsLocalUrl(model.ReturnUrl))
+            {
+                return LocalRedirect(model.ReturnUrl!);
+            }
+
+            if (await userManager.IsInRoleAsync(user, "Student")
+                && !await userManager.IsInRoleAsync(user, "Administrator"))
+            {
+                return RedirectToAction("Index", "Dashboard", new { area = "Student" });
+            }
+
+            return RedirectToAction("Index", "Home");
         }
 
-        ModelState.AddModelError(string.Empty, "The sign-in details were not accepted.");
+        ModelState.AddModelError(string.Empty, text["The sign-in details were not accepted."]);
         return View(model);
     }
 
@@ -149,12 +161,23 @@ public class AccountController(
             return NotFound();
         }
 
-        var result = await userManager.ResetPasswordAsync(user, model.Token, model.Password);
+        var tokenIsValid = await userManager.VerifyUserTokenAsync(
+            user,
+            AccountSetupTokenProviderOptions.ProviderName,
+            AccountSetupTokenProviderOptions.Purpose,
+            model.Token);
+        if (!tokenIsValid)
+        {
+            ModelState.AddModelError(string.Empty, text["The account setup link is invalid or has expired. Request a new link from an administrator."]);
+            return View(model);
+        }
+
+        var result = await userManager.AddPasswordAsync(user, model.Password);
         if (!result.Succeeded)
         {
             foreach (var error in result.Errors)
             {
-                ModelState.AddModelError(string.Empty, error.Description);
+                ModelState.AddModelError(string.Empty, GetIdentityErrorText(error));
             }
 
             return View(model);
@@ -170,14 +193,18 @@ public class AccountController(
     {
         while (true)
         {
-            var number = await dbContext.Database
-                .SqlQueryRaw<long>("SELECT NEXT VALUE FOR dbo.StudentUsernameSequence AS [Value]")
-                .SingleAsync();
-            var userName = $"STU-{number:000000}";
-            if (await userManager.FindByNameAsync(userName) is null)
+            var sequenceQuery = dbContext.Database
+                .SqlQueryRaw<long>("SELECT NEXT VALUE FOR dbo.StudentUsernameSequence AS [Value]");
+            await foreach (var number in sequenceQuery.AsAsyncEnumerable())
             {
-                return userName;
+                var userName = $"STU-{number:000000}";
+                if (await userManager.FindByNameAsync(userName) is null)
+                {
+                    return userName;
+                }
             }
+
+            throw new InvalidOperationException("Student username sequence returned no value.");
         }
     }
 
@@ -195,7 +222,13 @@ public class AccountController(
                     "PasswordRequiresUniqueChars" => nameof(RegisterViewModel.Password),
                 _ => string.Empty
             };
-            ModelState.AddModelError(field, error.Description);
+            ModelState.AddModelError(field, GetIdentityErrorText(error));
         }
+    }
+
+    private string GetIdentityErrorText(IdentityError error)
+    {
+        var localized = text[error.Code];
+        return localized.ResourceNotFound ? text["Identity validation failed."].Value : localized.Value;
     }
 }

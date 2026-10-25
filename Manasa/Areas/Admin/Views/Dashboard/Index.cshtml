@@ -1,42 +1,42 @@
 @model DashboardViewModel
 @{
-    ViewData["Title"] = "Dashboard";
+    ViewData["Title"] = T["Dashboard"];
 }
 
 <div class="page-heading">
-    <div><span class="eyebrow">OVERVIEW</span><h1>Dashboard</h1><p>Your learning platform at a glance.</p></div>
+    <div><span class="eyebrow">@T["ADMIN OVERVIEW"]</span><h1>@T["Dashboard"]</h1><p>@T["Your learning platform at a glance."]</p></div>
 </div>
 
 <section class="stats-grid" aria-label="Platform statistics">
-    <article class="stat-card"><span class="stat-icon icon-violet">♧</span><span class="stat-label">Students</span><strong>@Model.StudentCount</strong><a asp-controller="Students" asp-action="Index">Manage students →</a></article>
-    <article class="stat-card"><span class="stat-icon icon-blue">♙</span><span class="stat-label">Active teachers</span><strong>@Model.TeacherCount</strong><a asp-controller="Teachers" asp-action="Index">Manage teachers →</a></article>
-    <article class="stat-card"><span class="stat-icon icon-amber">▦</span><span class="stat-label">Subjects</span><strong>@Model.SubjectCount</strong><a asp-controller="Subjects" asp-action="Index">Manage subjects →</a></article>
-    <article class="stat-card"><span class="stat-icon icon-green">▤</span><span class="stat-label">Published courses</span><strong>@Model.PublishedCourseCount</strong><a asp-controller="Courses" asp-action="Index">Manage courses →</a></article>
+    <article class="stat-card"><span class="stat-icon icon-violet">♧</span><span class="stat-label">@T["Students"]</span><strong>@Model.StudentCount</strong><a asp-controller="Students" asp-action="Index">@T["Manage students"] <span class="directional-arrow" aria-hidden="true">→</span></a></article>
+    <article class="stat-card"><span class="stat-icon icon-blue">♙</span><span class="stat-label">@T["Active teachers"]</span><strong>@Model.TeacherCount</strong><a asp-controller="Teachers" asp-action="Index">@T["Manage teachers"] <span class="directional-arrow" aria-hidden="true">→</span></a></article>
+    <article class="stat-card"><span class="stat-icon icon-amber">▦</span><span class="stat-label">@T["Subjects"]</span><strong>@Model.SubjectCount</strong><a asp-controller="Subjects" asp-action="Index">@T["Manage subjects"] <span class="directional-arrow" aria-hidden="true">→</span></a></article>
+    <article class="stat-card"><span class="stat-icon icon-green">▤</span><span class="stat-label">@T["Published courses"]</span><strong>@Model.PublishedCourseCount</strong><a asp-controller="Courses" asp-action="Index">@T["Manage courses"] <span class="directional-arrow" aria-hidden="true">→</span></a></article>
 </section>
 
 <section class="dashboard-grid">
     <div class="panel-card">
-        <div class="panel-heading"><div><h2>Recent courses</h2><p>Latest courses added to the catalog</p></div><a class="btn btn-sm btn-outline-primary" asp-controller="Courses" asp-action="Create">Add course</a></div>
+        <div class="panel-heading"><div><h2>@T["Recent courses"]</h2><p>@T["Latest courses added to the catalog"]</p></div><a class="btn btn-sm btn-outline-primary" asp-controller="Courses" asp-action="Create">@T["Add course"]</a></div>
         @if (Model.RecentCourses.Count == 0)
         {
-            <div class="empty-state"><span>▤</span><h3>No courses yet</h3><p>Create a course to start building your catalog.</p><a asp-controller="Courses" asp-action="Create" class="btn btn-primary">Create course</a></div>
+            <div class="empty-state"><span>▤</span><h3>@T["No courses yet"]</h3><p>@T["Create a course to start building your catalog."]</p><a asp-controller="Courses" asp-action="Create" class="btn btn-primary">@T["Create course"]</a></div>
         }
         else
         {
-            <div class="table-responsive"><table class="table align-middle admin-table"><thead><tr><th>Course</th><th>Subject</th><th>Added</th><th>Status</th></tr></thead><tbody>
+            <div class="table-responsive"><table class="table align-middle admin-table"><thead><tr><th>@T["Course"]</th><th>@T["Subject"]</th><th>@T["Added"]</th><th>@T["Status"]</th></tr></thead><tbody>
             @foreach (var course in Model.RecentCourses)
             {
-                <tr><td class="fw-semibold">@course.Title</td><td>@course.Subject</td><td>@course.CreatedAtUtc.ToLocalTime().ToString("MMM d, yyyy")</td><td><span class="status-pill @(course.IsPublished ? "status-live" : "status-draft")">@(course.IsPublished ? "Published" : "Draft")</span></td></tr>
+                <tr><td class="fw-semibold" dir="auto">@course.Title</td><td dir="auto">@course.Subject</td><td dir="ltr">@course.CreatedAtUtc.ToLocalTime().ToString("d")</td><td><span class="status-pill @(course.IsPublished ? "status-live" : "status-draft")">@(course.IsPublished ? T["Published"] : T["Draft"])</span></td></tr>
             }
             </tbody></table></div>
         }
     </div>
     <div class="panel-card quick-actions">
-        <div class="panel-heading"><div><h2>Quick actions</h2><p>Common administration tasks</p></div></div>
-        <a asp-controller="Subjects" asp-action="Create"><span class="quick-icon">▦</span><span><strong>Add a subject</strong><small>Organize your course catalog</small></span><b>→</b></a>
-        <a asp-controller="Teachers" asp-action="Create"><span class="quick-icon">♙</span><span><strong>Add a teacher</strong><small>Create a teacher profile and account</small></span><b>→</b></a>
-        <a asp-controller="Students" asp-action="Create"><span class="quick-icon">♧</span><span><strong>Add a student</strong><small>Set up a student account</small></span><b>→</b></a>
-        <a asp-controller="CoursePackages" asp-action="Create"><span class="quick-icon">◇</span><span><strong>Create a package</strong><small>Set course access and pricing</small></span><b>→</b></a>
-        <div class="dashboard-note"><strong>Catalog totals</strong><span>@Model.CourseCount courses · @Model.PackageCount packages</span></div>
+        <div class="panel-heading"><div><h2>@T["Quick actions"]</h2><p>@T["Common administration tasks"]</p></div></div>
+        <a asp-controller="Subjects" asp-action="Create"><span class="quick-icon">▦</span><span><strong>@T["Add a subject"]</strong><small>@T["Organize your course catalog"]</small></span><b class="directional-arrow" aria-hidden="true">→</b></a>
+        <a asp-controller="Teachers" asp-action="Create"><span class="quick-icon">♙</span><span><strong>@T["Add a teacher"]</strong><small>@T["Create a teacher profile and account"]</small></span><b class="directional-arrow" aria-hidden="true">→</b></a>
+        <a asp-controller="Students" asp-action="Create"><span class="quick-icon">♧</span><span><strong>@T["Add a student"]</strong><small>@T["Set up a student account"]</small></span><b class="directional-arrow" aria-hidden="true">→</b></a>
+        <a asp-controller="CoursePackages" asp-action="Create"><span class="quick-icon">◇</span><span><strong>@T["Create a package"]</strong><small>@T["Set course access and pricing"]</small></span><b class="directional-arrow" aria-hidden="true">→</b></a>
+        <div class="dashboard-note"><strong>@T["Catalog totals"]</strong><span>@T["Catalog total: {0} courses, {1} packages", Model.CourseCount, Model.PackageCount]</span></div>
     </div>
 </section>

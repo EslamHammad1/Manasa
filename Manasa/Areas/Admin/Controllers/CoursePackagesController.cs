@@ -1,18 +1,22 @@
 using Manasa.Data;
+using Manasa.Localization;
 using Manasa.Models;
 using Manasa.ViewModels.Admin;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 
 namespace Manasa.Areas.Admin.Controllers;
 
 [Area("Admin")]
 [Authorize(Roles = "Administrator")]
-public class CoursePackagesController(ApplicationDbContext dbContext) : Controller
+public class CoursePackagesController(ApplicationDbContext dbContext, IStringLocalizer<SharedResource> text) : Controller
 {
-    public async Task<IActionResult> Index(string? search, int? courseId)
+    private const int PageSize = 10;
+
+    public async Task<IActionResult> Index(string? search, int? courseId, int page = 1)
     {
         var query = dbContext.CoursePackages.AsNoTracking()
             .Include(package => package.Course)
@@ -27,10 +31,19 @@ public class CoursePackagesController(ApplicationDbContext dbContext) : Controll
             query = query.Where(package => package.CourseId == courseId.Value);
         }
 
+        var totalCount = await query.CountAsync();
+        var totalPages = (int)Math.Ceiling(totalCount / (double)PageSize);
+        page = totalPages == 0 ? 1 : Math.Clamp(page, 1, totalPages);
+
         ViewData["Search"] = search;
         ViewData["CourseId"] = courseId;
+        ViewData["PageNumber"] = page;
+        ViewData["TotalPages"] = totalPages;
         ViewData["Courses"] = new SelectList(await dbContext.Courses.AsNoTracking().OrderBy(item => item.Title).ToListAsync(), "Id", "Title", courseId);
-        return View(await query.OrderBy(package => package.Course.Title).ThenBy(package => package.Name).ToListAsync());
+        return View(await query.OrderBy(package => package.Course.Title).ThenBy(package => package.Name).ThenBy(package => package.Id)
+            .Skip((page - 1) * PageSize)
+            .Take(PageSize)
+            .ToListAsync());
     }
 
     public async Task<IActionResult> Create()
@@ -57,7 +70,7 @@ public class CoursePackagesController(ApplicationDbContext dbContext) : Controll
             IsActive = model.IsActive
         });
         await dbContext.SaveChangesAsync();
-        TempData["StatusMessage"] = "Course package created.";
+        TempData["StatusMessage"] = text["Course package created."].Value;
         return RedirectToAction(nameof(Index));
     }
 
@@ -107,7 +120,7 @@ public class CoursePackagesController(ApplicationDbContext dbContext) : Controll
         package.AccessDurationDays = model.AccessDurationDays;
         package.IsActive = model.IsActive;
         await dbContext.SaveChangesAsync();
-        TempData["StatusMessage"] = "Course package updated.";
+        TempData["StatusMessage"] = text["Course package updated."].Value;
         return RedirectToAction(nameof(Index));
     }
 
@@ -122,7 +135,7 @@ public class CoursePackagesController(ApplicationDbContext dbContext) : Controll
 
         dbContext.CoursePackages.Remove(package);
         await dbContext.SaveChangesAsync();
-        TempData["StatusMessage"] = "Course package deleted.";
+        TempData["StatusMessage"] = text["Course package deleted."].Value;
         return RedirectToAction(nameof(Index));
     }
 
@@ -139,7 +152,7 @@ public class CoursePackagesController(ApplicationDbContext dbContext) : Controll
     {
         if (!await dbContext.Courses.AnyAsync(course => course.Id == courseId))
         {
-            ModelState.AddModelError(nameof(CoursePackageFormViewModel.CourseId), "Select a valid course.");
+            ModelState.AddModelError(nameof(CoursePackageFormViewModel.CourseId), text["Select a valid course."]);
         }
     }
 }

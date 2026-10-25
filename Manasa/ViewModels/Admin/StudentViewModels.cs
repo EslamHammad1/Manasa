@@ -32,10 +32,10 @@ public class StudentFormViewModel
 
     public string? UserName { get; set; }
 
-    [Required, StringLength(160)]
+    [Required, StringLength(160), Display(Name = "Full name")]
     public string DisplayName { get; set; } = string.Empty;
 
-    [Required, EmailAddress, StringLength(256)]
+    [Required, EmailAddress, StringLength(256), Display(Name = "Email address")]
     public string Email { get; set; } = string.Empty;
 
     public string? AccountSetupUrl { get; set; }

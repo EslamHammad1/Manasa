@@ -1,4 +1,5 @@
 using Manasa.Data;
+using Manasa.Localization;
 using Manasa.Models;
 using Manasa.ViewModels.Admin;
 using Microsoft.AspNetCore.Authorization;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 
 namespace Manasa.Areas.Admin.Controllers;
 
@@ -13,9 +15,12 @@ namespace Manasa.Areas.Admin.Controllers;
 [Authorize(Roles = "Administrator")]
 public class TeachersController(
     ApplicationDbContext dbContext,
-    UserManager<ApplicationUser> userManager) : Controller
+    UserManager<ApplicationUser> userManager,
+    IStringLocalizer<SharedResource> text) : Controller
 {
-    public async Task<IActionResult> Index(string? search)
+    private const int PageSize = 10;
+
+    public async Task<IActionResult> Index(string? search, int page = 1)
     {
         var query = dbContext.TeacherProfiles.AsNoTracking()
             .Include(profile => profile.User)
@@ -31,8 +36,17 @@ public class TeachersController(
                 || profile.Specialization!.Contains(term));
         }
 
+        var totalCount = await query.CountAsync();
+        var totalPages = (int)Math.Ceiling(totalCount / (double)PageSize);
+        page = totalPages == 0 ? 1 : Math.Clamp(page, 1, totalPages);
+
         ViewData["Search"] = search;
-        return View(await query.OrderBy(profile => profile.FullName).ToListAsync());
+        ViewData["PageNumber"] = page;
+        ViewData["TotalPages"] = totalPages;
+        return View(await query.OrderBy(profile => profile.FullName).ThenBy(profile => profile.Id)
+            .Skip((page - 1) * PageSize)
+            .Take(PageSize)
+            .ToListAsync());
     }
 
     public async Task<IActionResult> Create()
@@ -90,9 +104,12 @@ public class TeachersController(
         await dbContext.SaveChangesAsync();
         await transaction.CommitAsync();
 
-        var token = await userManager.GeneratePasswordResetTokenAsync(teacherUser);
+        var token = await userManager.GenerateUserTokenAsync(
+            teacherUser,
+            AccountSetupTokenProviderOptions.ProviderName,
+            AccountSetupTokenProviderOptions.Purpose);
         TempData["AccountSetupUrl"] = Url.ActionLink("SetPassword", "Account", new { userId = teacherUser.Id, token });
-        TempData["StatusMessage"] = "Teacher created. Share the one-time account setup link with the teacher.";
+        TempData["StatusMessage"] = text["Teacher created. Share the one-time account setup link with the teacher."].Value;
         return RedirectToAction(nameof(Index));
     }
 
@@ -166,7 +183,7 @@ public class TeachersController(
         }
 
         await dbContext.SaveChangesAsync();
-        TempData["StatusMessage"] = "Teacher profile updated.";
+        TempData["StatusMessage"] = text["Teacher profile updated."].Value;
         return RedirectToAction(nameof(Index));
     }
 
@@ -185,7 +202,7 @@ public class TeachersController(
             profile.User,
             profile.IsActive ? null : DateTimeOffset.UtcNow.AddYears(100));
         await dbContext.SaveChangesAsync();
-        TempData["StatusMessage"] = profile.IsActive ? "Teacher profile activated." : "Teacher profile deactivated.";
+        TempData["StatusMessage"] = profile.IsActive ? text["Teacher profile activated."].Value : text["Teacher profile deactivated."].Value;
         return RedirectToAction(nameof(Index));
     }
 
@@ -205,7 +222,7 @@ public class TeachersController(
             user.NormalizedEmail == normalizedEmail && user.Id != excludeUserId);
         if (emailExists)
         {
-            ModelState.AddModelError(nameof(TeacherFormViewModel.Email), "An account with this email already exists.");
+            ModelState.AddModelError(nameof(TeacherFormViewModel.Email), text["An account with this email already exists."]);
         }
     }
 
@@ -214,7 +231,7 @@ public class TeachersController(
         var ids = subjectIds.Distinct().ToArray();
         if (ids.Length != await dbContext.Subjects.CountAsync(subject => ids.Contains(subject.Id) && subject.IsActive))
         {
-            ModelState.AddModelError(nameof(TeacherFormViewModel.SelectedSubjectIds), "Select only active subjects.");
+            ModelState.AddModelError(nameof(TeacherFormViewModel.SelectedSubjectIds), text["Select only active subjects."]);
         }
     }
 
@@ -239,7 +256,8 @@ public class TeachersController(
     {
         foreach (var error in result.Errors)
         {
-            ModelState.AddModelError(string.Empty, error.Description);
+            var localized = text[error.Code];
+            ModelState.AddModelError(string.Empty, localized.ResourceNotFound ? text["Identity validation failed."].Value : localized.Value);
         }
     }
 }

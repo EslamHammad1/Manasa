@@ -1,29 +1,43 @@
 using Manasa.Data;
+using Manasa.Localization;
 using Manasa.Models;
 using Manasa.ViewModels.Admin;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 
 namespace Manasa.Areas.Admin.Controllers;
 
 [Area("Admin")]
 [Authorize(Roles = "Administrator")]
-public class SubjectsController(ApplicationDbContext dbContext) : Controller
+public class SubjectsController(ApplicationDbContext dbContext, IStringLocalizer<SharedResource> text) : Controller
 {
-    public async Task<IActionResult> Index(string? search)
+    private const int PageSize = 10;
+
+    public async Task<IActionResult> Index(string? search, int page = 1)
     {
         IQueryable<Subject> query = dbContext.Subjects.AsNoTracking()
             .Include(item => item.Courses)
-            .Include(item => item.SubjectTeachers);
+            .Include(item => item.SubjectTeachers)
+            .AsSplitQuery();
         if (!string.IsNullOrWhiteSpace(search))
         {
             var term = search.Trim();
             query = query.Where(item => item.Name.Contains(term));
         }
 
+        var totalCount = await query.CountAsync();
+        var totalPages = (int)Math.Ceiling(totalCount / (double)PageSize);
+        page = totalPages == 0 ? 1 : Math.Clamp(page, 1, totalPages);
+
         ViewData["Search"] = search;
-        return View(await query.OrderBy(item => item.DisplayOrder).ThenBy(item => item.Name).ToListAsync());
+        ViewData["PageNumber"] = page;
+        ViewData["TotalPages"] = totalPages;
+        return View(await query.OrderBy(item => item.DisplayOrder).ThenBy(item => item.Name).ThenBy(item => item.Id)
+            .Skip((page - 1) * PageSize)
+            .Take(PageSize)
+            .ToListAsync());
     }
 
     public IActionResult Create() => View("Form", new SubjectFormViewModel());
@@ -33,7 +47,7 @@ public class SubjectsController(ApplicationDbContext dbContext) : Controller
     {
         if (await dbContext.Subjects.AnyAsync(item => item.Name == model.Name.Trim()))
         {
-            ModelState.AddModelError(nameof(model.Name), "A subject with this name already exists.");
+            ModelState.AddModelError(nameof(model.Name), text["A subject with this name already exists."]);
         }
 
         if (!ModelState.IsValid)
@@ -50,7 +64,7 @@ public class SubjectsController(ApplicationDbContext dbContext) : Controller
             DisplayOrder = model.DisplayOrder
         });
         await dbContext.SaveChangesAsync();
-        TempData["StatusMessage"] = "Subject created.";
+        TempData["StatusMessage"] = text["Subject created."].Value;
         return RedirectToAction(nameof(Index));
     }
 
@@ -78,7 +92,7 @@ public class SubjectsController(ApplicationDbContext dbContext) : Controller
 
         if (await dbContext.Subjects.AnyAsync(item => item.Id != id && item.Name == model.Name.Trim()))
         {
-            ModelState.AddModelError(nameof(model.Name), "A subject with this name already exists.");
+            ModelState.AddModelError(nameof(model.Name), text["A subject with this name already exists."]);
         }
 
         if (!ModelState.IsValid)
@@ -98,7 +112,7 @@ public class SubjectsController(ApplicationDbContext dbContext) : Controller
         subject.IsActive = model.IsActive;
         subject.DisplayOrder = model.DisplayOrder;
         await dbContext.SaveChangesAsync();
-        TempData["StatusMessage"] = "Subject updated.";
+        TempData["StatusMessage"] = text["Subject updated."].Value;
         return RedirectToAction(nameof(Index));
     }
 
@@ -114,13 +128,13 @@ public class SubjectsController(ApplicationDbContext dbContext) : Controller
         if (await dbContext.Courses.AnyAsync(item => item.SubjectId == id)
             || await dbContext.SubjectTeachers.AnyAsync(item => item.SubjectId == id))
         {
-            TempData["ErrorMessage"] = "This subject is used by a course or teacher assignment. Deactivate it instead of deleting it.";
+            TempData["ErrorMessage"] = text["This subject is used by a course or teacher assignment. Deactivate it instead of deleting it."].Value;
             return RedirectToAction(nameof(Index));
         }
 
         dbContext.Subjects.Remove(subject);
         await dbContext.SaveChangesAsync();
-        TempData["StatusMessage"] = "Subject deleted.";
+        TempData["StatusMessage"] = text["Subject deleted."].Value;
         return RedirectToAction(nameof(Index));
     }
 }

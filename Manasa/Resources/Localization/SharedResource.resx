@@ -1,0 +1,891 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data name="Skip to content" xml:space="preserve">
+    <value>Skip to content</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="Student dashboard" xml:space="preserve">
+    <value>Student dashboard</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
+  <data name="Sign in" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
+  <data name="Create account" xml:space="preserve">
+    <value>Create account</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Arabic" xml:space="preserve">
+    <value>Arabic</value>
+  </data>
+  <data name="Manasa home" xml:space="preserve">
+    <value>Manasa home</value>
+  </data>
+  <data name="View public site" xml:space="preserve">
+    <value>View public site</value>
+  </data>
+  <data name="Signed in as administrator" xml:space="preserve">
+    <value>Signed in as administrator</value>
+  </data>
+  <data name="LEARNING" xml:space="preserve">
+    <value>LEARNING</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="A clear place to keep learning." xml:space="preserve">
+    <value>A clear place to keep learning.</value>
+  </data>
+  <data name="Sign in to continue, or create a student account to get started." xml:space="preserve">
+    <value>Sign in to continue, or create a student account to get started.</value>
+  </data>
+  <data name="Go to your dashboard" xml:space="preserve">
+    <value>Go to your dashboard</value>
+  </data>
+  <data name="Open administration" xml:space="preserve">
+    <value>Open administration</value>
+  </data>
+  <data name="Create a student account" xml:space="preserve">
+    <value>Create a student account</value>
+  </data>
+  <data name="A SIMPLE START" xml:space="preserve">
+    <value>A SIMPLE START</value>
+  </data>
+  <data name="Your account, your next step" xml:space="preserve">
+    <value>Your account, your next step</value>
+  </data>
+  <data name="Create or access your account" xml:space="preserve">
+    <value>Create or access your account</value>
+  </data>
+  <data name="Use the account links above to register as a student or sign in." xml:space="preserve">
+    <value>Use the account links above to register as a student or sign in.</value>
+  </data>
+  <data name="Find the right space" xml:space="preserve">
+    <value>Find the right space</value>
+  </data>
+  <data name="Your available pages depend on your account role." xml:space="preserve">
+    <value>Your available pages depend on your account role.</value>
+  </data>
+  <data name="Explore the catalog" xml:space="preserve">
+    <value>Explore the catalog</value>
+  </data>
+  <data name="Students can view courses that administrators have published." xml:space="preserve">
+    <value>Students can view courses that administrators have published.</value>
+  </data>
+  <data name="Learning starts with a next step." xml:space="preserve">
+    <value>Learning starts with a next step.</value>
+  </data>
+  <data name="Privacy information" xml:space="preserve">
+    <value>Privacy information</value>
+  </data>
+  <data name="The privacy policy content has not been configured yet." xml:space="preserve">
+    <value>The privacy policy content has not been configured yet.</value>
+  </data>
+  <data name="ACCESS RESTRICTED" xml:space="preserve">
+    <value>ACCESS RESTRICTED</value>
+  </data>
+  <data name="Access denied" xml:space="preserve">
+    <value>Access denied</value>
+  </data>
+  <data name="Your account does not have permission to open this page." xml:space="preserve">
+    <value>Your account does not have permission to open this page.</value>
+  </data>
+  <data name="Return to home" xml:space="preserve">
+    <value>Return to home</value>
+  </data>
+  <data name="Welcome back" xml:space="preserve">
+    <value>Welcome back</value>
+  </data>
+  <data name="Sign in with your username or email address." xml:space="preserve">
+    <value>Sign in with your username or email address.</value>
+  </data>
+  <data name="Your student account is ready. Your username is {0}. Sign in with your email or username." xml:space="preserve">
+    <value>Your student account is ready. Your username is {0}. Sign in with your email or username.</value>
+  </data>
+  <data name="Username or email" xml:space="preserve">
+    <value>Username or email</value>
+  </data>
+  <data name="Keep me signed in" xml:space="preserve">
+    <value>Keep me signed in</value>
+  </data>
+  <data name="New to Manasa?" xml:space="preserve">
+    <value>New to Manasa?</value>
+  </data>
+  <data name="Already have an account?" xml:space="preserve">
+    <value>Already have an account?</value>
+  </data>
+  <data name="MANASA LEARNING" xml:space="preserve">
+    <value>MANASA LEARNING</value>
+  </data>
+  <data name="Create your student account" xml:space="preserve">
+    <value>Create your student account</value>
+  </data>
+  <data name="Join your classes and continue learning at your own pace." xml:space="preserve">
+    <value>Join your classes and continue learning at your own pace.</value>
+  </data>
+  <data name="Full name" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="Email address" xml:space="preserve">
+    <value>Email address</value>
+  </data>
+  <data name="Phone number" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="Confirm password" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="I agree to the Terms and Conditions" xml:space="preserve">
+    <value>I agree to the Terms and Conditions</value>
+  </data>
+  <data name="Creating account..." xml:space="preserve">
+    <value>Creating account...</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="ACCOUNT SETUP" xml:space="preserve">
+    <value>ACCOUNT SETUP</value>
+  </data>
+  <data name="Set your password" xml:space="preserve">
+    <value>Set your password</value>
+  </data>
+  <data name="Choose your password" xml:space="preserve">
+    <value>Choose your password</value>
+  </data>
+  <data name="Set a private password to finish activating your Manasa account." xml:space="preserve">
+    <value>Set a private password to finish activating your Manasa account.</value>
+  </data>
+  <data name="Set password" xml:space="preserve">
+    <value>Set password</value>
+  </data>
+  <data name="ACCOUNT SETUP COMPLETE" xml:space="preserve">
+    <value>ACCOUNT SETUP COMPLETE</value>
+  </data>
+  <data name="Account ready" xml:space="preserve">
+    <value>Account ready</value>
+  </data>
+  <data name="Password saved" xml:space="preserve">
+    <value>Password saved</value>
+  </data>
+  <data name="Your password is set. You can now sign in to your account." xml:space="preserve">
+    <value>Your password is set. You can now sign in to your account.</value>
+  </data>
+  <data name="Something went wrong" xml:space="preserve">
+    <value>Something went wrong</value>
+  </data>
+  <data name="REQUEST NOT COMPLETED" xml:space="preserve">
+    <value>REQUEST NOT COMPLETED</value>
+  </data>
+  <data name="The request could not be completed. Please try again or return to the home page." xml:space="preserve">
+    <value>The request could not be completed. Please try again or return to the home page.</value>
+  </data>
+  <data name="Reference: {0}" xml:space="preserve">
+    <value>Reference: {0}</value>
+  </data>
+  <data name="STUDENT LEARNING SPACE" xml:space="preserve">
+    <value>STUDENT LEARNING SPACE</value>
+  </data>
+  <data name="Welcome, {0}" xml:space="preserve">
+    <value>Welcome, {0}</value>
+  </data>
+  <data name="Explore courses currently available in the catalog." xml:space="preserve">
+    <value>Explore courses currently available in the catalog.</value>
+  </data>
+  <data name="YOUR CATALOG" xml:space="preserve">
+    <value>YOUR CATALOG</value>
+  </data>
+  <data name="Explore courses" xml:space="preserve">
+    <value>Explore courses</value>
+  </data>
+  <data name="{0} course" xml:space="preserve">
+    <value>{0} course</value>
+  </data>
+  <data name="{0} courses" xml:space="preserve">
+    <value>{0} courses</value>
+  </data>
+  <data name="No courses available yet" xml:space="preserve">
+    <value>No courses available yet</value>
+  </data>
+  <data name="Published courses will appear here when they are available." xml:space="preserve">
+    <value>Published courses will appear here when they are available.</value>
+  </data>
+  <data name="View course details" xml:space="preserve">
+    <value>View course details</value>
+  </data>
+  <data name="View details for {0}" xml:space="preserve">
+    <value>View details for {0}</value>
+  </data>
+  <data name="Back to courses" xml:space="preserve">
+    <value>Back to courses</value>
+  </data>
+  <data name="Instructor: {0}" xml:space="preserve">
+    <value>Instructor: {0}</value>
+  </data>
+  <data name="No course description is available." xml:space="preserve">
+    <value>No course description is available.</value>
+  </data>
+  <data name="ADMIN OVERVIEW" xml:space="preserve">
+    <value>ADMIN OVERVIEW</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Your learning platform at a glance." xml:space="preserve">
+    <value>Your learning platform at a glance.</value>
+  </data>
+  <data name="Students" xml:space="preserve">
+    <value>Students</value>
+  </data>
+  <data name="Active teachers" xml:space="preserve">
+    <value>Active teachers</value>
+  </data>
+  <data name="Subjects" xml:space="preserve">
+    <value>Subjects</value>
+  </data>
+  <data name="Published courses" xml:space="preserve">
+    <value>Published courses</value>
+  </data>
+  <data name="Manage students" xml:space="preserve">
+    <value>Manage students</value>
+  </data>
+  <data name="Manage teachers" xml:space="preserve">
+    <value>Manage teachers</value>
+  </data>
+  <data name="Manage subjects" xml:space="preserve">
+    <value>Manage subjects</value>
+  </data>
+  <data name="Manage courses" xml:space="preserve">
+    <value>Manage courses</value>
+  </data>
+  <data name="Recent courses" xml:space="preserve">
+    <value>Recent courses</value>
+  </data>
+  <data name="Latest courses added to the catalog" xml:space="preserve">
+    <value>Latest courses added to the catalog</value>
+  </data>
+  <data name="Add course" xml:space="preserve">
+    <value>Add course</value>
+  </data>
+  <data name="No courses yet" xml:space="preserve">
+    <value>No courses yet</value>
+  </data>
+  <data name="Create a course to start building your catalog." xml:space="preserve">
+    <value>Create a course to start building your catalog.</value>
+  </data>
+  <data name="Create course" xml:space="preserve">
+    <value>Create course</value>
+  </data>
+  <data name="Course" xml:space="preserve">
+    <value>Course</value>
+  </data>
+  <data name="Added" xml:space="preserve">
+    <value>Added</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>Published</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>Draft</value>
+  </data>
+  <data name="Quick actions" xml:space="preserve">
+    <value>Quick actions</value>
+  </data>
+  <data name="Common administration tasks" xml:space="preserve">
+    <value>Common administration tasks</value>
+  </data>
+  <data name="Add a subject" xml:space="preserve">
+    <value>Add a subject</value>
+  </data>
+  <data name="Organize your course catalog" xml:space="preserve">
+    <value>Organize your course catalog</value>
+  </data>
+  <data name="Add a teacher" xml:space="preserve">
+    <value>Add a teacher</value>
+  </data>
+  <data name="Create a teacher profile and account" xml:space="preserve">
+    <value>Create a teacher profile and account</value>
+  </data>
+  <data name="Add a student" xml:space="preserve">
+    <value>Add a student</value>
+  </data>
+  <data name="Set up a student account" xml:space="preserve">
+    <value>Set up a student account</value>
+  </data>
+  <data name="Create a package" xml:space="preserve">
+    <value>Create a package</value>
+  </data>
+  <data name="Set course access and pricing" xml:space="preserve">
+    <value>Set course access and pricing</value>
+  </data>
+  <data name="Catalog totals" xml:space="preserve">
+    <value>Catalog totals</value>
+  </data>
+  <data name="{0} courses · {1} packages" xml:space="preserve">
+    <value>{0} courses · {1} packages</value>
+  </data>
+  <data name="WORKSPACE" xml:space="preserve">
+    <value>WORKSPACE</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="Teachers" xml:space="preserve">
+    <value>Teachers</value>
+  </data>
+  <data name="Course packages" xml:space="preserve">
+    <value>Course packages</value>
+  </data>
+  <data name="PEOPLE" xml:space="preserve">
+    <value>PEOPLE</value>
+  </data>
+  <data name="Search accounts and manage student access." xml:space="preserve">
+    <value>Search accounts and manage student access.</value>
+  </data>
+  <data name="Add student" xml:space="preserve">
+    <value>Add student</value>
+  </data>
+  <data name="Student {0} created." xml:space="preserve">
+    <value>Student {0} created.</value>
+  </data>
+  <data name="Open one-time account setup" xml:space="preserve">
+    <value>Open one-time account setup</value>
+  </data>
+  <data name="Copy the link and share it with the student. It is not sent by email." xml:space="preserve">
+    <value>Copy the link and share it with the student. It is not sent by email.</value>
+  </data>
+  <data name="Search students" xml:space="preserve">
+    <value>Search students</value>
+  </data>
+  <data name="Search username, name, or email" xml:space="preserve">
+    <value>Search username, name, or email</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="No students found" xml:space="preserve">
+    <value>No students found</value>
+  </data>
+  <data name="Student accounts will appear here when created." xml:space="preserve">
+    <value>Student accounts will appear here when created.</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Student" xml:space="preserve">
+    <value>Student</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Deactivate" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="Activate" xml:space="preserve">
+    <value>Activate</value>
+  </data>
+  <data name="Edit student" xml:space="preserve">
+    <value>Edit student</value>
+  </data>
+  <data name="Update student account details." xml:space="preserve">
+    <value>Update student account details.</value>
+  </data>
+  <data name="A unique student username will be generated automatically." xml:space="preserve">
+    <value>A unique student username will be generated automatically.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Save changes" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
+  <data name="Create student" xml:space="preserve">
+    <value>Create student</value>
+  </data>
+  <data name="Search accounts" xml:space="preserve">
+    <value>Search accounts</value>
+  </data>
+  <data name="Manage teacher profiles, subject assignments, and account access." xml:space="preserve">
+    <value>Manage teacher profiles, subject assignments, and account access.</value>
+  </data>
+  <data name="Add teacher" xml:space="preserve">
+    <value>Add teacher</value>
+  </data>
+  <data name="One-time setup link:" xml:space="preserve">
+    <value>One-time setup link:</value>
+  </data>
+  <data name="Open account setup" xml:space="preserve">
+    <value>Open account setup</value>
+  </data>
+  <data name="Copy this link and share it with the teacher. It is not sent by email." xml:space="preserve">
+    <value>Copy this link and share it with the teacher. It is not sent by email.</value>
+  </data>
+  <data name="Search teachers" xml:space="preserve">
+    <value>Search teachers</value>
+  </data>
+  <data name="Search by name, email, or specialization" xml:space="preserve">
+    <value>Search by name, email, or specialization</value>
+  </data>
+  <data name="No teachers found" xml:space="preserve">
+    <value>No teachers found</value>
+  </data>
+  <data name="Add a teacher profile and assign subjects." xml:space="preserve">
+    <value>Add a teacher profile and assign subjects.</value>
+  </data>
+  <data name="Teacher" xml:space="preserve">
+    <value>Teacher</value>
+  </data>
+  <data name="Specialization" xml:space="preserve">
+    <value>Specialization</value>
+  </data>
+  <data name="Assigned subjects" xml:space="preserve">
+    <value>Assigned subjects</value>
+  </data>
+  <data name="Experience" xml:space="preserve">
+    <value>Experience</value>
+  </data>
+  <data name="years" xml:space="preserve">
+    <value>years</value>
+  </data>
+  <data name="Edit teacher" xml:space="preserve">
+    <value>Edit teacher</value>
+  </data>
+  <data name="Manage teacher profile and subject access." xml:space="preserve">
+    <value>Manage teacher profile and subject access.</value>
+  </data>
+  <data name="Create a teacher account and profile. A one-time setup link will be generated." xml:space="preserve">
+    <value>Create a teacher account and profile. A one-time setup link will be generated.</value>
+  </data>
+  <data name="Biography" xml:space="preserve">
+    <value>Biography</value>
+  </data>
+  <data name="Years of experience" xml:space="preserve">
+    <value>Years of experience</value>
+  </data>
+  <data name="Profile image URL" xml:space="preserve">
+    <value>Profile image URL</value>
+  </data>
+  <data name="Courses can only be assigned to a teacher who is linked to the course subject." xml:space="preserve">
+    <value>Courses can only be assigned to a teacher who is linked to the course subject.</value>
+  </data>
+  <data name="Active profile" xml:space="preserve">
+    <value>Active profile</value>
+  </data>
+  <data name="Create teacher" xml:space="preserve">
+    <value>Create teacher</value>
+  </data>
+  <data name="CATALOG" xml:space="preserve">
+    <value>CATALOG</value>
+  </data>
+  <data name="Organize courses and teacher assignments by subject." xml:space="preserve">
+    <value>Organize courses and teacher assignments by subject.</value>
+  </data>
+  <data name="Add subject" xml:space="preserve">
+    <value>Add subject</value>
+  </data>
+  <data name="Search subjects" xml:space="preserve">
+    <value>Search subjects</value>
+  </data>
+  <data name="No subjects found" xml:space="preserve">
+    <value>No subjects found</value>
+  </data>
+  <data name="Add a subject to begin organizing courses." xml:space="preserve">
+    <value>Add a subject to begin organizing courses.</value>
+  </data>
+  <data name="Teacher assignments" xml:space="preserve">
+    <value>Teacher assignments</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="Edit subject" xml:space="preserve">
+    <value>Edit subject</value>
+  </data>
+  <data name="Subject details are used to organize courses and teachers." xml:space="preserve">
+    <value>Subject details are used to organize courses and teachers.</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Image URL" xml:space="preserve">
+    <value>Image URL</value>
+  </data>
+  <data name="Display order" xml:space="preserve">
+    <value>Display order</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Delete this subject?" xml:space="preserve">
+    <value>Delete this subject?</value>
+  </data>
+  <data name="Create subject" xml:space="preserve">
+    <value>Create subject</value>
+  </data>
+  <data name="Create courses, assign teachers, and control publication." xml:space="preserve">
+    <value>Create courses, assign teachers, and control publication.</value>
+  </data>
+  <data name="Search courses" xml:space="preserve">
+    <value>Search courses</value>
+  </data>
+  <data name="All subjects" xml:space="preserve">
+    <value>All subjects</value>
+  </data>
+  <data name="All statuses" xml:space="preserve">
+    <value>All statuses</value>
+  </data>
+  <data name="No courses found" xml:space="preserve">
+    <value>No courses found</value>
+  </data>
+  <data name="Add a course to start creating lessons and packages." xml:space="preserve">
+    <value>Add a course to start creating lessons and packages.</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Packages</value>
+  </data>
+  <data name="Delete this course?" xml:space="preserve">
+    <value>Delete this course?</value>
+  </data>
+  <data name="Assign the course to a subject and an eligible teacher." xml:space="preserve">
+    <value>Assign the course to a subject and an eligible teacher.</value>
+  </data>
+  <data name="Choose a subject" xml:space="preserve">
+    <value>Choose a subject</value>
+  </data>
+  <data name="Choose a teacher" xml:space="preserve">
+    <value>Choose a teacher</value>
+  </data>
+  <data name="Unassigned" xml:space="preserve">
+    <value>Unassigned</value>
+  </data>
+  <data name="The selected teacher must be assigned to the selected subject." xml:space="preserve">
+    <value>The selected teacher must be assigned to the selected subject.</value>
+  </data>
+  <data name="Thumbnail URL" xml:space="preserve">
+    <value>Thumbnail URL</value>
+  </data>
+  <data name="Set pricing and course access duration." xml:space="preserve">
+    <value>Set pricing and course access duration.</value>
+  </data>
+  <data name="Search package or course" xml:space="preserve">
+    <value>Search package or course</value>
+  </data>
+  <data name="Search packages" xml:space="preserve">
+    <value>Search packages</value>
+  </data>
+  <data name="All courses" xml:space="preserve">
+    <value>All courses</value>
+  </data>
+  <data name="No packages found" xml:space="preserve">
+    <value>No packages found</value>
+  </data>
+  <data name="Create a package to define price and access duration." xml:space="preserve">
+    <value>Create a package to define price and access duration.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Package</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="Access" xml:space="preserve">
+    <value>Access</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>days</value>
+  </data>
+  <data name="Delete this package?" xml:space="preserve">
+    <value>Delete this package?</value>
+  </data>
+  <data name="Define the amount and duration of course access." xml:space="preserve">
+    <value>Define the amount and duration of course access.</value>
+  </data>
+  <data name="Choose a course" xml:space="preserve">
+    <value>Choose a course</value>
+  </data>
+  <data name="Access duration (days)" xml:space="preserve">
+    <value>Access duration (days)</value>
+  </data>
+  <data name="Create package" xml:space="preserve">
+    <value>Create package</value>
+  </data>
+  <data name="An account with this email already exists." xml:space="preserve">
+    <value>An account with this email already exists.</value>
+  </data>
+  <data name="We could not complete your registration. Please try again." xml:space="preserve">
+    <value>We could not complete your registration. Please try again.</value>
+  </data>
+  <data name="The sign-in details were not accepted." xml:space="preserve">
+    <value>The sign-in details were not accepted.</value>
+  </data>
+  <data name="The account setup link is invalid or has expired. Request a new link from an administrator." xml:space="preserve">
+    <value>The account setup link is invalid or has expired. Request a new link from an administrator.</value>
+  </data>
+  <data name="Select a valid course." xml:space="preserve">
+    <value>Select a valid course.</value>
+  </data>
+  <data name="This course still has packages or an assigned teacher. Remove or reassign those references before deleting it." xml:space="preserve">
+    <value>This course still has packages or an assigned teacher. Remove or reassign those references before deleting it.</value>
+  </data>
+  <data name="Select an active subject." xml:space="preserve">
+    <value>Select an active subject.</value>
+  </data>
+  <data name="Assign the selected teacher to this subject first." xml:space="preserve">
+    <value>Assign the selected teacher to this subject first.</value>
+  </data>
+  <data name="A subject with this name already exists." xml:space="preserve">
+    <value>A subject with this name already exists.</value>
+  </data>
+  <data name="This subject is used by a course or teacher assignment. Deactivate it instead of deleting it." xml:space="preserve">
+    <value>This subject is used by a course or teacher assignment. Deactivate it instead of deleting it.</value>
+  </data>
+  <data name="Select only active subjects." xml:space="preserve">
+    <value>Select only active subjects.</value>
+  </data>
+  <data name="Password requirements were not met." xml:space="preserve">
+    <value>Password requirements were not met.</value>
+  </data>
+  <data name="The {0} field is required." xml:space="preserve">
+    <value>The {0} field is required.</value>
+  </data>
+  <data name="The field {0} must be a string with a maximum length of {1}." xml:space="preserve">
+    <value>The field {0} must be a string with a maximum length of {1}.</value>
+  </data>
+  <data name="The field {0} must be a string with a minimum length of {2} and a maximum length of {1}." xml:space="preserve">
+    <value>The field {0} must be a string with a minimum length of {2} and a maximum length of {1}.</value>
+  </data>
+  <data name="The {0} field is not a valid e-mail address." xml:space="preserve">
+    <value>The {0} field is not a valid e-mail address.</value>
+  </data>
+  <data name="The field {0} must be a valid phone number." xml:space="preserve">
+    <value>The field {0} must be a valid phone number.</value>
+  </data>
+  <data name="The field {0} must be a URL." xml:space="preserve">
+    <value>The field {0} must be a URL.</value>
+  </data>
+  <data name="The field {0} must be between {1} and {2}." xml:space="preserve">
+    <value>The field {0} must be between {1} and {2}.</value>
+  </data>
+  <data name="The passwords do not match." xml:space="preserve">
+    <value>The passwords do not match.</value>
+  </data>
+  <data name="Please accept the Terms and Conditions." xml:space="preserve">
+    <value>Please accept the Terms and Conditions.</value>
+  </data>
+  <data name="Identity validation failed." xml:space="preserve">
+    <value>Account validation failed. Please check the information and try again.</value>
+  </data>
+  <data name="DuplicateEmail" xml:space="preserve">
+    <value>An account with this email already exists.</value>
+  </data>
+  <data name="DuplicateUserName" xml:space="preserve">
+    <value>This username is already in use.</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Enter a valid email address.</value>
+  </data>
+  <data name="PasswordTooShort" xml:space="preserve">
+    <value>The password is too short.</value>
+  </data>
+  <data name="PasswordRequiresDigit" xml:space="preserve">
+    <value>The password must contain a digit.</value>
+  </data>
+  <data name="PasswordRequiresLower" xml:space="preserve">
+    <value>The password must contain a lowercase letter.</value>
+  </data>
+  <data name="PasswordRequiresUpper" xml:space="preserve">
+    <value>The password must contain an uppercase letter.</value>
+  </data>
+  <data name="PasswordRequiresNonAlphanumeric" xml:space="preserve">
+    <value>The password must contain a symbol.</value>
+  </data>
+  <data name="PasswordRequiresUniqueChars" xml:space="preserve">
+    <value>The password does not contain enough unique characters.</value>
+  </data>
+  <data name="DuplicateRoleName" xml:space="preserve">
+    <value>This role name is already in use.</value>
+  </data>
+  <data name="InvalidRoleName" xml:space="preserve">
+    <value>Enter a valid role name.</value>
+  </data>
+  <data name="InvalidToken" xml:space="preserve">
+    <value>The security token is invalid.</value>
+  </data>
+  <data name="UserAlreadyHasPassword" xml:space="preserve">
+    <value>This account already has a password.</value>
+  </data>
+  <data name="ConcurrencyFailure" xml:space="preserve">
+    <value>The account changed during this request. Please try again.</value>
+  </data>
+  <data name="LoginAlreadyAssociated" xml:space="preserve">
+    <value>This login is already associated with an account.</value>
+  </data>
+  <data name="InvalidUserName" xml:space="preserve">
+    <value>Enter a valid username.</value>
+  </data>
+  <data name="Change language" xml:space="preserve">
+    <value>Change language</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="ADMIN WORKSPACE" xml:space="preserve">
+    <value>ADMIN WORKSPACE</value>
+  </data>
+  <data name="A learning workspace illustration" xml:space="preserve">
+    <value>A learning workspace illustration</value>
+  </data>
+  <data name="Instructor" xml:space="preserve">
+    <value>Instructor</value>
+  </data>
+  <data name="Courses count: {0}" xml:space="preserve">
+    <value>Courses count: {0}</value>
+  </data>
+  <data name="No description" xml:space="preserve">
+    <value>No description</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="Student pages" xml:space="preserve">
+    <value>Student pages</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Page {0} of {1}" xml:space="preserve">
+    <value>Page {0} of {1}</value>
+  </data>
+  <data name="Edit package" xml:space="preserve">
+    <value>Edit package</value>
+  </data>
+  <data name="Add package" xml:space="preserve">
+    <value>Add package</value>
+  </data>
+  <data name="{0} days" xml:space="preserve">
+    <value>{0} days</value>
+  </data>
+  <data name="Catalog total: {0} courses, {1} packages" xml:space="preserve">
+    <value>{0} courses, {1} packages</value>
+  </data>
+  <data name="Student account updated." xml:space="preserve">
+    <value>Student account updated.</value>
+  </data>
+  <data name="Student account deactivated." xml:space="preserve">
+    <value>Student account deactivated.</value>
+  </data>
+  <data name="Student account activated." xml:space="preserve">
+    <value>Student account activated.</value>
+  </data>
+  <data name="Teacher created. Share the one-time account setup link with the teacher." xml:space="preserve">
+    <value>Teacher created. Share the one-time account setup link with the teacher.</value>
+  </data>
+  <data name="Teacher profile updated." xml:space="preserve">
+    <value>Teacher profile updated.</value>
+  </data>
+  <data name="Teacher profile activated." xml:space="preserve">
+    <value>Teacher profile activated.</value>
+  </data>
+  <data name="Teacher profile deactivated." xml:space="preserve">
+    <value>Teacher profile deactivated.</value>
+  </data>
+  <data name="Course created." xml:space="preserve">
+    <value>Course created.</value>
+  </data>
+  <data name="Course updated." xml:space="preserve">
+    <value>Course updated.</value>
+  </data>
+  <data name="Course deleted." xml:space="preserve">
+    <value>Course deleted.</value>
+  </data>
+  <data name="Course package created." xml:space="preserve">
+    <value>Course package created.</value>
+  </data>
+  <data name="Course package updated." xml:space="preserve">
+    <value>Course package updated.</value>
+  </data>
+  <data name="Course package deleted." xml:space="preserve">
+    <value>Course package deleted.</value>
+  </data>
+  <data name="Subject created." xml:space="preserve">
+    <value>Subject created.</value>
+  </data>
+  <data name="Subject updated." xml:space="preserve">
+    <value>Subject updated.</value>
+  </data>
+  <data name="Subject deleted." xml:space="preserve">
+    <value>Subject deleted.</value>
+  </data>
+  <data name="The {0} and {1} fields do not match." xml:space="preserve">
+    <value>The {0} and {1} fields do not match.</value>
+  </data>
+  <data name="Enter a password." xml:space="preserve">
+    <value>Enter a password.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Courses" xml:space="preserve">
+    <value>Courses</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="{0} years" xml:space="preserve">
+    <value>{0} years</value>
+  </data>
+  <data name="Edit course" xml:space="preserve">
+    <value>Edit course</value>
+  </data>
+  <data name="Toggle navigation" xml:space="preserve">
+    <value>Toggle navigation</value>
+  </data>
+</root>

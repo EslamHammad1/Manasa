@@ -10,9 +10,9 @@ public class SetPasswordViewModel
     [Required]
     public string Token { get; set; } = string.Empty;
 
-    [Required, DataType(DataType.Password), StringLength(100, MinimumLength = 8)]
+    [Required, DataType(DataType.Password), StringLength(100, MinimumLength = 8), Display(Name = "Password")]
     public string Password { get; set; } = string.Empty;
 
-    [Required, DataType(DataType.Password), Compare(nameof(Password))]
+    [Required, DataType(DataType.Password), Compare(nameof(Password)), Display(Name = "Confirm password")]
     public string ConfirmPassword { get; set; } = string.Empty;
 }

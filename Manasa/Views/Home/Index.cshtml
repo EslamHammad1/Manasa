@@ -1,8 +1,39 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = T["Welcome"];
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="home-page">
+    <section class="home-hero">
+        <div class="home-hero-copy">
+            <span class="eyebrow">@T["MANASA LEARNING"]</span>
+            <h1>@T["A clear place to keep learning."]</h1>
+            <p>@T["Sign in to continue, or create a student account to get started."]</p>
+            <div class="home-actions">
+                @if (User.Identity?.IsAuthenticated == true && User.IsInRole("Student"))
+                {
+                    <a class="btn btn-primary btn-lg" asp-area="Student" asp-controller="Dashboard" asp-action="Index">@T["Go to your dashboard"]</a>
+                }
+                else if (User.Identity?.IsAuthenticated == true && User.IsInRole("Administrator"))
+                {
+                    <a class="btn btn-primary btn-lg" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">@T["Open administration"]</a>
+                }
+                else if (User.Identity?.IsAuthenticated != true)
+                {
+                    <a class="btn btn-primary btn-lg" asp-controller="Account" asp-action="Register">@T["Create a student account"]</a>
+                    <a class="btn btn-outline-primary btn-lg" asp-controller="Account" asp-action="Login">@T["Sign in"]</a>
+                }
+            </div>
+        </div>
+        <div class="home-hero-art"><img src="~/images/learning-illustration.svg" alt="@T["A learning workspace illustration"]" /></div>
+    </section>
+
+    <section class="home-intro" aria-labelledby="home-intro-title">
+        <span class="eyebrow">@T["A SIMPLE START"]</span>
+        <h2 id="home-intro-title">@T["Your account, your next step"]</h2>
+        <div class="home-feature-grid">
+            <article class="home-feature"><span class="home-feature-number">01</span><h3>@T["Create or access your account"]</h3><p>@T["Use the account links above to register as a student or sign in."]</p></article>
+            <article class="home-feature"><span class="home-feature-number">02</span><h3>@T["Find the right space"]</h3><p>@T["Your available pages depend on your account role."]</p></article>
+            <article class="home-feature"><span class="home-feature-number">03</span><h3>@T["Explore the catalog"]</h3><p>@T["Students can view courses that administrators have published."]</p></article>
+        </div>
+    </section>
 </div>
