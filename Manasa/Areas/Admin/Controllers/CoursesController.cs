@@ -1,18 +1,22 @@
 using Manasa.Data;
+using Manasa.Localization;
 using Manasa.Models;
 using Manasa.ViewModels.Admin;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 
 namespace Manasa.Areas.Admin.Controllers;
 
 [Area("Admin")]
 [Authorize(Roles = "Administrator")]
-public class CoursesController(ApplicationDbContext dbContext) : Controller
+public class CoursesController(ApplicationDbContext dbContext, IStringLocalizer<SharedResource> text) : Controller
 {
-    public async Task<IActionResult> Index(string? search, int? subjectId, bool? published)
+    private const int PageSize = 10;
+
+    public async Task<IActionResult> Index(string? search, int? subjectId, bool? published, int page = 1)
     {
         var query = dbContext.Courses.AsNoTracking()
             .Include(course => course.Subject)
@@ -33,11 +37,20 @@ public class CoursesController(ApplicationDbContext dbContext) : Controller
             query = query.Where(course => course.IsPublished == published.Value);
         }
 
+        var totalCount = await query.CountAsync();
+        var totalPages = (int)Math.Ceiling(totalCount / (double)PageSize);
+        page = totalPages == 0 ? 1 : Math.Clamp(page, 1, totalPages);
+
         ViewData["Search"] = search;
         ViewData["SubjectId"] = subjectId;
         ViewData["Published"] = published;
+        ViewData["PageNumber"] = page;
+        ViewData["TotalPages"] = totalPages;
         ViewData["Subjects"] = new SelectList(await dbContext.Subjects.AsNoTracking().OrderBy(item => item.Name).ToListAsync(), "Id", "Name", subjectId);
-        return View(await query.OrderBy(course => course.Title).ToListAsync());
+        return View(await query.OrderBy(course => course.Title).ThenBy(course => course.Id)
+            .Skip((page - 1) * PageSize)
+            .Take(PageSize)
+            .ToListAsync());
     }
 
     public async Task<IActionResult> Create()
@@ -64,7 +77,7 @@ public class CoursesController(ApplicationDbContext dbContext) : Controller
             IsPublished = model.IsPublished
         });
         await dbContext.SaveChangesAsync();
-        TempData["StatusMessage"] = "Course created.";
+        TempData["StatusMessage"] = text["Course created."].Value;
         return RedirectToAction(nameof(Index));
     }
 
@@ -114,7 +127,7 @@ public class CoursesController(ApplicationDbContext dbContext) : Controller
         course.ThumbnailUrl = model.ThumbnailUrl?.Trim();
         course.IsPublished = model.IsPublished;
         await dbContext.SaveChangesAsync();
-        TempData["StatusMessage"] = "Course updated.";
+        TempData["StatusMessage"] = text["Course updated."].Value;
         return RedirectToAction(nameof(Index));
     }
 
@@ -129,13 +142,13 @@ public class CoursesController(ApplicationDbContext dbContext) : Controller
         if (await dbContext.CoursePackages.AnyAsync(item => item.CourseId == id)
             || await dbContext.Courses.AnyAsync(item => item.Id == id && item.TeacherProfileId != null))
         {
-            TempData["ErrorMessage"] = "This course still has packages or an assigned teacher. Remove or reassign those references before deleting it.";
+            TempData["ErrorMessage"] = text["This course still has packages or an assigned teacher. Remove or reassign those references before deleting it."].Value;
             return RedirectToAction(nameof(Index));
         }
 
         dbContext.Courses.Remove(course);
         await dbContext.SaveChangesAsync();
-        TempData["StatusMessage"] = "Course deleted.";
+        TempData["StatusMessage"] = text["Course deleted."].Value;
         return RedirectToAction(nameof(Index));
     }
 
@@ -160,7 +173,7 @@ public class CoursesController(ApplicationDbContext dbContext) : Controller
         if (!await dbContext.Subjects.AnyAsync(subject => subject.Id == model.SubjectId
             && (subject.IsActive || (existingCourse != null && existingCourse.SubjectId == subject.Id))))
         {
-            ModelState.AddModelError(nameof(model.SubjectId), "Select an active subject.");
+            ModelState.AddModelError(nameof(model.SubjectId), text["Select an active subject."]);
         }
 
         if (model.TeacherProfileId.HasValue
@@ -170,7 +183,7 @@ public class CoursesController(ApplicationDbContext dbContext) : Controller
                 && (link.TeacherProfile.IsActive
                     || (existingCourse != null && existingCourse.TeacherProfileId == model.TeacherProfileId))))
         {
-            ModelState.AddModelError(nameof(model.TeacherProfileId), "Assign the selected teacher to this subject first.");
+            ModelState.AddModelError(nameof(model.TeacherProfileId), text["Assign the selected teacher to this subject first."]);
         }
     }
 }

@@ -1,0 +1,37 @@
+@model Manasa.ViewModels.Student.CourseDetailsViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="student-page student-course-details">
+    <a class="student-back-link" asp-area="Student" asp-controller="Dashboard" asp-action="Index"><span aria-hidden="true" class="student-direction-arrow">←</span> @T["Back to courses"]</a>
+    <article class="student-detail-card">
+        <div class="student-detail-image">
+            @if (!string.IsNullOrWhiteSpace(Model.ThumbnailUrl))
+            {
+                <img src="@Model.ThumbnailUrl" alt="" onerror="this.hidden=true; this.nextElementSibling.hidden=false" />
+                <span class="student-course-image-fallback" hidden aria-hidden="true">M</span>
+            }
+            else
+            {
+                <span class="student-course-image-fallback" aria-hidden="true">M</span>
+            }
+        </div>
+        <div class="student-detail-content">
+            <span class="student-course-subject" dir="auto">@Model.Subject</span>
+            <h1 dir="auto">@Model.Title</h1>
+            @if (!string.IsNullOrWhiteSpace(Model.TeacherName))
+            {
+                <p class="student-detail-teacher">@T["Instructor"]: <bdi>@Model.TeacherName</bdi></p>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.Description))
+            {
+                <div class="student-detail-description" dir="auto">@Model.Description</div>
+            }
+            else
+            {
+                <p class="student-detail-description student-muted">@T["No course description is available."]</p>
+            }
+        </div>
+    </article>
+</div>

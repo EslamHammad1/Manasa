@@ -12,13 +12,13 @@ public class CourseFormViewModel
 
     public int? TeacherProfileId { get; set; }
 
-    [Required, StringLength(180)]
+    [Required, StringLength(180), Display(Name = "Title")]
     public string Title { get; set; } = string.Empty;
 
-    [StringLength(4000)]
+    [StringLength(4000), Display(Name = "Description")]
     public string? Description { get; set; }
 
-    [Url, StringLength(500)]
+    [Url, StringLength(500), Display(Name = "Thumbnail URL")]
     public string? ThumbnailUrl { get; set; }
 
     public bool IsPublished { get; set; }

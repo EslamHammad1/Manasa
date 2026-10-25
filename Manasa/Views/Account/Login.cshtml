@@ -1,21 +1,24 @@
 @model Manasa.ViewModels.Account.LoginViewModel
 @{
-    ViewData["Title"] = "Sign in";
+    ViewData["Title"] = T["Sign in"];
 }
-<div class="setup-card">
-    <div class="setup-mark">M</div><span class="eyebrow">MANASA LEARNING</span><h1>Welcome back</h1><p>Sign in with your username or email address.</p>
-    @if (TempData["RegisteredUserName"] is string registeredUserName)
-    {
-        <div class="alert alert-success" role="status">Your student account is ready. Your username is <strong>@registeredUserName</strong>. Sign in with your email or username.</div>
-    }
-    <form asp-action="Login" method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-        <input asp-for="ReturnUrl" type="hidden" />
-        <div class="mb-3"><label asp-for="UserNameOrEmail" class="form-label">Username or email</label><input asp-for="UserNameOrEmail" class="form-control" autocomplete="username" /><span asp-validation-for="UserNameOrEmail" class="text-danger"></span></div>
-        <div class="mb-3"><label asp-for="Password" class="form-label"></label><input asp-for="Password" class="form-control" autocomplete="current-password" /><span asp-validation-for="Password" class="text-danger"></span></div>
-        <div class="form-check mb-4"><input asp-for="RememberMe" class="form-check-input" /><label asp-for="RememberMe" class="form-check-label">Keep me signed in</label></div>
-        <button class="btn btn-primary w-100">Sign in</button>
-    </form>
-    <div class="register-login-link">New to Manasa? <a asp-action="Register">Create a student account</a></div>
+<div class="auth-shell">
+    <aside class="auth-visual-panel"><img src="~/images/learning-illustration.svg" alt="@T["A learning workspace illustration"]" /><span class="eyebrow">@T["MANASA LEARNING"]</span><h2>@T["Learning starts with a next step."]</h2></aside>
+    <section class="setup-card auth-form-card">
+        <div class="setup-mark">M</div><span class="eyebrow">@T["MANASA LEARNING"]</span><h1>@T["Welcome back"]</h1><p>@T["Sign in with your username or email address."]</p>
+        @if (TempData["RegisteredUserName"] is string registeredUserName)
+        {
+            <div class="alert alert-success" role="status">@T["Your student account is ready. Your username is {0}. Sign in with your email or username.", registeredUserName]</div>
+        }
+        <form asp-action="Login" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+            <input asp-for="ReturnUrl" type="hidden" />
+            <div class="mb-3"><label asp-for="UserNameOrEmail" class="form-label">@T["Username or email"]</label><input asp-for="UserNameOrEmail" class="form-control" autocomplete="username" dir="auto" /><span asp-validation-for="UserNameOrEmail" class="text-danger"></span></div>
+            <div class="mb-3"><label asp-for="Password" class="form-label"></label><input asp-for="Password" class="form-control" autocomplete="current-password" /><span asp-validation-for="Password" class="text-danger"></span></div>
+            <div class="form-check mb-4"><input asp-for="RememberMe" class="form-check-input" /><label asp-for="RememberMe" class="form-check-label">@T["Keep me signed in"]</label></div>
+            <button class="btn btn-primary w-100">@T["Sign in"]</button>
+        </form>
+        <div class="register-login-link">@T["New to Manasa?"] <a asp-action="Register">@T["Create a student account"]</a></div>
+    </section>
 </div>
 @section Scripts { <partial name="_ValidationScriptsPartial" /> }

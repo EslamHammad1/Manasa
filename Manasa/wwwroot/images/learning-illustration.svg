@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 400" role="img" aria-labelledby="title desc">
+  <title id="title">Learning workspace illustration</title>
+  <desc id="desc">An open book, a study card, and abstract learning shapes.</desc>
+  <rect x="28" y="24" width="464" height="352" rx="42" fill="#edf4f8"/>
+  <circle cx="412" cy="94" r="38" fill="#d6e9e8"/>
+  <circle cx="94" cy="302" r="24" fill="#c5d8e8"/>
+  <path d="M84 294c34-20 76-18 111 5v98c-35-23-77-25-111-5z" fill="#fff" stroke="#c9d8e4" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M195 299c35-23 77-25 111-5v98c-34-20-76-18-111 5z" fill="#fff" stroke="#c9d8e4" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M195 299v98" stroke="#c9d8e4" stroke-width="4"/>
+  <path d="M104 319c22-10 44-11 66-4M104 339c22-10 44-11 66-4M216 315c23-11 45-10 70-2M216 336c23-11 45-10 70-2" fill="none" stroke="#8ca5b9" stroke-width="5" stroke-linecap="round"/>
+  <g transform="rotate(-7 315 202)">
+    <rect x="221" y="108" width="184" height="174" rx="18" fill="#17324d"/>
+    <rect x="236" y="123" width="154" height="144" rx="11" fill="#fff"/>
+    <rect x="251" y="139" width="39" height="39" rx="11" fill="#28649b"/>
+    <path d="M260 158h21M270 148v21" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+    <rect x="251" y="194" width="119" height="8" rx="4" fill="#c7d6e2"/>
+    <rect x="251" y="211" width="91" height="7" rx="3.5" fill="#e1e9ef"/>
+    <rect x="251" y="235" width="56" height="10" rx="5" fill="#42a6a0"/>
+  </g>
+  <path d="m421 226 10 10 20-23" fill="none" stroke="#42a6a0" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

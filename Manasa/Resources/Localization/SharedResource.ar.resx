@@ -1,0 +1,891 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data name="Skip to content" xml:space="preserve">
+    <value>تخطّ إلى المحتوى</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>الخصوصية</value>
+  </data>
+  <data name="Student dashboard" xml:space="preserve">
+    <value>لوحة الطالب</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>الإدارة</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>تسجيل الخروج</value>
+  </data>
+  <data name="Sign in" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="Create account" xml:space="preserve">
+    <value>إنشاء حساب</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>الإنجليزية</value>
+  </data>
+  <data name="Arabic" xml:space="preserve">
+    <value>العربية</value>
+  </data>
+  <data name="Manasa home" xml:space="preserve">
+    <value>الصفحة الرئيسية لمنصة مناسة</value>
+  </data>
+  <data name="View public site" xml:space="preserve">
+    <value>عرض الموقع العام</value>
+  </data>
+  <data name="Signed in as administrator" xml:space="preserve">
+    <value>تم تسجيل الدخول بصفتك مسؤولاً</value>
+  </data>
+  <data name="LEARNING" xml:space="preserve">
+    <value>للتعلّم</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>مرحباً</value>
+  </data>
+  <data name="A clear place to keep learning." xml:space="preserve">
+    <value>مساحة واضحة لمواصلة التعلّم.</value>
+  </data>
+  <data name="Sign in to continue, or create a student account to get started." xml:space="preserve">
+    <value>سجّل الدخول للمتابعة، أو أنشئ حساب طالب للبدء.</value>
+  </data>
+  <data name="Go to your dashboard" xml:space="preserve">
+    <value>انتقل إلى لوحتك</value>
+  </data>
+  <data name="Open administration" xml:space="preserve">
+    <value>افتح لوحة الإدارة</value>
+  </data>
+  <data name="Create a student account" xml:space="preserve">
+    <value>إنشاء حساب طالب</value>
+  </data>
+  <data name="A SIMPLE START" xml:space="preserve">
+    <value>بداية بسيطة</value>
+  </data>
+  <data name="Your account, your next step" xml:space="preserve">
+    <value>حسابك هو خطوتك التالية</value>
+  </data>
+  <data name="Create or access your account" xml:space="preserve">
+    <value>أنشئ حسابك أو ادخل إليه</value>
+  </data>
+  <data name="Use the account links above to register as a student or sign in." xml:space="preserve">
+    <value>استخدم الروابط أعلاه للتسجيل كطالب أو لتسجيل الدخول.</value>
+  </data>
+  <data name="Find the right space" xml:space="preserve">
+    <value>انتقل إلى المساحة المناسبة</value>
+  </data>
+  <data name="Your available pages depend on your account role." xml:space="preserve">
+    <value>تعتمد الصفحات المتاحة لك على دور حسابك.</value>
+  </data>
+  <data name="Explore the catalog" xml:space="preserve">
+    <value>استكشف الفهرس</value>
+  </data>
+  <data name="Students can view courses that administrators have published." xml:space="preserve">
+    <value>يمكن للطلاب استعراض الدورات التي ينشرها المسؤولون.</value>
+  </data>
+  <data name="Learning starts with a next step." xml:space="preserve">
+    <value>يبدأ التعلّم بخطوة جديدة.</value>
+  </data>
+  <data name="Privacy information" xml:space="preserve">
+    <value>معلومات الخصوصية</value>
+  </data>
+  <data name="The privacy policy content has not been configured yet." xml:space="preserve">
+    <value>لم تتم إضافة محتوى سياسة الخصوصية بعد.</value>
+  </data>
+  <data name="ACCESS RESTRICTED" xml:space="preserve">
+    <value>الوصول مقيّد</value>
+  </data>
+  <data name="Access denied" xml:space="preserve">
+    <value>تم رفض الوصول</value>
+  </data>
+  <data name="Your account does not have permission to open this page." xml:space="preserve">
+    <value>لا يملك حسابك صلاحية فتح هذه الصفحة.</value>
+  </data>
+  <data name="Return to home" xml:space="preserve">
+    <value>العودة إلى الرئيسية</value>
+  </data>
+  <data name="Welcome back" xml:space="preserve">
+    <value>مرحباً بعودتك</value>
+  </data>
+  <data name="Sign in with your username or email address." xml:space="preserve">
+    <value>سجّل الدخول باستخدام اسم المستخدم أو البريد الإلكتروني.</value>
+  </data>
+  <data name="Your student account is ready. Your username is {0}. Sign in with your email or username." xml:space="preserve">
+    <value>حساب الطالب جاهز. اسم المستخدم هو {0}. سجّل الدخول بالبريد الإلكتروني أو اسم المستخدم.</value>
+  </data>
+  <data name="Username or email" xml:space="preserve">
+    <value>اسم المستخدم أو البريد الإلكتروني</value>
+  </data>
+  <data name="Keep me signed in" xml:space="preserve">
+    <value>إبقائي مسجلاً للدخول</value>
+  </data>
+  <data name="New to Manasa?" xml:space="preserve">
+    <value>هل أنت جديد في مناسة؟</value>
+  </data>
+  <data name="Already have an account?" xml:space="preserve">
+    <value>لديك حساب بالفعل؟</value>
+  </data>
+  <data name="MANASA LEARNING" xml:space="preserve">
+    <value>منصة مناسة للتعلّم</value>
+  </data>
+  <data name="Create your student account" xml:space="preserve">
+    <value>أنشئ حساب الطالب</value>
+  </data>
+  <data name="Join your classes and continue learning at your own pace." xml:space="preserve">
+    <value>انضم إلى صفوفك وتعلّم بالوتيرة التي تناسبك.</value>
+  </data>
+  <data name="Full name" xml:space="preserve">
+    <value>الاسم الكامل</value>
+  </data>
+  <data name="Email address" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="Phone number" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="Confirm password" xml:space="preserve">
+    <value>تأكيد كلمة المرور</value>
+  </data>
+  <data name="I agree to the Terms and Conditions" xml:space="preserve">
+    <value>أوافق على الشروط والأحكام</value>
+  </data>
+  <data name="Creating account..." xml:space="preserve">
+    <value>جارٍ إنشاء الحساب...</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>إظهار</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>إخفاء</value>
+  </data>
+  <data name="ACCOUNT SETUP" xml:space="preserve">
+    <value>إعداد الحساب</value>
+  </data>
+  <data name="Set your password" xml:space="preserve">
+    <value>عيّن كلمة المرور</value>
+  </data>
+  <data name="Choose your password" xml:space="preserve">
+    <value>اختر كلمة المرور</value>
+  </data>
+  <data name="Set a private password to finish activating your Manasa account." xml:space="preserve">
+    <value>أنشئ كلمة مرور خاصة لإكمال تفعيل حسابك في مناسة.</value>
+  </data>
+  <data name="Set password" xml:space="preserve">
+    <value>تعيين كلمة المرور</value>
+  </data>
+  <data name="ACCOUNT SETUP COMPLETE" xml:space="preserve">
+    <value>اكتمل إعداد الحساب</value>
+  </data>
+  <data name="Account ready" xml:space="preserve">
+    <value>الحساب جاهز</value>
+  </data>
+  <data name="Password saved" xml:space="preserve">
+    <value>تم حفظ كلمة المرور</value>
+  </data>
+  <data name="Your password is set. You can now sign in to your account." xml:space="preserve">
+    <value>تم تعيين كلمة المرور. يمكنك الآن تسجيل الدخول إلى حسابك.</value>
+  </data>
+  <data name="Something went wrong" xml:space="preserve">
+    <value>حدث خطأ ما</value>
+  </data>
+  <data name="REQUEST NOT COMPLETED" xml:space="preserve">
+    <value>تعذر إكمال الطلب</value>
+  </data>
+  <data name="The request could not be completed. Please try again or return to the home page." xml:space="preserve">
+    <value>تعذر إكمال الطلب. حاول مرة أخرى أو عُد إلى الصفحة الرئيسية.</value>
+  </data>
+  <data name="Reference: {0}" xml:space="preserve">
+    <value>المرجع: {0}</value>
+  </data>
+  <data name="STUDENT LEARNING SPACE" xml:space="preserve">
+    <value>مساحة تعلّم الطالب</value>
+  </data>
+  <data name="Explore courses currently available in the catalog." xml:space="preserve">
+    <value>استكشف الدورات المتاحة حالياً في الفهرس.</value>
+  </data>
+  <data name="YOUR CATALOG" xml:space="preserve">
+    <value>فهرسك</value>
+  </data>
+  <data name="Explore courses" xml:space="preserve">
+    <value>استكشف الدورات</value>
+  </data>
+  <data name="Courses count: {0}" xml:space="preserve">
+    <value>عدد الدورات: {0}</value>
+  </data>
+  <data name="No courses available yet" xml:space="preserve">
+    <value>لا توجد دورات متاحة حالياً</value>
+  </data>
+  <data name="Published courses will appear here when they are available." xml:space="preserve">
+    <value>ستظهر الدورات المنشورة هنا عند توفرها.</value>
+  </data>
+  <data name="View course details" xml:space="preserve">
+    <value>عرض تفاصيل الدورة</value>
+  </data>
+  <data name="View details for {0}" xml:space="preserve">
+    <value>عرض تفاصيل {0}</value>
+  </data>
+  <data name="Back to courses" xml:space="preserve">
+    <value>العودة إلى الدورات</value>
+  </data>
+  <data name="Instructor" xml:space="preserve">
+    <value>المعلم</value>
+  </data>
+  <data name="No course description is available." xml:space="preserve">
+    <value>لا يتوفر وصف لهذه الدورة.</value>
+  </data>
+  <data name="ADMIN OVERVIEW" xml:space="preserve">
+    <value>نظرة عامة للإدارة</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>لوحة التحكم</value>
+  </data>
+  <data name="Your learning platform at a glance." xml:space="preserve">
+    <value>نظرة عامة على منصة التعلّم.</value>
+  </data>
+  <data name="Students" xml:space="preserve">
+    <value>الطلاب</value>
+  </data>
+  <data name="Active teachers" xml:space="preserve">
+    <value>المعلمون النشطون</value>
+  </data>
+  <data name="Subjects" xml:space="preserve">
+    <value>المواد</value>
+  </data>
+  <data name="Published courses" xml:space="preserve">
+    <value>الدورات المنشورة</value>
+  </data>
+  <data name="Manage students" xml:space="preserve">
+    <value>إدارة الطلاب</value>
+  </data>
+  <data name="Manage teachers" xml:space="preserve">
+    <value>إدارة المعلمين</value>
+  </data>
+  <data name="Manage subjects" xml:space="preserve">
+    <value>إدارة المواد</value>
+  </data>
+  <data name="Manage courses" xml:space="preserve">
+    <value>إدارة الدورات</value>
+  </data>
+  <data name="Recent courses" xml:space="preserve">
+    <value>أحدث الدورات</value>
+  </data>
+  <data name="Latest courses added to the catalog" xml:space="preserve">
+    <value>أحدث الدورات المضافة إلى الفهرس</value>
+  </data>
+  <data name="No courses yet" xml:space="preserve">
+    <value>لا توجد دورات بعد</value>
+  </data>
+  <data name="Create a course to start building your catalog." xml:space="preserve">
+    <value>أنشئ دورة لبدء بناء الفهرس.</value>
+  </data>
+  <data name="Course" xml:space="preserve">
+    <value>الدورة</value>
+  </data>
+  <data name="Added" xml:space="preserve">
+    <value>تاريخ الإضافة</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>منشور</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>مسودة</value>
+  </data>
+  <data name="Quick actions" xml:space="preserve">
+    <value>إجراءات سريعة</value>
+  </data>
+  <data name="Common administration tasks" xml:space="preserve">
+    <value>مهام الإدارة الشائعة</value>
+  </data>
+  <data name="Add a subject" xml:space="preserve">
+    <value>إضافة مادة</value>
+  </data>
+  <data name="Organize your course catalog" xml:space="preserve">
+    <value>نظّم فهرس الدورات</value>
+  </data>
+  <data name="Add a teacher" xml:space="preserve">
+    <value>إضافة معلم</value>
+  </data>
+  <data name="Create a teacher profile and account" xml:space="preserve">
+    <value>إنشاء ملف معلم وحساب له</value>
+  </data>
+  <data name="Add a student" xml:space="preserve">
+    <value>إضافة طالب</value>
+  </data>
+  <data name="Set up a student account" xml:space="preserve">
+    <value>إعداد حساب طالب</value>
+  </data>
+  <data name="Create a package" xml:space="preserve">
+    <value>إنشاء باقة</value>
+  </data>
+  <data name="Set course access and pricing" xml:space="preserve">
+    <value>تحديد سعر الدورة ومدة الوصول إليها</value>
+  </data>
+  <data name="Catalog totals" xml:space="preserve">
+    <value>إجمالي الفهرس</value>
+  </data>
+  <data name="Catalog total: {0} courses, {1} packages" xml:space="preserve">
+    <value>الدورات: {0}، الباقات: {1}</value>
+  </data>
+  <data name="WORKSPACE" xml:space="preserve">
+    <value>مساحة العمل</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>نظرة عامة</value>
+  </data>
+  <data name="Teachers" xml:space="preserve">
+    <value>المعلمون</value>
+  </data>
+  <data name="Course packages" xml:space="preserve">
+    <value>باقات الدورات</value>
+  </data>
+  <data name="PEOPLE" xml:space="preserve">
+    <value>الأشخاص</value>
+  </data>
+  <data name="Search accounts and manage student access." xml:space="preserve">
+    <value>ابحث عن الحسابات وأدر صلاحيات الطلاب.</value>
+  </data>
+  <data name="Student {0} created." xml:space="preserve">
+    <value>تم إنشاء الطالب {0}.</value>
+  </data>
+  <data name="Open one-time account setup" xml:space="preserve">
+    <value>فتح رابط إعداد الحساب لمرة واحدة</value>
+  </data>
+  <data name="Copy the link and share it with the student. It is not sent by email." xml:space="preserve">
+    <value>انسخ الرابط وشاركه مع الطالب. لن يُرسل عبر البريد الإلكتروني.</value>
+  </data>
+  <data name="Search students" xml:space="preserve">
+    <value>البحث عن الطلاب</value>
+  </data>
+  <data name="Search username, name, or email" xml:space="preserve">
+    <value>ابحث باسم المستخدم أو الاسم أو البريد الإلكتروني</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="No students found" xml:space="preserve">
+    <value>لم يتم العثور على طلاب</value>
+  </data>
+  <data name="Student accounts will appear here when created." xml:space="preserve">
+    <value>ستظهر حسابات الطلاب هنا بعد إنشائها.</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="Student" xml:space="preserve">
+    <value>الطالب</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>غير نشط</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="Deactivate" xml:space="preserve">
+    <value>إلغاء التفعيل</value>
+  </data>
+  <data name="Activate" xml:space="preserve">
+    <value>تفعيل</value>
+  </data>
+  <data name="Student pages" xml:space="preserve">
+    <value>صفحات الطلاب</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>السابق</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>التالي</value>
+  </data>
+  <data name="Page {0} of {1}" xml:space="preserve">
+    <value>الصفحة {0} من {1}</value>
+  </data>
+  <data name="Edit student" xml:space="preserve">
+    <value>تعديل الطالب</value>
+  </data>
+  <data name="Update student account details." xml:space="preserve">
+    <value>تحديث بيانات حساب الطالب.</value>
+  </data>
+  <data name="A unique student username will be generated automatically." xml:space="preserve">
+    <value>سيتم إنشاء اسم مستخدم فريد للطالب تلقائياً.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="Save changes" xml:space="preserve">
+    <value>حفظ التغييرات</value>
+  </data>
+  <data name="Create student" xml:space="preserve">
+    <value>إنشاء طالب</value>
+  </data>
+  <data name="Manage teacher profiles, subject assignments, and account access." xml:space="preserve">
+    <value>أدر ملفات المعلمين وتعيينات المواد والوصول إلى الحسابات.</value>
+  </data>
+  <data name="One-time setup link:" xml:space="preserve">
+    <value>رابط إعداد لمرة واحدة:</value>
+  </data>
+  <data name="Open account setup" xml:space="preserve">
+    <value>فتح إعداد الحساب</value>
+  </data>
+  <data name="Copy this link and share it with the teacher. It is not sent by email." xml:space="preserve">
+    <value>انسخ هذا الرابط وشاركه مع المعلم. لن يُرسل عبر البريد الإلكتروني.</value>
+  </data>
+  <data name="Search teachers" xml:space="preserve">
+    <value>البحث عن المعلمين</value>
+  </data>
+  <data name="Search by name, email, or specialization" xml:space="preserve">
+    <value>ابحث بالاسم أو البريد الإلكتروني أو التخصص</value>
+  </data>
+  <data name="No teachers found" xml:space="preserve">
+    <value>لم يتم العثور على معلمين</value>
+  </data>
+  <data name="Add a teacher profile and assign subjects." xml:space="preserve">
+    <value>أضف ملف معلم وعيّن له مواد.</value>
+  </data>
+  <data name="Teacher" xml:space="preserve">
+    <value>المعلم</value>
+  </data>
+  <data name="Specialization" xml:space="preserve">
+    <value>التخصص</value>
+  </data>
+  <data name="Assigned subjects" xml:space="preserve">
+    <value>المواد المعيّنة</value>
+  </data>
+  <data name="Experience" xml:space="preserve">
+    <value>الخبرة</value>
+  </data>
+  <data name="{0} years" xml:space="preserve">
+    <value>{0} سنة</value>
+  </data>
+  <data name="Edit teacher" xml:space="preserve">
+    <value>تعديل المعلم</value>
+  </data>
+  <data name="Manage teacher profile and subject access." xml:space="preserve">
+    <value>تحديث ملف المعلم والمواد المتاحة له.</value>
+  </data>
+  <data name="Create a teacher account and profile. A one-time setup link will be generated." xml:space="preserve">
+    <value>أنشئ حساباً وملفاً للمعلم. سيتم إنشاء رابط إعداد لمرة واحدة.</value>
+  </data>
+  <data name="Biography" xml:space="preserve">
+    <value>نبذة تعريفية</value>
+  </data>
+  <data name="Years of experience" xml:space="preserve">
+    <value>سنوات الخبرة</value>
+  </data>
+  <data name="Profile image URL" xml:space="preserve">
+    <value>رابط صورة الملف الشخصي</value>
+  </data>
+  <data name="Courses can only be assigned to a teacher who is linked to the course subject." xml:space="preserve">
+    <value>يمكن إسناد الدورات إلى معلم مرتبط بمادة الدورة فقط.</value>
+  </data>
+  <data name="Active profile" xml:space="preserve">
+    <value>ملف نشط</value>
+  </data>
+  <data name="Create teacher" xml:space="preserve">
+    <value>إنشاء معلم</value>
+  </data>
+  <data name="CATALOG" xml:space="preserve">
+    <value>الفهرس</value>
+  </data>
+  <data name="Organize courses and teacher assignments by subject." xml:space="preserve">
+    <value>نظّم الدورات وتعيينات المعلمين حسب المادة.</value>
+  </data>
+  <data name="Add subject" xml:space="preserve">
+    <value>إضافة مادة</value>
+  </data>
+  <data name="Search subjects" xml:space="preserve">
+    <value>البحث عن المواد</value>
+  </data>
+  <data name="No subjects found" xml:space="preserve">
+    <value>لم يتم العثور على مواد</value>
+  </data>
+  <data name="Add a subject to begin organizing courses." xml:space="preserve">
+    <value>أضف مادة لبدء تنظيم الدورات.</value>
+  </data>
+  <data name="Teacher assignments" xml:space="preserve">
+    <value>تعيينات المعلمين</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>الترتيب</value>
+  </data>
+  <data name="Edit subject" xml:space="preserve">
+    <value>تعديل المادة</value>
+  </data>
+  <data name="Subject details are used to organize courses and teachers." xml:space="preserve">
+    <value>تُستخدم بيانات المادة لتنظيم الدورات والمعلمين.</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>الوصف</value>
+  </data>
+  <data name="Image URL" xml:space="preserve">
+    <value>رابط الصورة</value>
+  </data>
+  <data name="Display order" xml:space="preserve">
+    <value>ترتيب العرض</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Delete this subject?" xml:space="preserve">
+    <value>هل تريد حذف هذه المادة؟</value>
+  </data>
+  <data name="Create subject" xml:space="preserve">
+    <value>إنشاء مادة</value>
+  </data>
+  <data name="Create courses, assign teachers, and control publication." xml:space="preserve">
+    <value>أنشئ الدورات وعيّن المعلمين وتحكم في النشر.</value>
+  </data>
+  <data name="Search courses" xml:space="preserve">
+    <value>البحث عن الدورات</value>
+  </data>
+  <data name="All subjects" xml:space="preserve">
+    <value>كل المواد</value>
+  </data>
+  <data name="All statuses" xml:space="preserve">
+    <value>كل الحالات</value>
+  </data>
+  <data name="No courses found" xml:space="preserve">
+    <value>لم يتم العثور على دورات</value>
+  </data>
+  <data name="Add a course to start creating lessons and packages." xml:space="preserve">
+    <value>أضف دورة لبدء إنشاء الدروس والباقات.</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>الباقات</value>
+  </data>
+  <data name="Delete this course?" xml:space="preserve">
+    <value>هل تريد حذف هذه الدورة؟</value>
+  </data>
+  <data name="Add course" xml:space="preserve">
+    <value>إضافة دورة</value>
+  </data>
+  <data name="Assign the course to a subject and an eligible teacher." xml:space="preserve">
+    <value>عيّن الدورة لمادة ومعلم مؤهل.</value>
+  </data>
+  <data name="Choose a subject" xml:space="preserve">
+    <value>اختر مادة</value>
+  </data>
+  <data name="Unassigned" xml:space="preserve">
+    <value>غير معيّن</value>
+  </data>
+  <data name="The selected teacher must be assigned to the selected subject." xml:space="preserve">
+    <value>يجب أن يكون المعلم المحدد معيّناً للمادة المختارة.</value>
+  </data>
+  <data name="Thumbnail URL" xml:space="preserve">
+    <value>رابط الصورة المصغرة</value>
+  </data>
+  <data name="Create course" xml:space="preserve">
+    <value>إنشاء دورة</value>
+  </data>
+  <data name="Set pricing and course access duration." xml:space="preserve">
+    <value>حدد السعر ومدة الوصول إلى الدورة.</value>
+  </data>
+  <data name="Search package or course" xml:space="preserve">
+    <value>ابحث عن باقة أو دورة</value>
+  </data>
+  <data name="Search packages" xml:space="preserve">
+    <value>البحث عن الباقات</value>
+  </data>
+  <data name="All courses" xml:space="preserve">
+    <value>كل الدورات</value>
+  </data>
+  <data name="No packages found" xml:space="preserve">
+    <value>لم يتم العثور على باقات</value>
+  </data>
+  <data name="Create a package to define price and access duration." xml:space="preserve">
+    <value>أنشئ باقة لتحديد السعر ومدة الوصول.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>الباقة</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>السعر</value>
+  </data>
+  <data name="Access" xml:space="preserve">
+    <value>الوصول</value>
+  </data>
+  <data name="{0} days" xml:space="preserve">
+    <value>{0} يوماً</value>
+  </data>
+  <data name="Delete this package?" xml:space="preserve">
+    <value>هل تريد حذف هذه الباقة؟</value>
+  </data>
+  <data name="Define the amount and duration of course access." xml:space="preserve">
+    <value>حدد المبلغ ومدة الوصول إلى الدورة.</value>
+  </data>
+  <data name="Choose a course" xml:space="preserve">
+    <value>اختر دورة</value>
+  </data>
+  <data name="Access duration (days)" xml:space="preserve">
+    <value>مدة الوصول (بالأيام)</value>
+  </data>
+  <data name="Create package" xml:space="preserve">
+    <value>إنشاء باقة</value>
+  </data>
+  <data name="Edit package" xml:space="preserve">
+    <value>تعديل الباقة</value>
+  </data>
+  <data name="Add package" xml:space="preserve">
+    <value>إضافة باقة</value>
+  </data>
+  <data name="An account with this email already exists." xml:space="preserve">
+    <value>يوجد حساب مرتبط بهذا البريد الإلكتروني بالفعل.</value>
+  </data>
+  <data name="We could not complete your registration. Please try again." xml:space="preserve">
+    <value>تعذر إكمال التسجيل. حاول مرة أخرى.</value>
+  </data>
+  <data name="The sign-in details were not accepted." xml:space="preserve">
+    <value>تعذر قبول بيانات تسجيل الدخول.</value>
+  </data>
+  <data name="The account setup link is invalid or has expired. Request a new link from an administrator." xml:space="preserve">
+    <value>رابط إعداد الحساب غير صالح أو انتهت صلاحيته. اطلب رابطاً جديداً من المسؤول.</value>
+  </data>
+  <data name="Select a valid course." xml:space="preserve">
+    <value>اختر دورة صالحة.</value>
+  </data>
+  <data name="This course still has packages or an assigned teacher. Remove or reassign those references before deleting it." xml:space="preserve">
+    <value>ما زالت لهذه الدورة باقات أو معلم معيّن. أزل هذه الارتباطات أو أعد تعيينها قبل حذف الدورة.</value>
+  </data>
+  <data name="Select an active subject." xml:space="preserve">
+    <value>اختر مادة نشطة.</value>
+  </data>
+  <data name="Assign the selected teacher to this subject first." xml:space="preserve">
+    <value>عيّن المعلم المحدد لهذه المادة أولاً.</value>
+  </data>
+  <data name="A subject with this name already exists." xml:space="preserve">
+    <value>توجد مادة بهذا الاسم بالفعل.</value>
+  </data>
+  <data name="This subject is used by a course or teacher assignment. Deactivate it instead of deleting it." xml:space="preserve">
+    <value>تُستخدم هذه المادة في دورة أو تعيين معلم. ألغِ تفعيلها بدلاً من حذفها.</value>
+  </data>
+  <data name="Select only active subjects." xml:space="preserve">
+    <value>اختر المواد النشطة فقط.</value>
+  </data>
+  <data name="Identity validation failed." xml:space="preserve">
+    <value>تعذر التحقق من بيانات الحساب. راجع المعلومات وحاول مرة أخرى.</value>
+  </data>
+  <data name="DuplicateEmail" xml:space="preserve">
+    <value>يوجد حساب مرتبط بهذا البريد الإلكتروني بالفعل.</value>
+  </data>
+  <data name="DuplicateUserName" xml:space="preserve">
+    <value>اسم المستخدم مستخدم بالفعل.</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>أدخل بريداً إلكترونياً صالحاً.</value>
+  </data>
+  <data name="PasswordTooShort" xml:space="preserve">
+    <value>كلمة المرور قصيرة جداً.</value>
+  </data>
+  <data name="PasswordRequiresDigit" xml:space="preserve">
+    <value>يجب أن تحتوي كلمة المرور على رقم.</value>
+  </data>
+  <data name="PasswordRequiresLower" xml:space="preserve">
+    <value>يجب أن تحتوي كلمة المرور على حرف صغير.</value>
+  </data>
+  <data name="PasswordRequiresUpper" xml:space="preserve">
+    <value>يجب أن تحتوي كلمة المرور على حرف كبير.</value>
+  </data>
+  <data name="PasswordRequiresNonAlphanumeric" xml:space="preserve">
+    <value>يجب أن تحتوي كلمة المرور على رمز.</value>
+  </data>
+  <data name="PasswordRequiresUniqueChars" xml:space="preserve">
+    <value>لا تحتوي كلمة المرور على عدد كافٍ من الأحرف المختلفة.</value>
+  </data>
+  <data name="DuplicateRoleName" xml:space="preserve">
+    <value>اسم الدور مستخدم بالفعل.</value>
+  </data>
+  <data name="InvalidRoleName" xml:space="preserve">
+    <value>أدخل اسم دور صالحاً.</value>
+  </data>
+  <data name="InvalidToken" xml:space="preserve">
+    <value>رمز الأمان غير صالح.</value>
+  </data>
+  <data name="UserAlreadyHasPassword" xml:space="preserve">
+    <value>تم تعيين كلمة مرور لهذا الحساب بالفعل.</value>
+  </data>
+  <data name="ConcurrencyFailure" xml:space="preserve">
+    <value>تغير الحساب أثناء هذا الطلب. حاول مرة أخرى.</value>
+  </data>
+  <data name="LoginAlreadyAssociated" xml:space="preserve">
+    <value>تسجيل الدخول هذا مرتبط بحساب بالفعل.</value>
+  </data>
+  <data name="InvalidUserName" xml:space="preserve">
+    <value>أدخل اسم مستخدم صالحاً.</value>
+  </data>
+  <data name="Change language" xml:space="preserve">
+    <value>تغيير اللغة</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
+  <data name="ADMIN WORKSPACE" xml:space="preserve">
+    <value>مساحة الإدارة</value>
+  </data>
+  <data name="A learning workspace illustration" xml:space="preserve">
+    <value>رسم توضيحي لمساحة التعلّم</value>
+  </data>
+  <data name="No description" xml:space="preserve">
+    <value>لا يوجد وصف</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>تصفية</value>
+  </data>
+  <data name="Student account updated." xml:space="preserve">
+    <value>تم تحديث حساب الطالب.</value>
+  </data>
+  <data name="Student account deactivated." xml:space="preserve">
+    <value>تم إلغاء تفعيل حساب الطالب.</value>
+  </data>
+  <data name="Student account activated." xml:space="preserve">
+    <value>تم تفعيل حساب الطالب.</value>
+  </data>
+  <data name="Teacher created. Share the one-time account setup link with the teacher." xml:space="preserve">
+    <value>تم إنشاء المعلم. شارك معه رابط إعداد الحساب لمرة واحدة.</value>
+  </data>
+  <data name="Teacher profile updated." xml:space="preserve">
+    <value>تم تحديث ملف المعلم.</value>
+  </data>
+  <data name="Teacher profile activated." xml:space="preserve">
+    <value>تم تفعيل ملف المعلم.</value>
+  </data>
+  <data name="Teacher profile deactivated." xml:space="preserve">
+    <value>تم إلغاء تفعيل ملف المعلم.</value>
+  </data>
+  <data name="Course created." xml:space="preserve">
+    <value>تم إنشاء الدورة.</value>
+  </data>
+  <data name="Course updated." xml:space="preserve">
+    <value>تم تحديث الدورة.</value>
+  </data>
+  <data name="Course deleted." xml:space="preserve">
+    <value>تم حذف الدورة.</value>
+  </data>
+  <data name="Course package created." xml:space="preserve">
+    <value>تم إنشاء باقة الدورة.</value>
+  </data>
+  <data name="Course package updated." xml:space="preserve">
+    <value>تم تحديث باقة الدورة.</value>
+  </data>
+  <data name="Course package deleted." xml:space="preserve">
+    <value>تم حذف باقة الدورة.</value>
+  </data>
+  <data name="Subject created." xml:space="preserve">
+    <value>تم إنشاء المادة.</value>
+  </data>
+  <data name="Subject updated." xml:space="preserve">
+    <value>تم تحديث المادة.</value>
+  </data>
+  <data name="Subject deleted." xml:space="preserve">
+    <value>تم حذف المادة.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="The {0} field is required." xml:space="preserve">
+    <value>حقل {0} مطلوب.</value>
+  </data>
+  <data name="The field {0} must be a string with a maximum length of {1}." xml:space="preserve">
+    <value>يجب ألا يتجاوز الحقل {0} عدد {1} من الأحرف.</value>
+  </data>
+  <data name="The field {0} must be a string with a minimum length of {2} and a maximum length of {1}." xml:space="preserve">
+    <value>يجب أن يتراوح طول الحقل {0} بين {2} و{1} من الأحرف.</value>
+  </data>
+  <data name="The {0} field is not a valid e-mail address." xml:space="preserve">
+    <value>الحقل {0} لا يحتوي على بريد إلكتروني صالح.</value>
+  </data>
+  <data name="The field {0} must be a valid phone number." xml:space="preserve">
+    <value>أدخل رقم هاتف صالحاً في الحقل {0}.</value>
+  </data>
+  <data name="The field {0} must be a URL." xml:space="preserve">
+    <value>أدخل رابطاً صالحاً في الحقل {0}.</value>
+  </data>
+  <data name="The field {0} must be between {1} and {2}." xml:space="preserve">
+    <value>يجب أن تكون قيمة الحقل {0} بين {1} و{2}.</value>
+  </data>
+  <data name="The {0} and {1} fields do not match." xml:space="preserve">
+    <value>الحقلان {0} و{1} غير متطابقين.</value>
+  </data>
+  <data name="The passwords do not match." xml:space="preserve">
+    <value>كلمتا المرور غير متطابقتين.</value>
+  </data>
+  <data name="Please accept the Terms and Conditions." xml:space="preserve">
+    <value>يرجى الموافقة على الشروط والأحكام.</value>
+  </data>
+  <data name="Welcome, {0}" xml:space="preserve">
+    <value>مرحبًا، {0}</value>
+  </data>
+  <data name="Edit course" xml:space="preserve">
+    <value>تعديل الدورة</value>
+  </data>
+  <data name="Courses" xml:space="preserve">
+    <value>الدورات</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>المادة</value>
+  </data>
+  <data name="{0} courses · {1} packages" xml:space="preserve">
+    <value>{0} دورة · {1} باقة</value>
+  </data>
+  <data name="Choose a teacher" xml:space="preserve">
+    <value>اختر المعلم</value>
+  </data>
+  <data name="Password requirements were not met." xml:space="preserve">
+    <value>كلمة المرور لا تستوفي متطلبات الأمان.</value>
+  </data>
+  <data name="Instructor: {0}" xml:space="preserve">
+    <value>المعلم: {0}</value>
+  </data>
+  <data name="Add teacher" xml:space="preserve">
+    <value>إضافة معلم</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>أيام</value>
+  </data>
+  <data name="years" xml:space="preserve">
+    <value>سنوات</value>
+  </data>
+  <data name="Enter a password." xml:space="preserve">
+    <value>أدخل كلمة مرور.</value>
+  </data>
+  <data name="{0} course" xml:space="preserve">
+    <value>{0} دورة</value>
+  </data>
+  <data name="Add student" xml:space="preserve">
+    <value>إضافة طالب</value>
+  </data>
+  <data name="{0} courses" xml:space="preserve">
+    <value>{0} دورات</value>
+  </data>
+  <data name="Search accounts" xml:space="preserve">
+    <value>البحث في الحسابات</value>
+  </data>
+  <data name="Toggle navigation" xml:space="preserve">
+    <value>قائمة التنقل</value>
+  </data>
+</root>

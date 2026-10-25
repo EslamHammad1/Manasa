@@ -1,0 +1,63 @@
+@model Manasa.ViewModels.Student.DashboardViewModel
+@{
+    ViewData["Title"] = T["Student dashboard"];
+}
+
+<div class="student-page">
+    <section class="student-welcome" aria-labelledby="student-welcome-title">
+        <span class="eyebrow">@T["STUDENT LEARNING SPACE"]</span>
+        <h1 id="student-welcome-title">@T["Welcome"] <bdi>@Model.StudentName</bdi></h1>
+        <p>@T["Explore courses currently available in the catalog."]</p>
+    </section>
+
+    <section aria-labelledby="published-courses-heading">
+        <div class="student-section-heading">
+            <div>
+                <span class="eyebrow">@T["YOUR CATALOG"]</span>
+                <h2 id="published-courses-heading">@T["Explore courses"]</h2>
+            </div>
+            <span class="student-course-count">@T["Courses count: {0}", Model.Courses.Count]</span>
+        </div>
+
+        @if (Model.Courses.Count == 0)
+        {
+            <div class="student-empty-state">
+                <div class="student-empty-icon" aria-hidden="true">▤</div>
+                <h3>@T["No courses available yet"]</h3>
+                <p>@T["Published courses will appear here when they are available."]</p>
+            </div>
+        }
+        else
+        {
+            <div class="student-course-grid">
+                @foreach (var course in Model.Courses)
+                {
+                    <article class="student-course-card">
+                        <a class="student-course-image" asp-area="Student" asp-controller="Dashboard" asp-action="Details" asp-route-id="@course.Id" aria-label="@T["View details for {0}", course.Title]">
+                            @if (!string.IsNullOrWhiteSpace(course.ThumbnailUrl))
+                            {
+                                <img src="@course.ThumbnailUrl" alt="" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false" />
+                                <span class="student-course-image-fallback" hidden aria-hidden="true">M</span>
+                            }
+                            else
+                            {
+                                <span class="student-course-image-fallback" aria-hidden="true">M</span>
+                            }
+                        </a>
+                        <div class="student-course-content">
+                            <span class="student-course-subject" dir="auto">@course.Subject</span>
+                            <h3 dir="auto">@course.Title</h3>
+                            @if (!string.IsNullOrWhiteSpace(course.Description))
+                            {
+                                <p class="student-course-description" dir="auto">@course.Description</p>
+                            }
+                            <a class="student-course-action" asp-area="Student" asp-controller="Dashboard" asp-action="Details" asp-route-id="@course.Id">
+                                @T["View course details"] <span class="directional-arrow" aria-hidden="true">→</span>
+                            </a>
+                        </div>
+                    </article>
+                }
+            </div>
+        }
+    </section>
+</div>

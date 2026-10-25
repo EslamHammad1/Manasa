@@ -1,10 +1,12 @@
 using Manasa.Data;
+using Manasa.Localization;
 using Manasa.Models;
 using Manasa.ViewModels.Admin;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 
 namespace Manasa.Areas.Admin.Controllers;
 
@@ -12,7 +14,8 @@ namespace Manasa.Areas.Admin.Controllers;
 [Authorize(Roles = "Administrator")]
 public class StudentsController(
     ApplicationDbContext dbContext,
-    UserManager<ApplicationUser> userManager) : Controller
+    UserManager<ApplicationUser> userManager,
+    IStringLocalizer<SharedResource> text) : Controller
 {
     private const int PageSize = 25;
 
@@ -69,7 +72,7 @@ public class StudentsController(
     {
         if (await userManager.FindByEmailAsync(model.Email.Trim()) is not null)
         {
-            ModelState.AddModelError(nameof(model.Email), "An account with this email already exists.");
+            ModelState.AddModelError(nameof(model.Email), text["An account with this email already exists."]);
         }
 
         if (!ModelState.IsValid)
@@ -104,7 +107,10 @@ public class StudentsController(
         }
 
         await transaction.CommitAsync();
-        var token = await userManager.GeneratePasswordResetTokenAsync(student);
+        var token = await userManager.GenerateUserTokenAsync(
+            student,
+            AccountSetupTokenProviderOptions.ProviderName,
+            AccountSetupTokenProviderOptions.Purpose);
         model.UserName = userName;
         model.AccountSetupUrl = Url.ActionLink("SetPassword", "Account", new { userId = student.Id, token });
         TempData["AccountSetupUrl"] = model.AccountSetupUrl;
@@ -141,7 +147,7 @@ public class StudentsController(
         var emailOwner = await userManager.FindByEmailAsync(model.Email.Trim());
         if (emailOwner is not null && emailOwner.Id != student.Id)
         {
-            ModelState.AddModelError(nameof(model.Email), "An account with this email already exists.");
+            ModelState.AddModelError(nameof(model.Email), text["An account with this email already exists."]);
         }
 
         if (!ModelState.IsValid)
@@ -161,7 +167,7 @@ public class StudentsController(
             return View("Form", model);
         }
 
-        TempData["StatusMessage"] = "Student account updated.";
+        TempData["StatusMessage"] = text["Student account updated."].Value;
         return RedirectToAction(nameof(Index));
     }
 
@@ -180,7 +186,7 @@ public class StudentsController(
             student,
             isActive ? DateTimeOffset.UtcNow.AddYears(100) : null);
 
-        TempData["StatusMessage"] = isActive ? "Student account deactivated." : "Student account activated.";
+        TempData["StatusMessage"] = isActive ? text["Student account deactivated."].Value : text["Student account activated."].Value;
         return RedirectToAction(nameof(Index), new { page, search });
     }
 
@@ -188,9 +194,20 @@ public class StudentsController(
     {
         while (true)
         {
-            var number = await dbContext.Database
-                .SqlQueryRaw<long>("SELECT NEXT VALUE FOR dbo.StudentUsernameSequence AS [Value]")
-                .SingleAsync();
+            long? number = null;
+            var sequenceQuery = dbContext.Database
+                .SqlQueryRaw<long>("SELECT NEXT VALUE FOR dbo.StudentUsernameSequence AS [Value]");
+            await foreach (var value in sequenceQuery.AsAsyncEnumerable())
+            {
+                number = value;
+                break;
+            }
+
+            if (number is null)
+            {
+                throw new InvalidOperationException("Student username sequence returned no value.");
+            }
+
             var userName = $"STU-{number:000000}";
             if (await userManager.FindByNameAsync(userName) is null)
             {
@@ -211,7 +228,8 @@ public class StudentsController(
     {
         foreach (var error in result.Errors)
         {
-            ModelState.AddModelError(string.Empty, error.Description);
+            var localized = text[error.Code];
+            ModelState.AddModelError(string.Empty, localized.ResourceNotFound ? text["Identity validation failed."].Value : localized.Value);
         }
     }
 }

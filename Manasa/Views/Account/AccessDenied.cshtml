@@ -1,6 +1,6 @@
 @{
-    ViewData["Title"] = "Access denied";
+    ViewData["Title"] = T["Access denied"];
 }
 <div class="setup-card text-center">
-    <div class="setup-mark">!</div><span class="eyebrow">ACCESS RESTRICTED</span><h1>Access denied</h1><p>Your account does not have permission to open this page.</p><a asp-controller="Home" asp-action="Index" class="btn btn-primary">Return to home</a>
+    <div class="setup-mark">!</div><span class="eyebrow">@T["ACCESS RESTRICTED"]</span><h1>@T["Access denied"]</h1><p>@T["Your account does not have permission to open this page."]</p><a asp-controller="Home" asp-action="Index" class="btn btn-primary">@T["Return to home"]</a>
 </div>

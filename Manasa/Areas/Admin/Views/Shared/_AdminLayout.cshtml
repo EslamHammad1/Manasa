@@ -1,49 +1,68 @@
+@using System.Globalization
+@{
+    var currentUiCulture = CultureInfo.CurrentUICulture;
+    var currentPageUrl = $"{Context.Request.PathBase}{Context.Request.Path}{Context.Request.QueryString}";
+    var bootstrapCss = currentUiCulture.TextInfo.IsRightToLeft
+        ? Url.Content("~/lib/bootstrap/dist/css/bootstrap.rtl.min.css")
+        : Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css");
+}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="@currentUiCulture.TwoLetterISOLanguageName" dir="@(currentUiCulture.TextInfo.IsRightToLeft ? "rtl" : "ltr")">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Manasa Admin</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"] - @T["Administration"] - Manasa</title>
+    <link rel="stylesheet" href="@bootstrapCss" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body class="admin-body">
+    <a class="visually-hidden-focusable skip-link" href="#main-content">@T["Skip to content"]</a>
     <div class="admin-shell">
         <aside class="admin-sidebar">
             <a class="admin-brand" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
-                <span class="brand-mark">M</span><span>Manasa <small>ADMIN</small></span>
+                <span class="brand-mark" aria-hidden="true">M</span><span dir="ltr">Manasa <small>@T["ADMIN WORKSPACE"]</small></span>
             </a>
-            <div class="sidebar-label">WORKSPACE</div>
-            <nav class="admin-nav" aria-label="Administration">
-                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"><span>◫</span> Overview</a>
-                <a asp-area="Admin" asp-controller="Subjects" asp-action="Index"><span>▦</span> Subjects</a>
-                <a asp-area="Admin" asp-controller="Teachers" asp-action="Index"><span>♙</span> Teachers</a>
-                <a asp-area="Admin" asp-controller="Students" asp-action="Index"><span>♧</span> Students</a>
-                <a asp-area="Admin" asp-controller="Courses" asp-action="Index"><span>▤</span> Courses</a>
-                <a asp-area="Admin" asp-controller="CoursePackages" asp-action="Index"><span>◇</span> Course packages</a>
+            <div class="sidebar-label">@T["WORKSPACE"]</div>
+            <nav class="admin-nav" aria-label="@T["Administration"]">
+                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"><span>OV</span> @T["Overview"]</a>
+                <a asp-area="Admin" asp-controller="Subjects" asp-action="Index"><span>SU</span> @T["Subjects"]</a>
+                <a asp-area="Admin" asp-controller="Teachers" asp-action="Index"><span>TE</span> @T["Teachers"]</a>
+                <a asp-area="Admin" asp-controller="Students" asp-action="Index"><span>ST</span> @T["Students"]</a>
+                <a asp-area="Admin" asp-controller="Courses" asp-action="Index"><span>CO</span> @T["Courses"]</a>
+                <a asp-area="Admin" asp-controller="CoursePackages" asp-action="Index"><span>PK</span> @T["Course packages"]</a>
             </nav>
             <div class="admin-sidebar-bottom">
-                <a asp-area="" asp-controller="Home" asp-action="Index">← View site</a>
-                <span>Signed in as administrator</span>
-                <form asp-area="" asp-controller="Account" asp-action="Logout" method="post"><button class="btn btn-link p-0 text-start text-decoration-none text-light">Sign out</button></form>
+                <span>@T["Signed in as administrator"]</span>
+                <form asp-area="" asp-controller="Account" asp-action="Logout" method="post"><button class="btn btn-link p-0 text-start text-decoration-none text-light">@T["Sign out"]</button></form>
             </div>
         </aside>
-        <main class="admin-main">
+        <main id="main-content" class="admin-main">
             <header class="admin-topbar">
-                <span>Administration</span>
-                <span class="admin-avatar">@((User.Identity?.Name ?? "A")[..1].ToUpperInvariant())</span>
+                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="admin-context-link">@T["Administration"]</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="admin-view-site">@T["View public site"]</a>
+                <span class="admin-avatar" aria-hidden="true" dir="ltr">@((User.Identity?.Name ?? "A")[..1].ToUpperInvariant())</span>
+                <div class="site-language" role="group" aria-label="@T["Change language"]">
+                    <form asp-area="" asp-controller="Localization" asp-action="SetLanguage" method="post">
+                        <input type="hidden" name="culture" value="en" /><input type="hidden" name="returnUrl" value="@currentPageUrl" />
+                        <button type="submit" class="@(currentUiCulture.Name.StartsWith("en", StringComparison.OrdinalIgnoreCase) ? "selected" : "")" lang="en" dir="ltr">@T["English"]</button>
+                    </form>
+                    <form asp-area="" asp-controller="Localization" asp-action="SetLanguage" method="post">
+                        <input type="hidden" name="culture" value="ar" /><input type="hidden" name="returnUrl" value="@currentPageUrl" />
+                        <button type="submit" class="@(currentUiCulture.Name.StartsWith("ar", StringComparison.OrdinalIgnoreCase) ? "selected" : "")" lang="ar" dir="rtl">@T["Arabic"]</button>
+                    </form>
+                </div>
             </header>
             <div class="admin-content">
                 @if (TempData["StatusMessage"] is string statusMessage)
                 {
                     <div class="alert alert-success alert-dismissible fade show" role="status">
-                        @statusMessage<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        @statusMessage<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@T["Close"]"></button>
                     </div>
                 }
                 @if (TempData["ErrorMessage"] is string errorMessage)
                 {
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        @errorMessage<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        @errorMessage<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@T["Close"]"></button>
                     </div>
                 }
                 @RenderBody()
