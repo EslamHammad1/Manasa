@@ -2,6 +2,7 @@
 @{
     var currentUiCulture = CultureInfo.CurrentUICulture;
     var currentPageUrl = $"{Context.Request.PathBase}{Context.Request.Path}{Context.Request.QueryString}";
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
     var bootstrapCss = currentUiCulture.TextInfo.IsRightToLeft
         ? Url.Content("~/lib/bootstrap/dist/css/bootstrap.rtl.min.css")
         : Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css");
@@ -24,12 +25,12 @@
             </a>
             <div class="sidebar-label">@T["WORKSPACE"]</div>
             <nav class="admin-nav" aria-label="@T["Administration"]">
-                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"><span>OV</span> @T["Overview"]</a>
-                <a asp-area="Admin" asp-controller="Subjects" asp-action="Index"><span>SU</span> @T["Subjects"]</a>
-                <a asp-area="Admin" asp-controller="Teachers" asp-action="Index"><span>TE</span> @T["Teachers"]</a>
-                <a asp-area="Admin" asp-controller="Students" asp-action="Index"><span>ST</span> @T["Students"]</a>
-                <a asp-area="Admin" asp-controller="Courses" asp-action="Index"><span>CO</span> @T["Courses"]</a>
-                <a asp-area="Admin" asp-controller="CoursePackages" asp-action="Index"><span>PK</span> @T["Course packages"]</a>
+                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="@(currentController == "Dashboard" ? "active" : null)" aria-current="@(currentController == "Dashboard" ? "page" : null)"><span aria-hidden="true">OV</span> @T["Overview"]</a>
+                <a asp-area="Admin" asp-controller="Subjects" asp-action="Index" class="@(currentController == "Subjects" ? "active" : null)" aria-current="@(currentController == "Subjects" ? "page" : null)"><span aria-hidden="true">SU</span> @T["Subjects"]</a>
+                <a asp-area="Admin" asp-controller="Teachers" asp-action="Index" class="@(currentController == "Teachers" ? "active" : null)" aria-current="@(currentController == "Teachers" ? "page" : null)"><span aria-hidden="true">TE</span> @T["Teachers"]</a>
+                <a asp-area="Admin" asp-controller="Students" asp-action="Index" class="@(currentController == "Students" ? "active" : null)" aria-current="@(currentController == "Students" ? "page" : null)"><span aria-hidden="true">ST</span> @T["Students"]</a>
+                <a asp-area="Admin" asp-controller="Courses" asp-action="Index" class="@(currentController == "Courses" ? "active" : null)" aria-current="@(currentController == "Courses" ? "page" : null)"><span aria-hidden="true">CO</span> @T["Courses"]</a>
+                <a asp-area="Admin" asp-controller="CoursePackages" asp-action="Index" class="@(currentController == "CoursePackages" ? "active" : null)" aria-current="@(currentController == "CoursePackages" ? "page" : null)"><span aria-hidden="true">PK</span> @T["Course packages"]</a>
             </nav>
             <div class="admin-sidebar-bottom">
                 <span>@T["Signed in as administrator"]</span>
