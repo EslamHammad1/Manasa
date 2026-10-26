@@ -1,21 +1,96 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 400" role="img" aria-labelledby="title desc">
-  <title id="title">Learning workspace illustration</title>
-  <desc id="desc">An open book, a study card, and abstract learning shapes.</desc>
-  <rect x="28" y="24" width="464" height="352" rx="42" fill="#edf4f8"/>
-  <circle cx="412" cy="94" r="38" fill="#d6e9e8"/>
-  <circle cx="94" cy="302" r="24" fill="#c5d8e8"/>
-  <path d="M84 294c34-20 76-18 111 5v98c-35-23-77-25-111-5z" fill="#fff" stroke="#c9d8e4" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M195 299c35-23 77-25 111-5v98c-34-20-76-18-111 5z" fill="#fff" stroke="#c9d8e4" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M195 299v98" stroke="#c9d8e4" stroke-width="4"/>
-  <path d="M104 319c22-10 44-11 66-4M104 339c22-10 44-11 66-4M216 315c23-11 45-10 70-2M216 336c23-11 45-10 70-2" fill="none" stroke="#8ca5b9" stroke-width="5" stroke-linecap="round"/>
-  <g transform="rotate(-7 315 202)">
-    <rect x="221" y="108" width="184" height="174" rx="18" fill="#17324d"/>
-    <rect x="236" y="123" width="154" height="144" rx="11" fill="#fff"/>
-    <rect x="251" y="139" width="39" height="39" rx="11" fill="#28649b"/>
-    <path d="M260 158h21M270 148v21" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-    <rect x="251" y="194" width="119" height="8" rx="4" fill="#c7d6e2"/>
-    <rect x="251" y="211" width="91" height="7" rx="3.5" fill="#e1e9ef"/>
-    <rect x="251" y="235" width="56" height="10" rx="5" fill="#42a6a0"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" role="img" aria-labelledby="title desc">
+  <title id="title">Manasa learning constellation</title>
+  <desc id="desc">A luminous open book at the center of a small orbiting learning world, with floating lesson cards and geometric study objects.</desc>
+  <defs>
+    <radialGradient id="backdrop" cx="50%" cy="42%" r="70%">
+      <stop offset="0" stop-color="#1d4260"/>
+      <stop offset=".55" stop-color="#10253c"/>
+      <stop offset="1" stop-color="#091421"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#65e3d1" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#65e3d1" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bookCover" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#8af0df"/>
+      <stop offset="1" stop-color="#36acae"/>
+    </linearGradient>
+    <linearGradient id="page" x1="0" x2=".8" y1="0" y2="1">
+      <stop stop-color="#fff"/>
+      <stop offset="1" stop-color="#c9e8ee"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#243e59"/>
+      <stop offset="1" stop-color="#14283d"/>
+    </linearGradient>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12"/>
+      <feOffset dy="14"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".3"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <ellipse cx="320" cy="268" rx="296" ry="244" fill="url(#backdrop)"/>
+  <ellipse cx="324" cy="273" rx="230" ry="197" fill="url(#glow)"/>
+
+  <g fill="#c6f8f0" opacity=".8">
+    <circle cx="103" cy="141" r="2"/><circle cx="512" cy="118" r="2.5"/>
+    <circle cx="538" cy="340" r="1.8"/><circle cx="132" cy="374" r="2.2"/>
+    <circle cx="425" cy="76" r="1.6"/><circle cx="221" cy="96" r="1.5"/>
   </g>
-  <path d="m421 226 10 10 20-23" fill="none" stroke="#42a6a0" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g fill="none" stroke="#78dbcF" stroke-opacity=".28">
+    <ellipse cx="321" cy="269" rx="245" ry="98" transform="rotate(-22 321 269)" stroke-width="1.5"/>
+    <ellipse cx="321" cy="269" rx="204" ry="133" transform="rotate(28 321 269)" stroke-width="1"/>
+  </g>
+  <circle cx="107" cy="227" r="7" fill="#89e7d9" filter="url(#softGlow)"/>
+  <circle cx="520" cy="208" r="6" fill="#c2a9ff" filter="url(#softGlow)"/>
+  <circle cx="447" cy="405" r="5" fill="#f5c779" filter="url(#softGlow)"/>
+
+  <g class="float-card float-card-left" filter="url(#shadow)" transform="rotate(-9 150 226)">
+    <rect x="76" y="184" width="139" height="91" rx="15" fill="url(#card)" stroke="#84cfc9" stroke-opacity=".45"/>
+    <circle cx="101" cy="211" r="10" fill="#7be0d2"/>
+    <path d="M96 211h10M101 206v10" stroke="#10283a" stroke-width="2" stroke-linecap="round"/>
+    <rect x="120" y="205" width="74" height="6" rx="3" fill="#b4c9d8" opacity=".85"/>
+    <rect x="94" y="234" width="94" height="5" rx="2.5" fill="#708ba1" opacity=".72"/>
+    <rect x="94" y="249" width="62" height="5" rx="2.5" fill="#708ba1" opacity=".55"/>
+  </g>
+
+  <g class="float-card float-card-right" filter="url(#shadow)" transform="rotate(8 503 291)">
+    <rect x="437" y="252" width="119" height="82" rx="14" fill="url(#card)" stroke="#b9a3ff" stroke-opacity=".48"/>
+    <rect x="462" y="278" width="26" height="26" rx="7" fill="#927cf0"/>
+    <path d="m469 291 5 5 9-11" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="499" y="278" width="39" height="5" rx="2.5" fill="#d4d9e5"/>
+    <rect x="499" y="292" width="30" height="5" rx="2.5" fill="#778ca2"/>
+    <rect x="462" y="316" width="75" height="5" rx="2.5" fill="#718aa1" opacity=".7"/>
+  </g>
+
+  <g class="float-cube" filter="url(#shadow)" transform="translate(404 126) rotate(18)">
+    <path d="m0 15 23-13 23 13-23 13z" fill="#c0a8ff"/>
+    <path d="M0 15v27l23 13V28z" fill="#7864c5"/>
+    <path d="M46 15v27L23 55V28z" fill="#9980e8"/>
+  </g>
+
+  <ellipse cx="320" cy="370" rx="143" ry="33" fill="#06101b" opacity=".55" filter="url(#softGlow)"/>
+  <g filter="url(#shadow)">
+    <path d="M191 247c42-23 87-20 129 9v115c-42-29-87-32-129-9z" fill="url(#bookCover)" stroke="#b1fff2" stroke-width="2"/>
+    <path d="M449 247c-42-23-87-20-129 9v115c42-29 87-32 129-9z" fill="#319aa2" stroke="#80e6dc" stroke-width="2"/>
+    <path d="M198 244c39-20 80-17 118 8v109c-38-25-79-28-118-8z" fill="url(#page)"/>
+    <path d="M442 244c-39-20-80-17-118 8v109c38-25 79-28 118-8z" fill="url(#page)"/>
+    <path d="M320 252v113" stroke="#719eaa" stroke-width="3" opacity=".75"/>
+    <g fill="none" stroke="#7597a8" stroke-linecap="round" stroke-width="4" opacity=".68">
+      <path d="M216 274c24-9 48-7 72 4M216 290c24-9 48-7 72 4M216 306c24-9 48-7 72 4"/>
+      <path d="M352 278c24-11 48-11 72-3M352 294c24-11 48-11 72-3M352 310c24-11 48-11 72-3"/>
+    </g>
+    <path d="M216 329c24-8 48-6 72 4" stroke="#49bdb4" stroke-width="8" stroke-linecap="round"/>
+    <path d="M352 333c24-10 48-10 72-2" stroke="#a58bf7" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <g class="float-star" transform="translate(298 148)" filter="url(#softGlow)">
+    <path d="m0-16 4 11 12 5-12 4-4 12-4-12-12-4 12-5z" fill="#f5d28e"/>
+  </g>
 </svg>
