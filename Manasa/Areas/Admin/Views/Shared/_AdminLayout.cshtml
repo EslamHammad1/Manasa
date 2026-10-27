@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body class="admin-body">
+    <canvas class="neural-network" data-neural-network aria-hidden="true"></canvas>
     <a class="visually-hidden-focusable skip-link" href="#main-content">@T["Skip to content"]</a>
     <div class="admin-shell">
         <aside class="admin-sidebar">
@@ -72,6 +73,7 @@
         </main>
     </div>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/neural-network.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
