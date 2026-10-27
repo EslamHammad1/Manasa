@@ -1,0 +1,8 @@
+@model Manasa.ViewModels.Student.StudentQuizListViewModel
+@{ ViewData["Title"] = T["Available quizzes"]; }
+<div class="student-page"><a class="student-back-link" asp-area="Student" asp-controller="Dashboard" asp-action="Index">← @T["Student dashboard"]</a>
+<section class="student-welcome"><span class="eyebrow">@T["ASSESSMENTS"]</span><h1>@T["Available quizzes"]</h1><p>@T["Take quizzes for published courses and review your results."]</p></section>
+@if (Model.Quizzes.Count == 0) { <div class="student-empty-state"><h2>@T["No quizzes available"]</h2><p>@T["Published quizzes will appear here."]</p></div> }
+else { <div class="student-course-grid">@foreach (var quiz in Model.Quizzes) { <article class="student-course-card"><div class="student-course-content"><span class="student-course-subject">@quiz.CourseTitle</span><h2 dir="auto">@quiz.Title</h2><p>@quiz.QuestionCount @T["Questions"]</p>@if (!string.IsNullOrWhiteSpace(quiz.Description)) { <p dir="auto">@quiz.Description</p> }
+@if (quiz.HasInProgressAttempt) { <a class="btn btn-primary" asp-action="Details" asp-route-id="@quiz.Id">@T["Continue quiz"]</a> } else { <a class="btn btn-primary" asp-action="Details" asp-route-id="@quiz.Id">@T["Quiz details"]</a> }</div></article> }</div> }
+</div>

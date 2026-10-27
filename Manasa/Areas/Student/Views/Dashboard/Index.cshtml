@@ -10,6 +10,22 @@
         <p>@T["Explore courses currently available in the catalog."]</p>
     </section>
 
+    <section class="form-panel mb-4" aria-labelledby="student-progress-heading">
+        <div class="student-section-heading"><div><span class="eyebrow">@T["YOUR PROGRESS"]</span><h2 id="student-progress-heading">@T["Learning achievements"]</h2></div><a class="btn btn-primary" asp-area="Student" asp-controller="Quizzes" asp-action="Index">@T["Available quizzes"]</a></div>
+        <div class="row text-center"><div class="col"><strong>@Model.TotalXp</strong><div>@T["XP points"]</div></div><div class="col"><strong>@Model.CurrentStreak</strong><div>@T["Current streak"]</div></div><div class="col"><strong>@Model.LongestStreak</strong><div>@T["Longest streak"]</div></div></div>
+        <h3 class="mt-4">@T["Earned badges"]</h3>
+        @if (Model.Badges.Count == 0) { <p>@T["Complete a quiz to earn your first badge."]</p> }
+        else { <div class="d-flex flex-wrap gap-3">@foreach (var badge in Model.Badges) { <article class="border rounded p-3"><strong>@T[badge.NameResourceKey]</strong><p class="mb-1">@T[badge.DescriptionResourceKey]</p><small>@badge.EarnedAtUtc.ToString("d")</small></article> }</div> }
+        @if (Model.AchievementProgress.Count > 0)
+        {
+            <h3 class="mt-4">@T["Achievement progress"]</h3>
+            <div class="row g-3">@foreach (var progress in Model.AchievementProgress) { <div class="col-md-4"><div class="border rounded p-3"><strong>@T[progress.NameResourceKey]</strong><div>@progress.Current / @progress.Target</div><progress class="w-100" value="@progress.Current" max="@progress.Target">@progress.Current / @progress.Target</progress></div></div> }</div>
+        }
+        <h3 class="mt-4">@T["Recent quiz results"]</h3>
+        @if (Model.RecentQuizzes.Count == 0) { <p>@T["No quiz attempts yet."]</p> }
+        else { <ul class="list-group">@foreach (var attempt in Model.RecentQuizzes) { <li class="list-group-item d-flex justify-content-between"><span>@attempt.QuizTitle — @attempt.Percentage%</span><a asp-area="Student" asp-controller="Quizzes" asp-action="Result" asp-route-id="@attempt.AttemptId">@T["View result"]</a></li> }</ul> }
+    </section>
+
     <section aria-labelledby="published-courses-heading">
         <div class="student-section-heading">
             <div>

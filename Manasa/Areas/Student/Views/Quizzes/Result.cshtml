@@ -1,0 +1,8 @@
+@model Manasa.ViewModels.Student.QuizResultViewModel
+@{ ViewData["Title"] = T["Quiz result"]; }
+<div class="student-page"><section class="student-welcome"><span class="eyebrow">@T["QUIZ RESULT"]</span><h1>@Model.QuizTitle</h1><p>@T["Attempt {0}", Model.AttemptNumber]</p>
+@if (Model.Status == Manasa.Models.QuizAttemptStatus.Expired) { <p role="status">@T["This attempt expired before submission."]</p> }
+else { <p><strong>@Model.Earned / @Model.Maximum</strong> (@Model.Percentage%)</p><p>@(Model.Passed ? T["Passed"] : T["Not passed"])</p> }
+<a class="btn btn-light" asp-action="History" asp-route-quizId="@Model.QuizId">@T["View attempt history"]</a></section>
+@foreach (var answer in Model.Answers) { <article class="form-panel mb-3"><h2 dir="auto">@answer.Question</h2><p>@T["Your answer"]: <span dir="auto">@(answer.SelectedAnswer ?? T["No answer"])</span></p><p>@T["Score"]: @answer.Earned / @answer.Maximum</p>@if (!string.IsNullOrWhiteSpace(answer.Explanation)) { <p dir="auto">@answer.Explanation</p> }</article> }
+</div>

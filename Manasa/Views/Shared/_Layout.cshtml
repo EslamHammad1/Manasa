@@ -36,10 +36,12 @@
                         @if (User.IsInRole("Student"))
                         {
                             <li class="nav-item"><a class="nav-link" asp-area="Student" asp-controller="Dashboard" asp-action="Index">@T["Student dashboard"]</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-area="Student" asp-controller="Quizzes" asp-action="Index">@T["Available quizzes"]</a></li>
                         }
                         @if (User.IsInRole("Administrator"))
                         {
                             <li class="nav-item"><a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">@T["Administration"]</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-area="Admin" asp-controller="Quizzes" asp-action="Index">@T["Quizzes"]</a></li>
                         }
                     </ul>
                     <div class="site-account-actions">
@@ -69,6 +71,10 @@
         </nav>
     </header>
     <main id="main-content" role="main" class="site-main container">
+        @if (TempData["ErrorMessage"] is string errorMessage)
+        {
+            <div class="alert alert-danger" role="alert">@errorMessage</div>
+        }
         @RenderBody()
     </main>
     <footer class="site-footer">
