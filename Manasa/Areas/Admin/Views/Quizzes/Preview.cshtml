@@ -1,0 +1,6 @@
+@model AdminQuizPreviewViewModel
+@{ ViewData["Title"] = T["Preview quiz"]; }
+<div class="page-heading"><div><span class="eyebrow">@T["QUIZ PREVIEW"]</span><h1>@Model.Title</h1><p>@Model.CourseTitle</p></div><a class="btn btn-light align-self-center" asp-action="Questions" asp-route-id="@ViewContext.RouteData.Values["id"]">@T["Back to questions"]</a></div>
+<p>@T["Passing score: {0}%", Model.PassingScorePercent] · @(Model.TimeLimitMinutes is null ? T["No time limit"] : T["Time limit: {0} minutes", Model.TimeLimitMinutes])</p>
+@if (!string.IsNullOrWhiteSpace(Model.Description)) { <p dir="auto">@Model.Description</p> }
+@for (var index = 0; index < Model.Questions.Count; index++) { var question = Model.Questions[index]; <section class="form-panel mb-3"><h2>@(index + 1). <span dir="auto">@question.Text</span> <small>@question.Points @T["Points"] · @T[question.Type.ToString()]</small></h2><ul>@foreach (var option in question.Options) { <li dir="auto">@option.Text @if (option.IsCorrect) { <strong class="text-success">(@T["Correct answer"])</strong> }</li> }</ul></section> }

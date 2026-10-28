@@ -1,0 +1,7 @@
+@model AdminQuizAttemptsViewModel
+@{ ViewData["Title"] = T["Quiz results"]; }
+<div class="page-heading"><div><span class="eyebrow">@T["ASSESSMENTS"]</span><h1>@T["Results"] — @Model.QuizTitle</h1></div></div>
+<div class="table-responsive form-panel"><table class="table align-middle"><thead><tr><th>@T["Student"]</th><th>@T["Attempt"]</th><th>@T["Status"]</th><th>@T["Score"]</th><th>@T["Result"]</th><th>@T["Started"]</th></tr></thead><tbody>
+@foreach (var attempt in Model.Attempts) { <tr><td>@attempt.StudentName</td><td>@attempt.AttemptNumber</td><td>@T[attempt.Status.ToString()]</td><td>@attempt.Percentage%</td><td>@(attempt.Passed ? T["Passed"] : T["Not passed"])</td><td>@attempt.StartedAtUtc.ToString("u")</td></tr> }
+@if (Model.Attempts.Count == 0) { <tr><td colspan="6">@T["No attempts yet"]</td></tr> }
+</tbody></table></div>

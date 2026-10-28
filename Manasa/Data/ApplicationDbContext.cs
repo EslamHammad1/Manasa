@@ -17,9 +17,15 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
 
     public DbSet<CoursePackage> CoursePackages => Set<CoursePackage>();
 
-    public DbSet<CourseLesson> CourseLessons => Set<CourseLesson>();
-
-    public DbSet<StudentLessonProgress> StudentLessonProgress => Set<StudentLessonProgress>();
+    public DbSet<Quiz> Quizzes => Set<Quiz>();
+    public DbSet<QuizQuestion> QuizQuestions => Set<QuizQuestion>();
+    public DbSet<QuizOption> QuizOptions => Set<QuizOption>();
+    public DbSet<QuizAttempt> QuizAttempts => Set<QuizAttempt>();
+    public DbSet<QuizAttemptAnswer> QuizAttemptAnswers => Set<QuizAttemptAnswer>();
+    public DbSet<StudentXpAward> StudentXpAwards => Set<StudentXpAward>();
+    public DbSet<BadgeDefinition> BadgeDefinitions => Set<BadgeDefinition>();
+    public DbSet<StudentBadge> StudentBadges => Set<StudentBadge>();
+    public DbSet<StudentLearningDay> StudentLearningDays => Set<StudentLearningDay>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -126,37 +132,54 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
             .HasForeignKey(package => package.CourseId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        builder.Entity<CourseLesson>()
-            .Property(lesson => lesson.CreatedAtUtc)
-            .HasDefaultValueSql("SYSUTCDATETIME()");
-
-        builder.Entity<CourseLesson>()
-            .HasIndex(lesson => new { lesson.CourseId, lesson.IsPublished, lesson.DisplayOrder, lesson.Id });
-
-        builder.Entity<CourseLesson>()
-            .HasOne(lesson => lesson.Course)
-            .WithMany(course => course.Lessons)
-            .HasForeignKey(lesson => lesson.CourseId)
+        builder.Entity<Quiz>()
+            .HasOne(quiz => quiz.Course).WithMany().HasForeignKey(quiz => quiz.CourseId)
             .OnDelete(DeleteBehavior.Restrict);
+        builder.Entity<Quiz>().HasIndex(quiz => new { quiz.CourseId, quiz.IsPublished });
+        builder.Entity<Quiz>().Property(quiz => quiz.PassingScorePercent).HasPrecision(5, 2);
+        builder.Entity<Quiz>().Property(quiz => quiz.CreatedAtUtc).HasDefaultValueSql("SYSUTCDATETIME()");
+        builder.Entity<Quiz>().Property(quiz => quiz.UpdatedAtUtc).HasDefaultValueSql("SYSUTCDATETIME()");
+        builder.Entity<QuizQuestion>().Property(question => question.Points).HasPrecision(8, 2);
+        builder.Entity<QuizQuestion>().HasIndex(question => new { question.QuizId, question.DisplayOrder });
+        builder.Entity<QuizQuestion>().HasOne(question => question.Quiz).WithMany(quiz => quiz.Questions)
+            .HasForeignKey(question => question.QuizId).OnDelete(DeleteBehavior.Cascade);
+        builder.Entity<QuizOption>().HasIndex(option => new { option.QuizQuestionId, option.DisplayOrder });
+        builder.Entity<QuizOption>().HasOne(option => option.QuizQuestion).WithMany(question => question.Options)
+            .HasForeignKey(option => option.QuizQuestionId).OnDelete(DeleteBehavior.Cascade);
+        builder.Entity<QuizAttempt>().Property(attempt => attempt.EarnedScore).HasPrecision(10, 2);
+        builder.Entity<QuizAttempt>().Property(attempt => attempt.MaximumScore).HasPrecision(10, 2);
+        builder.Entity<QuizAttempt>().Property(attempt => attempt.Percentage).HasPrecision(5, 2);
+        builder.Entity<QuizAttempt>().Property(attempt => attempt.PassingScorePercentSnapshot).HasPrecision(5, 2);
+        builder.Entity<QuizAttempt>().Property(attempt => attempt.RowVersion).IsRowVersion();
+        builder.Entity<QuizAttempt>().HasIndex(attempt => new { attempt.StudentId, attempt.QuizId, attempt.AttemptNumber }).IsUnique();
+        builder.Entity<QuizAttempt>().HasIndex(attempt => new { attempt.StudentId, attempt.QuizId, attempt.Status });
+        builder.Entity<QuizAttempt>().HasOne(attempt => attempt.Student).WithMany()
+            .HasForeignKey(attempt => attempt.StudentId).OnDelete(DeleteBehavior.Restrict);
+        builder.Entity<QuizAttempt>().HasOne(attempt => attempt.Quiz).WithMany(quiz => quiz.Attempts)
+            .HasForeignKey(attempt => attempt.QuizId).OnDelete(DeleteBehavior.Restrict);
+        builder.Entity<QuizAttemptAnswer>().Property(answer => answer.EarnedPoints).HasPrecision(8, 2);
+        builder.Entity<QuizAttemptAnswer>().Property(answer => answer.MaximumPoints).HasPrecision(8, 2);
+        builder.Entity<QuizAttemptAnswer>().HasIndex(answer => new { answer.QuizAttemptId, answer.QuestionId }).IsUnique();
+        builder.Entity<QuizAttemptAnswer>().HasOne(answer => answer.Attempt).WithMany(attempt => attempt.Answers)
+            .HasForeignKey(answer => answer.QuizAttemptId).OnDelete(DeleteBehavior.Cascade);
+        builder.Entity<StudentXpAward>().HasIndex(award => new { award.StudentId, award.EventType, award.EventKey }).IsUnique();
+        builder.Entity<StudentXpAward>().HasOne(award => award.Student).WithMany()
+            .HasForeignKey(award => award.StudentId).OnDelete(DeleteBehavior.Restrict);
+        builder.Entity<BadgeDefinition>().HasKey(badge => badge.Code);
+        builder.Entity<StudentBadge>().HasIndex(badge => new { badge.StudentId, badge.BadgeCode }).IsUnique();
+        builder.Entity<StudentBadge>().HasOne(badge => badge.Student).WithMany()
+            .HasForeignKey(badge => badge.StudentId).OnDelete(DeleteBehavior.Restrict);
+        builder.Entity<StudentBadge>().HasOne(badge => badge.Badge).WithMany()
+            .HasForeignKey(badge => badge.BadgeCode).OnDelete(DeleteBehavior.Restrict);
+        builder.Entity<StudentLearningDay>().HasIndex(day => new { day.StudentId, day.ActivityDate }).IsUnique();
+        builder.Entity<StudentLearningDay>().HasOne(day => day.Student).WithMany()
+            .HasForeignKey(day => day.StudentId).OnDelete(DeleteBehavior.Restrict);
 
-        builder.Entity<StudentLessonProgress>()
-            .HasIndex(progress => new { progress.StudentId, progress.LessonId })
-            .IsUnique();
-
-        builder.Entity<StudentLessonProgress>()
-            .HasIndex(progress => new { progress.StudentId, progress.LastAccessedAtUtc });
-
-        builder.Entity<StudentLessonProgress>()
-            .HasOne(progress => progress.Student)
-            .WithMany(student => student.LessonProgress)
-            .HasForeignKey(progress => progress.StudentId)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        builder.Entity<StudentLessonProgress>()
-            .HasOne(progress => progress.Lesson)
-            .WithMany(lesson => lesson.StudentProgress)
-            .HasForeignKey(progress => progress.LessonId)
-            .OnDelete(DeleteBehavior.Restrict);
+        builder.Entity<BadgeDefinition>().HasData(
+            new BadgeDefinition { Code = "FirstQuiz", NameResourceKey = "Badge.FirstQuiz.Name", DescriptionResourceKey = "Badge.FirstQuiz.Description", IsActive = true },
+            new BadgeDefinition { Code = "QuizMaster", NameResourceKey = "Badge.QuizMaster.Name", DescriptionResourceKey = "Badge.QuizMaster.Description", IsActive = true },
+            new BadgeDefinition { Code = "PerfectScore", NameResourceKey = "Badge.PerfectScore.Name", DescriptionResourceKey = "Badge.PerfectScore.Description", IsActive = true },
+            new BadgeDefinition { Code = "LearningMilestone", NameResourceKey = "Badge.LearningMilestone.Name", DescriptionResourceKey = "Badge.LearningMilestone.Description", IsActive = true });
 
         builder.Entity<Subject>().HasData(
             new Subject { Id = 1, Name = "Programming", Description = "Foundations of software development.", IsActive = true, DisplayOrder = 1, CreatedAtUtc = new DateTime(2026, 1, 1, 0, 0, 0, DateTimeKind.Utc) },

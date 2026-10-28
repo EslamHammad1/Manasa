@@ -888,53 +888,113 @@
   <data name="Toggle navigation" xml:space="preserve">
     <value>Toggle navigation</value>
   </data>
-  <data name="Course lessons" xml:space="preserve"><value>Course lessons</value></data>
-  <data name="COURSE CONTENT" xml:space="preserve"><value>COURSE CONTENT</value></data>
-  <data name="Lessons" xml:space="preserve"><value>Lessons</value></data>
-  <data name="Manage lesson content, order, and publication." xml:space="preserve"><value>Manage lesson content, order, and publication.</value></data>
-  <data name="Add lesson" xml:space="preserve"><value>Add lesson</value></data>
-  <data name="No lessons yet" xml:space="preserve"><value>No lessons yet</value></data>
-  <data name="Add text or a supported video to start this course." xml:space="preserve"><value>Add text or a supported video to start this course.</value></data>
-  <data name="Create first lesson" xml:space="preserve"><value>Create first lesson</value></data>
-  <data name="Lesson" xml:space="preserve"><value>Lesson</value></data>
-  <data name="Content" xml:space="preserve"><value>Content</value></data>
-  <data name="Student progress" xml:space="preserve"><value>Student progress</value></data>
-  <data name="Text" xml:space="preserve"><value>Text</value></data>
-  <data name="Video" xml:space="preserve"><value>Video</value></data>
-  <data name="Delete this lesson?" xml:space="preserve"><value>Delete this lesson?</value></data>
-  <data name="Edit lesson" xml:space="preserve"><value>Edit lesson</value></data>
-  <data name="Add lesson text, a supported video, or both." xml:space="preserve"><value>Add lesson text, a supported video, or both.</value></data>
-  <data name="Lesson title" xml:space="preserve"><value>Lesson title</value></data>
-  <data name="Short description" xml:space="preserve"><value>Short description</value></data>
-  <data name="Lesson text" xml:space="preserve"><value>Lesson text</value></data>
-  <data name="Text is shown as plain text; HTML and scripts are not rendered." xml:space="preserve"><value>Text is shown as plain text; HTML and scripts are not rendered.</value></data>
-  <data name="YouTube or Vimeo URL" xml:space="preserve"><value>YouTube or Vimeo URL</value></data>
-  <data name="Use an HTTPS YouTube or Vimeo video URL." xml:space="preserve"><value>Use an HTTPS YouTube or Vimeo video URL.</value></data>
-  <data name="Use an HTTPS YouTube or Vimeo video URL. Other providers are not supported." xml:space="preserve"><value>Use an HTTPS YouTube or Vimeo video URL. Other providers are not supported.</value></data>
-  <data name="Create lesson" xml:space="preserve"><value>Create lesson</value></data>
-  <data name="Lesson created successfully." xml:space="preserve"><value>Lesson created successfully.</value></data>
-  <data name="Lesson saved successfully." xml:space="preserve"><value>Lesson saved successfully.</value></data>
-  <data name="Lesson deleted successfully." xml:space="preserve"><value>Lesson deleted successfully.</value></data>
-  <data name="Add lesson text or a supported video URL." xml:space="preserve"><value>Add lesson text or a supported video URL.</value></data>
-  <data name="This lesson has student progress and cannot be deleted. Unpublish it to remove it from the learning path." xml:space="preserve"><value>This lesson has student progress and cannot be deleted. Unpublish it to remove it from the learning path.</value></data>
-  <data name="This course still has packages, lessons, or an assigned teacher. Remove or reassign those references before deleting it." xml:space="preserve"><value>This course still has packages, lessons, or an assigned teacher. Remove or reassign those references before deleting it.</value></data>
-  <data name="Course progress" xml:space="preserve"><value>Course progress</value></data>
-  <data name="Progress: {0}%" xml:space="preserve"><value>Progress: {0}%</value></data>
-  <data name="Lessons completed: {0} of {1}" xml:space="preserve"><value>Lessons completed: {0} of {1}</value></data>
-  <data name="Resume learning" xml:space="preserve"><value>Resume learning</value></data>
+  <data name="ASSESSMENTS" xml:space="preserve"><value>ASSESSMENTS</value></data>
+  <data name="Manage course quizzes and review student results." xml:space="preserve"><value>Manage course quizzes and review student results.</value></data>
+  <data name="Create quiz" xml:space="preserve"><value>Create quiz</value></data>
+  <data name="No quizzes yet" xml:space="preserve"><value>No quizzes yet</value></data>
+  <data name="Create a quiz for a published course." xml:space="preserve"><value>Create a quiz for a published course.</value></data>
+  <data name="Unpublished" xml:space="preserve"><value>Unpublished</value></data>
+  <data name="Manage questions" xml:space="preserve"><value>Manage questions</value></data>
+  <data name="Edit quiz" xml:space="preserve"><value>Edit quiz</value></data>
+  <data name="Quiz title" xml:space="preserve"><value>Quiz title</value></data>
+  <data name="Passing score (%)" xml:space="preserve"><value>Passing score (%)</value></data>
+  <data name="Time limit (minutes)" xml:space="preserve"><value>Time limit (minutes)</value></data>
+  <data name="Leave blank for no time limit." xml:space="preserve"><value>Leave blank for no time limit.</value></data>
+  <data name="Maximum attempts" xml:space="preserve"><value>Maximum attempts</value></data>
+  <data name="Leave blank for unlimited attempts." xml:space="preserve"><value>Leave blank for unlimited attempts.</value></data>
+  <data name="Show explanations after submission" xml:space="preserve"><value>Show explanations after submission</value></data>
+  <data name="Edit question" xml:space="preserve"><value>Edit question</value></data>
+  <data name="Question type" xml:space="preserve"><value>Question type</value></data>
+  <data name="Answer options" xml:space="preserve"><value>Answer options</value></data>
+  <data name="Enter one option per line. True/False questions use two options." xml:space="preserve"><value>Enter one option per line. True/False questions use two options.</value></data>
+  <data name="Correct option number" xml:space="preserve"><value>Correct option number</value></data>
+  <data name="Number options from top to bottom, starting at 1." xml:space="preserve"><value>Number options from top to bottom, starting at 1.</value></data>
+  <data name="Explanation (optional)" xml:space="preserve"><value>Explanation (optional)</value></data>
+  <data name="Save question" xml:space="preserve"><value>Save question</value></data>
+  <data name="Published quizzes are taken offline before questions change." xml:space="preserve"><value>Published quizzes are taken offline before questions change.</value></data>
+  <data name="Add questions, answer choices, and correct answers." xml:space="preserve"><value>Add questions, answer choices, and correct answers.</value></data>
+  <data name="Edit quiz settings" xml:space="preserve"><value>Edit quiz settings</value></data>
+  <data name="View results" xml:space="preserve"><value>View results</value></data>
+  <data name="Unpublish" xml:space="preserve"><value>Unpublish</value></data>
+  <data name="Publish" xml:space="preserve"><value>Publish</value></data>
+  <data name="No questions yet" xml:space="preserve"><value>No questions yet</value></data>
+  <data name="Add at least one valid question before publishing." xml:space="preserve"><value>Add at least one valid question before publishing.</value></data>
+  <data name="Delete this question?" xml:space="preserve"><value>Delete this question?</value></data>
+  <data name="Quiz results" xml:space="preserve"><value>Quiz results</value></data>
+  <data name="Passed" xml:space="preserve"><value>Passed</value></data>
+  <data name="Not passed" xml:space="preserve"><value>Not passed</value></data>
+  <data name="No attempts yet" xml:space="preserve"><value>No attempts yet</value></data>
+  <data name="Available quizzes" xml:space="preserve"><value>Available quizzes</value></data>
+  <data name="Take quizzes for published courses and review your results." xml:space="preserve"><value>Take quizzes for published courses and review your results.</value></data>
+  <data name="No quizzes available" xml:space="preserve"><value>No quizzes available</value></data>
+  <data name="Published quizzes will appear here." xml:space="preserve"><value>Published quizzes will appear here.</value></data>
+  <data name="Continue quiz" xml:space="preserve"><value>Continue quiz</value></data>
+  <data name="Quiz details" xml:space="preserve"><value>Quiz details</value></data>
+  <data name="Passing score: {0}%" xml:space="preserve"><value>Passing score: {0}%</value></data>
+  <data name="No time limit" xml:space="preserve"><value>No time limit</value></data>
+  <data name="Time limit: {0} minutes" xml:space="preserve"><value>Time limit: {0} minutes</value></data>
+  <data name="Unlimited attempts" xml:space="preserve"><value>Unlimited attempts</value></data>
+  <data name="Attempts remaining: {0}" xml:space="preserve"><value>Attempts remaining: {0}</value></data>
+  <data name="You have reached the attempt limit." xml:space="preserve"><value>You have reached the attempt limit.</value></data>
+  <data name="View attempt history" xml:space="preserve"><value>View attempt history</value></data>
+  <data name="Start quiz" xml:space="preserve"><value>Start quiz</value></data>
+  <data name="QUIZ IN PROGRESS" xml:space="preserve"><value>QUIZ IN PROGRESS</value></data>
+  <data name="Submit quiz" xml:space="preserve"><value>Submit quiz</value></data>
+  <data name="Quiz result" xml:space="preserve"><value>Quiz result</value></data>
+  <data name="Attempt {0}" xml:space="preserve"><value>Attempt {0}</value></data>
+  <data name="This attempt expired before submission." xml:space="preserve"><value>This attempt expired before submission.</value></data>
+  <data name="Your answer" xml:space="preserve"><value>Your answer</value></data>
+  <data name="No answer" xml:space="preserve"><value>No answer</value></data>
+  <data name="Attempt history" xml:space="preserve"><value>Attempt history</value></data>
+  <data name="Back to quiz" xml:space="preserve"><value>Back to quiz</value></data>
+  <data name="View result" xml:space="preserve"><value>View result</value></data>
   <data name="YOUR PROGRESS" xml:space="preserve"><value>YOUR PROGRESS</value></data>
-  <data name="No lessons available yet" xml:space="preserve"><value>No lessons available yet</value></data>
-  <data name="Lessons will appear here when they are published." xml:space="preserve"><value>Lessons will appear here when they are published.</value></data>
-  <data name="Open lesson" xml:space="preserve"><value>Open lesson</value></data>
-  <data name="Back to course" xml:space="preserve"><value>Back to course</value></data>
-  <data name="Lesson {0} of {1}" xml:space="preserve"><value>Lesson {0} of {1}</value></data>
-  <data name="LESSON {0}" xml:space="preserve"><value>LESSON {0}</value></data>
-  <data name="Open video on its provider" xml:space="preserve"><value>Open video on its provider</value></data>
-  <data name="Lesson content unavailable" xml:space="preserve"><value>Lesson content unavailable</value></data>
-  <data name="This lesson does not have supported content available right now." xml:space="preserve"><value>This lesson does not have supported content available right now.</value></data>
-  <data name="Lesson completed" xml:space="preserve"><value>Lesson completed</value></data>
-  <data name="Mark as complete" xml:space="preserve"><value>Mark as complete</value></data>
-  <data name="Lesson navigation" xml:space="preserve"><value>Lesson navigation</value></data>
-  <data name="Previous lesson" xml:space="preserve"><value>Previous lesson</value></data>
-  <data name="Next lesson" xml:space="preserve"><value>Next lesson</value></data>
+  <data name="Learning achievements" xml:space="preserve"><value>Learning achievements</value></data>
+  <data name="XP points" xml:space="preserve"><value>XP points</value></data>
+  <data name="Current streak" xml:space="preserve"><value>Current streak</value></data>
+  <data name="Longest streak" xml:space="preserve"><value>Longest streak</value></data>
+  <data name="Earned badges" xml:space="preserve"><value>Earned badges</value></data>
+  <data name="Complete a quiz to earn your first badge." xml:space="preserve"><value>Complete a quiz to earn your first badge.</value></data>
+  <data name="Recent quiz results" xml:space="preserve"><value>Recent quiz results</value></data>
+  <data name="No quiz attempts yet." xml:space="preserve"><value>No quiz attempts yet.</value></data>
+  <data name="MultipleChoice" xml:space="preserve"><value>Multiple choice</value></data>
+  <data name="TrueFalse" xml:space="preserve"><value>True/False</value></data>
+  <data name="InProgress" xml:space="preserve"><value>In progress</value></data>
+  <data name="Submitted" xml:space="preserve"><value>Submitted</value></data>
+  <data name="Expired" xml:space="preserve"><value>Expired</value></data>
+  <data name="Badge.FirstQuiz.Name" xml:space="preserve"><value>First Quiz</value></data>
+  <data name="Badge.FirstQuiz.Description" xml:space="preserve"><value>Submit your first valid quiz attempt.</value></data>
+  <data name="Badge.QuizMaster.Name" xml:space="preserve"><value>Quiz Master</value></data>
+  <data name="Badge.QuizMaster.Description" xml:space="preserve"><value>Pass quizzes in five different courses.</value></data>
+  <data name="Badge.PerfectScore.Name" xml:space="preserve"><value>Perfect Score</value></data>
+  <data name="Badge.PerfectScore.Description" xml:space="preserve"><value>Earn a perfect score on a quiz.</value></data>
+  <data name="Badge.LearningMilestone.Name" xml:space="preserve"><value>Learning Milestone</value></data>
+  <data name="Badge.LearningMilestone.Description" xml:space="preserve"><value>Earn 100 XP points.</value></data>
+  <data name="Preview quiz" xml:space="preserve"><value>Preview quiz</value></data>
+  <data name="QUIZ PREVIEW" xml:space="preserve"><value>QUIZ PREVIEW</value></data>
+  <data name="Back to questions" xml:space="preserve"><value>Back to questions</value></data>
+  <data name="Correct answer" xml:space="preserve"><value>Correct answer</value></data>
+  <data name="This quiz needs valid questions and a published course before publication." xml:space="preserve"><value>This quiz needs valid questions and a published course before publication.</value></data>
+  <data name="Provide 2 to 20 answer options and select an existing correct option." xml:space="preserve"><value>Provide 2 to 20 answer options and select an existing correct option.</value></data>
+  <data name="Select a valid question type." xml:space="preserve"><value>Select a valid question type.</value></data>
+  <data name="True/False questions require exactly two options." xml:space="preserve"><value>True/False questions require exactly two options.</value></data>
+  <data name="Question saved. The quiz is unpublished until reviewed and published again." xml:space="preserve"><value>Question saved. The quiz is unpublished until reviewed and published again.</value></data>
+  <data name="Question deleted. The quiz is now unpublished." xml:space="preserve"><value>Question deleted. The quiz is now unpublished.</value></data>
+  <data name="Quiz created." xml:space="preserve"><value>Quiz created.</value></data>
+  <data name="Quiz updated." xml:space="preserve"><value>Quiz updated.</value></data>
+  <data name="Quiz published." xml:space="preserve"><value>Quiz published.</value></data>
+  <data name="Quiz unpublished." xml:space="preserve"><value>Quiz unpublished.</value></data>
+  <data name="Quizzes" xml:space="preserve"><value>Quizzes</value></data>
+  <data name="Results" xml:space="preserve"><value>Results</value></data>
+  <data name="Add question" xml:space="preserve"><value>Add question</value></data>
+  <data name="Question" xml:space="preserve"><value>Question</value></data>
+  <data name="Points" xml:space="preserve"><value>Points</value></data>
+  <data name="Type" xml:space="preserve"><value>Type</value></data>
+  <data name="Attempts" xml:space="preserve"><value>Attempts</value></data>
+  <data name="Attempt" xml:space="preserve"><value>Attempt</value></data>
+  <data name="Score" xml:space="preserve"><value>Score</value></data>
+  <data name="Result" xml:space="preserve"><value>Result</value></data>
+  <data name="Started" xml:space="preserve"><value>Started</value></data>
+  <data name="This quiz is unavailable or your attempt limit has been reached." xml:space="preserve"><value>This quiz is unavailable or your attempt limit has been reached.</value></data>
+  <data name="Questions" xml:space="preserve"><value>Questions</value></data>
 </root>

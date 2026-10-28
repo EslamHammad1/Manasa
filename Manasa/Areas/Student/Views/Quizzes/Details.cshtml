@@ -1,0 +1,10 @@
+@model Manasa.ViewModels.Student.StudentQuizDetailsViewModel
+@{ ViewData["Title"] = Model.Title; int? remaining = Model.MaximumAttempts is null ? null : Math.Max(0, Model.MaximumAttempts.Value - Model.AttemptsUsed); }
+<div class="student-page"><a class="student-back-link" asp-action="Index">← @T["Available quizzes"]</a><article class="student-detail-card"><div class="student-detail-content"><span class="student-course-subject">@Model.CourseTitle</span><h1 dir="auto">@Model.Title</h1>
+@if (TempData["ErrorMessage"] is string error) { <div class="alert alert-danger" role="alert">@error</div> }
+@if (!string.IsNullOrWhiteSpace(Model.Description)) { <p dir="auto">@Model.Description</p> }
+<ul><li>@T["Passing score: {0}%", Model.PassingScorePercent]</li><li>@(Model.TimeLimitMinutes is null ? T["No time limit"] : T["Time limit: {0} minutes", Model.TimeLimitMinutes])</li><li>@(Model.MaximumAttempts is null ? T["Unlimited attempts"] : T["Attempts remaining: {0}", remaining ?? 0])</li></ul>
+@if (Model.HasInProgressAttempt || remaining is null or > 0) { <form asp-action="Start" asp-route-id="@Model.Id" method="post"><button class="btn btn-primary">@(Model.HasInProgressAttempt ? T["Continue quiz"] : T["Start quiz"])</button></form> }
+else { <p role="status">@T["You have reached the attempt limit."]</p> }
+<a class="btn btn-light mt-3" asp-action="History" asp-route-quizId="@Model.Id">@T["View attempt history"]</a>
+</div></article></div>
