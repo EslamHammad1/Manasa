@@ -600,9 +600,9 @@ a { color: var(--manasa-primary); text-underline-offset: .2em; }
 .btn-close { filter: invert(1) grayscale(1); }
 
 .home-page { max-width: 1280px; perspective: 1400px; }
-.home-hero {
+.home-page .home-hero {
   position: relative;
-  min-height: clamp(470px, 49vw, 620px);
+  min-height: clamp(440px, 46vw, 580px);
   grid-template-columns: minmax(0, 1fr) minmax(360px, .9fr);
   gap: clamp(20px, 4vw, 70px);
   border: 1px solid rgba(135, 191, 221, .2);
