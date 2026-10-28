@@ -17,6 +17,10 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
 
     public DbSet<CoursePackage> CoursePackages => Set<CoursePackage>();
 
+    public DbSet<CourseLesson> CourseLessons => Set<CourseLesson>();
+
+    public DbSet<StudentLessonProgress> StudentLessonProgress => Set<StudentLessonProgress>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -120,6 +124,38 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
             .HasOne(package => package.Course)
             .WithMany(course => course.Packages)
             .HasForeignKey(package => package.CourseId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder.Entity<CourseLesson>()
+            .Property(lesson => lesson.CreatedAtUtc)
+            .HasDefaultValueSql("SYSUTCDATETIME()");
+
+        builder.Entity<CourseLesson>()
+            .HasIndex(lesson => new { lesson.CourseId, lesson.IsPublished, lesson.DisplayOrder, lesson.Id });
+
+        builder.Entity<CourseLesson>()
+            .HasOne(lesson => lesson.Course)
+            .WithMany(course => course.Lessons)
+            .HasForeignKey(lesson => lesson.CourseId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder.Entity<StudentLessonProgress>()
+            .HasIndex(progress => new { progress.StudentId, progress.LessonId })
+            .IsUnique();
+
+        builder.Entity<StudentLessonProgress>()
+            .HasIndex(progress => new { progress.StudentId, progress.LastAccessedAtUtc });
+
+        builder.Entity<StudentLessonProgress>()
+            .HasOne(progress => progress.Student)
+            .WithMany(student => student.LessonProgress)
+            .HasForeignKey(progress => progress.StudentId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder.Entity<StudentLessonProgress>()
+            .HasOne(progress => progress.Lesson)
+            .WithMany(lesson => lesson.StudentProgress)
+            .HasForeignKey(progress => progress.LessonId)
             .OnDelete(DeleteBehavior.Restrict);
 
         builder.Entity<Subject>().HasData(

@@ -1,0 +1,55 @@
+@model CourseLessonFormViewModel
+@{
+    var editing = Model.Id != 0;
+    ViewData["Title"] = editing ? T["Edit lesson"] : T["Add lesson"];
+}
+
+<div class="page-heading">
+    <div>
+        <span class="eyebrow">@T["COURSE CONTENT"]</span>
+        <h1>@ViewData["Title"]</h1>
+        <p><span dir="auto">@Model.CourseTitle</span> · @T["Add lesson text, a supported video, or both."]</p>
+    </div>
+</div>
+
+<div class="form-panel">
+    <form asp-action="@(editing ? "Edit" : "Create")" asp-route-courseId="@Model.CourseId" asp-route-id="@Model.Id" method="post">
+        <input asp-for="CourseId" type="hidden" />
+        <input asp-for="Id" type="hidden" />
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+        <div class="mb-3">
+            <label asp-for="Title" class="form-label">@T["Lesson title"]</label>
+            <input asp-for="Title" class="form-control" dir="auto" maxlength="180" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">@T["Short description"]</label>
+            <input asp-for="Description" class="form-control" dir="auto" maxlength="1000" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="TextContent" class="form-label">@T["Lesson text"]</label>
+            <textarea asp-for="TextContent" class="form-control lesson-editor" rows="10" dir="auto" maxlength="20000"></textarea>
+            <span asp-validation-for="TextContent" class="text-danger"></span>
+            <div class="form-text">@T["Text is shown as plain text; HTML and scripts are not rendered."]</div>
+        </div>
+        <div class="mb-3">
+            <label asp-for="VideoUrl" class="form-label">@T["YouTube or Vimeo URL"]</label>
+            <input asp-for="VideoUrl" class="form-control" type="url" dir="ltr" maxlength="500" placeholder="https://www.youtube.com/watch?v=..." />
+            <span asp-validation-for="VideoUrl" class="text-danger"></span>
+            <div class="form-text">@T["Use an HTTPS YouTube or Vimeo video URL. Other providers are not supported."]</div>
+        </div>
+        <div class="row g-3 align-items-end">
+            <div class="col-sm-6">
+                <label asp-for="DisplayOrder" class="form-label">@T["Display order"]</label>
+                <input asp-for="DisplayOrder" class="form-control" min="0" max="100000" dir="ltr" />
+                <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-check mb-2"><input asp-for="IsPublished" class="form-check-input" /><label asp-for="IsPublished" class="form-check-label">@T["Published"]</label></div>
+            </div>
+        </div>
+        <div class="form-actions mt-4"><a asp-action="Index" asp-route-courseId="@Model.CourseId" class="btn btn-light">@T["Cancel"]</a><button class="btn btn-primary">@(editing ? T["Save changes"] : T["Create lesson"])</button></div>
+    </form>
+</div>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

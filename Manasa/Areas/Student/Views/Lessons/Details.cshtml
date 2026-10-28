@@ -1,0 +1,101 @@
+@model Manasa.ViewModels.Student.LessonLearningViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="student-page lesson-learning-page">
+    <a class="student-back-link" asp-area="Student" asp-controller="Dashboard" asp-action="Details" asp-route-id="@Model.CourseId">← @T["Back to course"]</a>
+    <div class="lesson-learning-layout">
+        <aside class="lesson-sidebar" aria-labelledby="lesson-list-heading">
+            <div class="lesson-sidebar-heading">
+                <span class="eyebrow">@T["COURSE CONTENT"]</span>
+                <h2 id="lesson-list-heading" dir="auto">@Model.CourseTitle</h2>
+                <span class="student-course-count">@T["Lesson {0} of {1}", Model.LessonNumber, Model.TotalLessons]</span>
+            </div>
+            <div class="course-progress">
+                <div class="course-progress-copy"><span>@T["Progress: {0}%", Model.CompletionPercentage]</span></div>
+                <div class="course-progress-track" role="progressbar" aria-valuenow="@Model.CompletionPercentage" aria-valuemin="0" aria-valuemax="100" aria-label="@T["Course progress"]"><span style="width: @Model.CompletionPercentage%"></span></div>
+            </div>
+            <ol class="lesson-navigation-list">
+                @foreach (var item in Model.Lessons)
+                {
+                    <li>
+                        <form asp-area="Student" asp-controller="Lessons" asp-action="Open" method="post">
+                            <input type="hidden" name="courseId" value="@Model.CourseId" />
+                            <input type="hidden" name="lessonId" value="@item.Id" />
+                            <button type="submit" class="lesson-navigation-item @(item.IsCurrent ? "is-current" : null)" aria-current="@(item.IsCurrent ? "step" : null)">
+                                <span class="lesson-navigation-status" aria-hidden="true">@(item.IsCompleted ? "✓" : "•")</span>
+                                <span dir="auto">@item.Title</span>
+                                @if (item.IsCompleted) { <span class="visually-hidden">@T["Completed"]</span> }
+                            </button>
+                        </form>
+                    </li>
+                }
+            </ol>
+        </aside>
+
+        <main class="lesson-reading-panel">
+            <header class="lesson-reading-header">
+                <span class="eyebrow">@T["LESSON {0}", Model.LessonNumber]</span>
+                <h1 dir="auto">@Model.Title</h1>
+                @if (!string.IsNullOrWhiteSpace(Model.Description))
+                {
+                    <p dir="auto">@Model.Description</p>
+                }
+            </header>
+
+            @if (!string.IsNullOrWhiteSpace(Model.VideoEmbedUrl))
+            {
+                <div class="lesson-video-frame">
+                    <iframe src="@Model.VideoEmbedUrl" title="@Model.Title" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-presentation" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p class="lesson-video-fallback"><a href="@Model.OriginalVideoUrl" target="_blank" rel="noopener noreferrer">@T["Open video on its provider"]</a></p>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.TextContent))
+            {
+                <article class="lesson-text-content" dir="auto">@Model.TextContent</article>
+            }
+            @if (Model.VideoEmbedUrl is null && string.IsNullOrWhiteSpace(Model.TextContent))
+            {
+                <div class="student-empty-state student-empty-state-compact">
+                    <h2>@T["Lesson content unavailable"]</h2>
+                    <p>@T["This lesson does not have supported content available right now."]</p>
+                </div>
+            }
+
+            <div class="lesson-completion-panel">
+                @if (Model.IsCompleted)
+                {
+                    <p class="lesson-completed-label">✓ @T["Lesson completed"]</p>
+                }
+                else
+                {
+                    <form asp-area="Student" asp-controller="Lessons" asp-action="Complete" method="post">
+                        <input type="hidden" name="courseId" value="@Model.CourseId" />
+                        <input type="hidden" name="lessonId" value="@Model.LessonId" />
+                        <button type="submit" class="student-course-action student-complete-button">@T["Mark as complete"]</button>
+                    </form>
+                }
+            </div>
+
+            <nav class="lesson-previous-next" aria-label="@T["Lesson navigation"]">
+                @if (Model.PreviousLessonId.HasValue)
+                {
+                    <form asp-area="Student" asp-controller="Lessons" asp-action="Open" method="post">
+                        <input type="hidden" name="courseId" value="@Model.CourseId" />
+                        <input type="hidden" name="lessonId" value="@Model.PreviousLessonId.Value" />
+                        <button type="submit" class="student-back-link">← @T["Previous lesson"]</button>
+                    </form>
+                }
+                @if (Model.NextLessonId.HasValue)
+                {
+                    <form asp-area="Student" asp-controller="Lessons" asp-action="Open" method="post">
+                        <input type="hidden" name="courseId" value="@Model.CourseId" />
+                        <input type="hidden" name="lessonId" value="@Model.NextLessonId.Value" />
+                        <button type="submit" class="student-course-action">@T["Next lesson"] →</button>
+                    </form>
+                }
+            </nav>
+        </main>
+    </div>
+</div>

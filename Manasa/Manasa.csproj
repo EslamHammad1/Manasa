@@ -16,4 +16,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.21" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Manasa.Tests/**/*.cs" />
+    <Content Remove="Manasa.Tests/**" />
+    <None Remove="Manasa.Tests/**" />
+  </ItemGroup>
+
 </Project>

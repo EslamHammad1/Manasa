@@ -51,6 +51,23 @@
                             {
                                 <p class="student-course-description" dir="auto">@course.Description</p>
                             }
+                            <div class="course-progress" aria-label="@T["Course progress"]">
+                                <div class="course-progress-copy">
+                                    <span>@T["Progress: {0}%", course.CompletionPercentage]</span>
+                                    <span>@T["Lessons completed: {0} of {1}", course.CompletedLessons, course.TotalLessons]</span>
+                                </div>
+                                <div class="course-progress-track" role="progressbar" aria-valuenow="@course.CompletionPercentage" aria-valuemin="0" aria-valuemax="100" aria-label="@T["Course progress"]">
+                                    <span style="width: @course.CompletionPercentage%"></span>
+                                </div>
+                            </div>
+                            @if (course.ResumeLessonId.HasValue)
+                            {
+                                <form asp-area="Student" asp-controller="Lessons" asp-action="Open" method="post" class="student-resume-form">
+                                    <input type="hidden" name="courseId" value="@course.Id" />
+                                    <input type="hidden" name="lessonId" value="@course.ResumeLessonId.Value" />
+                                    <button type="submit" class="student-course-action student-resume-button">@T["Resume learning"] <span class="directional-arrow" aria-hidden="true">→</span></button>
+                                </form>
+                            }
                             <a class="student-course-action" asp-area="Student" asp-controller="Dashboard" asp-action="Details" asp-route-id="@course.Id">
                                 @T["View course details"] <span class="directional-arrow" aria-hidden="true">→</span>
                             </a>

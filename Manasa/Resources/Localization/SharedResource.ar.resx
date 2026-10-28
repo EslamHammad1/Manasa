@@ -888,4 +888,53 @@
   <data name="Toggle navigation" xml:space="preserve">
     <value>قائمة التنقل</value>
   </data>
+  <data name="Course lessons" xml:space="preserve"><value>دروس المقرر</value></data>
+  <data name="COURSE CONTENT" xml:space="preserve"><value>محتوى المقرر</value></data>
+  <data name="Lessons" xml:space="preserve"><value>الدروس</value></data>
+  <data name="Manage lesson content, order, and publication." xml:space="preserve"><value>أدر محتوى الدروس وترتيبها وحالة نشرها.</value></data>
+  <data name="Add lesson" xml:space="preserve"><value>إضافة درس</value></data>
+  <data name="No lessons yet" xml:space="preserve"><value>لا توجد دروس بعد</value></data>
+  <data name="Add text or a supported video to start this course." xml:space="preserve"><value>أضف نصًا أو فيديو مدعومًا لبدء هذا المقرر.</value></data>
+  <data name="Create first lesson" xml:space="preserve"><value>إنشاء أول درس</value></data>
+  <data name="Lesson" xml:space="preserve"><value>الدرس</value></data>
+  <data name="Content" xml:space="preserve"><value>المحتوى</value></data>
+  <data name="Student progress" xml:space="preserve"><value>تقدم الطلاب</value></data>
+  <data name="Text" xml:space="preserve"><value>نص</value></data>
+  <data name="Video" xml:space="preserve"><value>فيديو</value></data>
+  <data name="Delete this lesson?" xml:space="preserve"><value>هل تريد حذف هذا الدرس؟</value></data>
+  <data name="Edit lesson" xml:space="preserve"><value>تعديل الدرس</value></data>
+  <data name="Add lesson text, a supported video, or both." xml:space="preserve"><value>أضف نصًا للدرس أو فيديو مدعومًا أو كليهما.</value></data>
+  <data name="Lesson title" xml:space="preserve"><value>عنوان الدرس</value></data>
+  <data name="Short description" xml:space="preserve"><value>وصف مختصر</value></data>
+  <data name="Lesson text" xml:space="preserve"><value>نص الدرس</value></data>
+  <data name="Text is shown as plain text; HTML and scripts are not rendered." xml:space="preserve"><value>يُعرض النص كما هو؛ ولا يتم تشغيل HTML أو البرامج النصية.</value></data>
+  <data name="YouTube or Vimeo URL" xml:space="preserve"><value>رابط YouTube أو Vimeo</value></data>
+  <data name="Use an HTTPS YouTube or Vimeo video URL." xml:space="preserve"><value>استخدم رابط فيديو آمنًا يبدأ بـ HTTPS من YouTube أو Vimeo.</value></data>
+  <data name="Use an HTTPS YouTube or Vimeo video URL. Other providers are not supported." xml:space="preserve"><value>استخدم رابط فيديو آمنًا يبدأ بـ HTTPS من YouTube أو Vimeo. لا ندعم موفري الفيديو الآخرين.</value></data>
+  <data name="Create lesson" xml:space="preserve"><value>إنشاء الدرس</value></data>
+  <data name="Lesson created successfully." xml:space="preserve"><value>تم إنشاء الدرس بنجاح.</value></data>
+  <data name="Lesson saved successfully." xml:space="preserve"><value>تم حفظ الدرس بنجاح.</value></data>
+  <data name="Lesson deleted successfully." xml:space="preserve"><value>تم حذف الدرس بنجاح.</value></data>
+  <data name="Add lesson text or a supported video URL." xml:space="preserve"><value>أضف نصًا للدرس أو رابط فيديو مدعومًا.</value></data>
+  <data name="This lesson has student progress and cannot be deleted. Unpublish it to remove it from the learning path." xml:space="preserve"><value>لدى الطلاب تقدم محفوظ في هذا الدرس، لذلك لا يمكن حذفه. ألغِ نشره لإزالته من مسار التعلم.</value></data>
+  <data name="This course still has packages, lessons, or an assigned teacher. Remove or reassign those references before deleting it." xml:space="preserve"><value>ما زالت هناك باقات أو دروس أو معلم معيّن لهذا المقرر. أزل هذه الارتباطات أو غيّرها قبل حذفه.</value></data>
+  <data name="Course progress" xml:space="preserve"><value>التقدم في المقرر</value></data>
+  <data name="Progress: {0}%" xml:space="preserve"><value>التقدم: {0}%</value></data>
+  <data name="Lessons completed: {0} of {1}" xml:space="preserve"><value>الدروس المكتملة: {0} من {1}</value></data>
+  <data name="Resume learning" xml:space="preserve"><value>استئناف التعلم</value></data>
+  <data name="YOUR PROGRESS" xml:space="preserve"><value>تقدمك</value></data>
+  <data name="No lessons available yet" xml:space="preserve"><value>لا توجد دروس متاحة بعد</value></data>
+  <data name="Lessons will appear here when they are published." xml:space="preserve"><value>ستظهر الدروس هنا عند نشرها.</value></data>
+  <data name="Open lesson" xml:space="preserve"><value>افتح الدرس</value></data>
+  <data name="Back to course" xml:space="preserve"><value>العودة إلى المقرر</value></data>
+  <data name="Lesson {0} of {1}" xml:space="preserve"><value>الدرس {0} من {1}</value></data>
+  <data name="LESSON {0}" xml:space="preserve"><value>الدرس {0}</value></data>
+  <data name="Open video on its provider" xml:space="preserve"><value>افتح الفيديو على موقعه</value></data>
+  <data name="Lesson content unavailable" xml:space="preserve"><value>محتوى الدرس غير متاح</value></data>
+  <data name="This lesson does not have supported content available right now." xml:space="preserve"><value>لا يتوفر محتوى مدعوم لهذا الدرس حاليًا.</value></data>
+  <data name="Lesson completed" xml:space="preserve"><value>اكتمل الدرس</value></data>
+  <data name="Mark as complete" xml:space="preserve"><value>وضع علامة مكتمل</value></data>
+  <data name="Lesson navigation" xml:space="preserve"><value>التنقل بين الدروس</value></data>
+  <data name="Previous lesson" xml:space="preserve"><value>الدرس السابق</value></data>
+  <data name="Next lesson" xml:space="preserve"><value>الدرس التالي</value></data>
 </root>

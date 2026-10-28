@@ -28,4 +28,6 @@ public class Course
     public TeacherProfile? TeacherProfile { get; set; }
 
     public ICollection<CoursePackage> Packages { get; set; } = new List<CoursePackage>();
+
+    public ICollection<CourseLesson> Lessons { get; set; } = new List<CourseLesson>();
 }

@@ -888,4 +888,53 @@
   <data name="Toggle navigation" xml:space="preserve">
     <value>Toggle navigation</value>
   </data>
+  <data name="Course lessons" xml:space="preserve"><value>Course lessons</value></data>
+  <data name="COURSE CONTENT" xml:space="preserve"><value>COURSE CONTENT</value></data>
+  <data name="Lessons" xml:space="preserve"><value>Lessons</value></data>
+  <data name="Manage lesson content, order, and publication." xml:space="preserve"><value>Manage lesson content, order, and publication.</value></data>
+  <data name="Add lesson" xml:space="preserve"><value>Add lesson</value></data>
+  <data name="No lessons yet" xml:space="preserve"><value>No lessons yet</value></data>
+  <data name="Add text or a supported video to start this course." xml:space="preserve"><value>Add text or a supported video to start this course.</value></data>
+  <data name="Create first lesson" xml:space="preserve"><value>Create first lesson</value></data>
+  <data name="Lesson" xml:space="preserve"><value>Lesson</value></data>
+  <data name="Content" xml:space="preserve"><value>Content</value></data>
+  <data name="Student progress" xml:space="preserve"><value>Student progress</value></data>
+  <data name="Text" xml:space="preserve"><value>Text</value></data>
+  <data name="Video" xml:space="preserve"><value>Video</value></data>
+  <data name="Delete this lesson?" xml:space="preserve"><value>Delete this lesson?</value></data>
+  <data name="Edit lesson" xml:space="preserve"><value>Edit lesson</value></data>
+  <data name="Add lesson text, a supported video, or both." xml:space="preserve"><value>Add lesson text, a supported video, or both.</value></data>
+  <data name="Lesson title" xml:space="preserve"><value>Lesson title</value></data>
+  <data name="Short description" xml:space="preserve"><value>Short description</value></data>
+  <data name="Lesson text" xml:space="preserve"><value>Lesson text</value></data>
+  <data name="Text is shown as plain text; HTML and scripts are not rendered." xml:space="preserve"><value>Text is shown as plain text; HTML and scripts are not rendered.</value></data>
+  <data name="YouTube or Vimeo URL" xml:space="preserve"><value>YouTube or Vimeo URL</value></data>
+  <data name="Use an HTTPS YouTube or Vimeo video URL." xml:space="preserve"><value>Use an HTTPS YouTube or Vimeo video URL.</value></data>
+  <data name="Use an HTTPS YouTube or Vimeo video URL. Other providers are not supported." xml:space="preserve"><value>Use an HTTPS YouTube or Vimeo video URL. Other providers are not supported.</value></data>
+  <data name="Create lesson" xml:space="preserve"><value>Create lesson</value></data>
+  <data name="Lesson created successfully." xml:space="preserve"><value>Lesson created successfully.</value></data>
+  <data name="Lesson saved successfully." xml:space="preserve"><value>Lesson saved successfully.</value></data>
+  <data name="Lesson deleted successfully." xml:space="preserve"><value>Lesson deleted successfully.</value></data>
+  <data name="Add lesson text or a supported video URL." xml:space="preserve"><value>Add lesson text or a supported video URL.</value></data>
+  <data name="This lesson has student progress and cannot be deleted. Unpublish it to remove it from the learning path." xml:space="preserve"><value>This lesson has student progress and cannot be deleted. Unpublish it to remove it from the learning path.</value></data>
+  <data name="This course still has packages, lessons, or an assigned teacher. Remove or reassign those references before deleting it." xml:space="preserve"><value>This course still has packages, lessons, or an assigned teacher. Remove or reassign those references before deleting it.</value></data>
+  <data name="Course progress" xml:space="preserve"><value>Course progress</value></data>
+  <data name="Progress: {0}%" xml:space="preserve"><value>Progress: {0}%</value></data>
+  <data name="Lessons completed: {0} of {1}" xml:space="preserve"><value>Lessons completed: {0} of {1}</value></data>
+  <data name="Resume learning" xml:space="preserve"><value>Resume learning</value></data>
+  <data name="YOUR PROGRESS" xml:space="preserve"><value>YOUR PROGRESS</value></data>
+  <data name="No lessons available yet" xml:space="preserve"><value>No lessons available yet</value></data>
+  <data name="Lessons will appear here when they are published." xml:space="preserve"><value>Lessons will appear here when they are published.</value></data>
+  <data name="Open lesson" xml:space="preserve"><value>Open lesson</value></data>
+  <data name="Back to course" xml:space="preserve"><value>Back to course</value></data>
+  <data name="Lesson {0} of {1}" xml:space="preserve"><value>Lesson {0} of {1}</value></data>
+  <data name="LESSON {0}" xml:space="preserve"><value>LESSON {0}</value></data>
+  <data name="Open video on its provider" xml:space="preserve"><value>Open video on its provider</value></data>
+  <data name="Lesson content unavailable" xml:space="preserve"><value>Lesson content unavailable</value></data>
+  <data name="This lesson does not have supported content available right now." xml:space="preserve"><value>This lesson does not have supported content available right now.</value></data>
+  <data name="Lesson completed" xml:space="preserve"><value>Lesson completed</value></data>
+  <data name="Mark as complete" xml:space="preserve"><value>Mark as complete</value></data>
+  <data name="Lesson navigation" xml:space="preserve"><value>Lesson navigation</value></data>
+  <data name="Previous lesson" xml:space="preserve"><value>Previous lesson</value></data>
+  <data name="Next lesson" xml:space="preserve"><value>Next lesson</value></data>
 </root>

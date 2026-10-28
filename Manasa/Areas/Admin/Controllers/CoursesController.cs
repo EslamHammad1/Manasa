@@ -140,9 +140,10 @@ public class CoursesController(ApplicationDbContext dbContext, IStringLocalizer<
             return NotFound();
         }
         if (await dbContext.CoursePackages.AnyAsync(item => item.CourseId == id)
+            || await dbContext.CourseLessons.AnyAsync(item => item.CourseId == id)
             || await dbContext.Courses.AnyAsync(item => item.Id == id && item.TeacherProfileId != null))
         {
-            TempData["ErrorMessage"] = text["This course still has packages or an assigned teacher. Remove or reassign those references before deleting it."].Value;
+            TempData["ErrorMessage"] = text["This course still has packages, lessons, or an assigned teacher. Remove or reassign those references before deleting it."].Value;
             return RedirectToAction(nameof(Index));
         }
 

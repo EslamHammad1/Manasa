@@ -1,0 +1,56 @@
+@model CourseLessonListViewModel
+@{
+    ViewData["Title"] = T["Course lessons"];
+}
+
+<div class="page-heading">
+    <div>
+        <span class="eyebrow">@T["COURSE CONTENT"]</span>
+        <h1>@T["Lessons"]</h1>
+        <p><span dir="auto">@Model.CourseTitle</span> · @T["Manage lesson content, order, and publication."]</p>
+    </div>
+    <a class="btn btn-primary" asp-action="Create" asp-route-courseId="@Model.CourseId">＋ @T["Add lesson"]</a>
+</div>
+
+<div class="panel-card">
+    @if (Model.Lessons.Count == 0)
+    {
+        <div class="empty-state">
+            <span aria-hidden="true">▤</span>
+            <h3>@T["No lessons yet"]</h3>
+            <p>@T["Add text or a supported video to start this course."]</p>
+            <a class="btn btn-primary" asp-action="Create" asp-route-courseId="@Model.CourseId">@T["Create first lesson"]</a>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table align-middle admin-table">
+                <thead><tr><th>@T["Order"]</th><th>@T["Lesson"]</th><th>@T["Content"]</th><th>@T["Student progress"]</th><th>@T["Status"]</th><th></th></tr></thead>
+                <tbody>
+                @foreach (var lesson in Model.Lessons)
+                {
+                    <tr>
+                        <td dir="ltr">@lesson.DisplayOrder</td>
+                        <td><strong dir="auto">@lesson.Title</strong></td>
+                        <td>
+                            @if (lesson.HasText) { <span class="status-pill status-draft">@T["Text"]</span> }
+                            @if (lesson.HasVideo) { <span class="status-pill status-live">@T["Video"]</span> }
+                        </td>
+                        <td>@lesson.ProgressRecordCount</td>
+                        <td><span class="status-pill @(lesson.IsPublished ? "status-live" : "status-draft")">@(lesson.IsPublished ? T["Published"] : T["Draft"])</span></td>
+                        <td class="text-end text-nowrap">
+                            <a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-courseId="@Model.CourseId" asp-route-id="@lesson.Id">@T["Edit"]</a>
+                            <form asp-action="Delete" asp-route-courseId="@Model.CourseId" asp-route-id="@lesson.Id" method="post" class="d-inline" onsubmit="return confirm('@T["Delete this lesson?"]');">
+                                <button class="btn btn-sm btn-outline-danger">@T["Delete"]</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+<div class="mt-3"><a class="btn btn-light" asp-area="Admin" asp-controller="Courses" asp-action="Index">@T["Back to courses"]</a></div>

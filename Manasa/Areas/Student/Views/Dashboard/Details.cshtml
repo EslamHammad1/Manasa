@@ -34,4 +34,58 @@
             }
         </div>
     </article>
+
+    <section class="course-learning-section" aria-labelledby="course-lessons-heading">
+        <div class="student-section-heading">
+            <div>
+                <span class="eyebrow">@T["YOUR PROGRESS"]</span>
+                <h2 id="course-lessons-heading">@T["Course lessons"]</h2>
+            </div>
+            <span class="student-course-count">@T["Lessons completed: {0} of {1}", Model.CompletedLessons, Model.TotalLessons]</span>
+        </div>
+        <div class="course-progress">
+            <div class="course-progress-copy">
+                <span>@T["Progress: {0}%", Model.CompletionPercentage]</span>
+            </div>
+            <div class="course-progress-track" role="progressbar" aria-valuenow="@Model.CompletionPercentage" aria-valuemin="0" aria-valuemax="100" aria-label="@T["Course progress"]">
+                <span style="width: @Model.CompletionPercentage%"></span>
+            </div>
+        </div>
+        @if (Model.Lessons.Count == 0)
+        {
+            <div class="student-empty-state student-empty-state-compact">
+                <h3>@T["No lessons available yet"]</h3>
+                <p>@T["Lessons will appear here when they are published."]</p>
+            </div>
+        }
+        else
+        {
+            @if (Model.ResumeLessonId.HasValue)
+            {
+                <form asp-area="Student" asp-controller="Lessons" asp-action="Open" method="post" class="student-resume-form">
+                    <input type="hidden" name="courseId" value="@Model.Id" />
+                    <input type="hidden" name="lessonId" value="@Model.ResumeLessonId.Value" />
+                    <button type="submit" class="student-course-action student-resume-button">@T["Resume learning"] <span class="directional-arrow" aria-hidden="true">→</span></button>
+                </form>
+            }
+            <ol class="course-lesson-list">
+                @foreach (var lesson in Model.Lessons)
+                {
+                    <li class="course-lesson-row">
+                        <span class="lesson-status" aria-hidden="true">@(lesson.IsCompleted ? "✓" : "•")</span>
+                        <span class="course-lesson-title" dir="auto">@lesson.Title</span>
+                        @if (lesson.IsCompleted)
+                        {
+                            <span class="lesson-completed-label">@T["Completed"]</span>
+                        }
+                        <form asp-area="Student" asp-controller="Lessons" asp-action="Open" method="post">
+                            <input type="hidden" name="courseId" value="@Model.Id" />
+                            <input type="hidden" name="lessonId" value="@lesson.Id" />
+                            <button type="submit" class="student-course-action student-lesson-open">@T["Open lesson"]</button>
+                        </form>
+                    </li>
+                }
+            </ol>
+        }
+    </section>
 </div>
