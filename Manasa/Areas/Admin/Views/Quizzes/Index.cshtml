@@ -1,0 +1,7 @@
+@model AdminQuizListViewModel
+@{ ViewData["Title"] = T["Quizzes"]; }
+<div class="page-heading"><div><span class="eyebrow">@T["ASSESSMENTS"]</span><h1>@T["Quizzes"]</h1><p>@T["Manage course quizzes and review student results."]</p></div><a class="btn btn-primary align-self-center" asp-action="Create">@T["Create quiz"]</a></div>
+@if (Model.Quizzes.Count == 0) { <div class="student-empty-state"><h2>@T["No quizzes yet"]</h2><p>@T["Create a quiz for a published course."]</p></div> }
+else { <div class="table-responsive form-panel"><table class="table align-middle"><thead><tr><th>@T["Title"]</th><th>@T["Course"]</th><th>@T["Questions"]</th><th>@T["Status"]</th><th>@T["Attempts"]</th><th></th></tr></thead><tbody>
+@foreach (var quiz in Model.Quizzes) { <tr><td>@quiz.Title</td><td>@quiz.CourseTitle</td><td>@quiz.QuestionCount</td><td>@(quiz.IsPublished ? T["Published"] : T["Unpublished"])</td><td>@quiz.AttemptCount</td><td class="text-nowrap"><a asp-action="Edit" asp-route-id="@quiz.Id">@T["Edit"]</a> · <a asp-action="Questions" asp-route-id="@quiz.Id">@T["Manage questions"]</a> · <a asp-action="Attempts" asp-route-id="@quiz.Id">@T["Results"]</a></td></tr> }
+</tbody></table></div> }

@@ -10,6 +10,22 @@
         <p>@T["Explore courses currently available in the catalog."]</p>
     </section>
 
+    <section class="form-panel mb-4" aria-labelledby="student-progress-heading">
+        <div class="student-section-heading"><div><span class="eyebrow">@T["YOUR PROGRESS"]</span><h2 id="student-progress-heading">@T["Learning achievements"]</h2></div><a class="btn btn-primary" asp-area="Student" asp-controller="Quizzes" asp-action="Index">@T["Available quizzes"]</a></div>
+        <div class="student-progress-stats row text-center"><div class="col"><strong>@Model.TotalXp</strong><div>@T["XP points"]</div></div><div class="col"><strong>@Model.CurrentStreak</strong><div>@T["Current streak"]</div></div><div class="col"><strong>@Model.LongestStreak</strong><div>@T["Longest streak"]</div></div></div>
+        <h3 class="mt-4">@T["Earned badges"]</h3>
+        @if (Model.Badges.Count == 0) { <p>@T["Complete a quiz to earn your first badge."]</p> }
+        else { <div class="student-badge-list">@foreach (var badge in Model.Badges) { <article class="student-badge-card"><span class="student-badge-mark" aria-hidden="true">✦</span><div><strong>@T[badge.NameResourceKey]</strong><p class="mb-1">@T[badge.DescriptionResourceKey]</p><small>@badge.EarnedAtUtc.ToString("d")</small></div></article> }</div> }
+        @if (Model.AchievementProgress.Count > 0)
+        {
+            <h3 class="mt-4">@T["Achievement progress"]</h3>
+            <ol class="student-achievement-path">@foreach (var progress in Model.AchievementProgress) { var percent = progress.Target > 0 ? Math.Clamp(progress.Current * 100 / progress.Target, 0, 100) : 0; <li class="student-achievement-step"><div class="student-achievement-card"><span class="student-achievement-mark" aria-hidden="true">@(progress.Current >= progress.Target ? "✓" : "○")</span><div class="student-achievement-copy"><strong>@T[progress.NameResourceKey]</strong><span class="student-achievement-count">@progress.Current / @progress.Target</span><div class="student-achievement-track" role="progressbar" aria-label="@T[progress.NameResourceKey]" aria-valuemin="0" aria-valuemax="@progress.Target" aria-valuenow="@progress.Current"><span style="--achievement-progress: @percent%"></span></div></div></div></li> }</ol>
+        }
+        <h3 class="mt-4">@T["Recent quiz results"]</h3>
+        @if (Model.RecentQuizzes.Count == 0) { <p>@T["No quiz attempts yet."]</p> }
+        else { <ul class="list-group">@foreach (var attempt in Model.RecentQuizzes) { <li class="list-group-item d-flex justify-content-between"><span>@attempt.QuizTitle — @attempt.Percentage%</span><a asp-area="Student" asp-controller="Quizzes" asp-action="Result" asp-route-id="@attempt.AttemptId">@T["View result"]</a></li> }</ul> }
+    </section>
+
     <section aria-labelledby="published-courses-heading">
         <div class="student-section-heading">
             <div>

@@ -1,0 +1,4 @@
+@model Manasa.Areas.Student.Controllers.StudentQuizHistoryViewModel
+@{ ViewData["Title"] = T["Attempt history"]; }
+<div class="student-page"><a class="student-back-link" asp-action="Details" asp-route-id="@Model.QuizId">← @T["Back to quiz"]</a><section class="student-welcome"><h1>@T["Attempt history"]</h1><p>@Model.QuizTitle</p></section>
+<div class="table-responsive form-panel"><table class="table"><thead><tr><th>@T["Attempt"]</th><th>@T["Status"]</th><th>@T["Score"]</th><th>@T["Result"]</th><th></th></tr></thead><tbody>@foreach (var attempt in Model.Attempts) { <tr><td>@attempt.AttemptNumber</td><td>@T[attempt.Status.ToString()]</td><td>@attempt.Percentage%</td><td>@(attempt.Passed ? T["Passed"] : T["Not passed"])</td><td><a asp-action="Result" asp-route-id="@attempt.AttemptId">@T["View result"]</a></td></tr> }</tbody></table></div></div>

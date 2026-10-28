@@ -1,0 +1,11 @@
+@model QuizQuestionFormViewModel
+@{ ViewData["Title"] = Model.Id is null ? T["Add question"] : T["Edit question"]; }
+<div class="page-heading"><div><span class="eyebrow">@T["ASSESSMENTS"]</span><h1>@ViewData["Title"]</h1></div></div>
+<div class="form-panel"><form asp-action="Question" method="post"><div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+<input asp-for="QuizId" type="hidden"/><input asp-for="Id" type="hidden"/>
+<div class="mb-3"><label asp-for="Text" class="form-label">@T["Question"]</label><textarea asp-for="Text" class="form-control" dir="auto"></textarea><span asp-validation-for="Text" class="text-danger"></span></div>
+<div class="row"><div class="col-md-4 mb-3"><label asp-for="Type" class="form-label">@T["Question type"]</label><select asp-for="Type" class="form-select"><option value="1">@T["MultipleChoice"]</option><option value="2">@T["TrueFalse"]</option></select></div><div class="col-md-4 mb-3"><label asp-for="Points" class="form-label">@T["Points"]</label><input asp-for="Points" class="form-control"/></div><div class="col-md-4 mb-3"><label asp-for="DisplayOrder" class="form-label">@T["Display order"]</label><input asp-for="DisplayOrder" class="form-control"/></div></div>
+<div class="mb-3"><label asp-for="OptionsText" class="form-label">@T["Answer options"]</label><textarea asp-for="OptionsText" class="form-control" rows="5" dir="auto"></textarea><div class="form-text">@T["Enter one option per line. True/False questions use two options."]</div><span asp-validation-for="OptionsText" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="CorrectOptionNumber" class="form-label">@T["Correct option number"]</label><input asp-for="CorrectOptionNumber" class="form-control"/><div class="form-text">@T["Number options from top to bottom, starting at 1."]</div></div>
+<div class="mb-3"><label asp-for="Explanation" class="form-label">@T["Explanation (optional)"]</label><textarea asp-for="Explanation" class="form-control" dir="auto"></textarea></div>
+<div class="form-actions"><a asp-action="Questions" asp-route-id="@Model.QuizId" class="btn btn-light">@T["Cancel"]</a><button class="btn btn-primary">@T["Save question"]</button></div></form></div>

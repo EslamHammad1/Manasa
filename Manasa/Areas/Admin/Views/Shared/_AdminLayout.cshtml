@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body class="admin-body">
+    <canvas class="neural-network" data-neural-network aria-hidden="true"></canvas>
     <a class="visually-hidden-focusable skip-link" href="#main-content">@T["Skip to content"]</a>
     <div class="admin-shell">
         <aside class="admin-sidebar">
@@ -31,6 +32,7 @@
                 <a asp-area="Admin" asp-controller="Students" asp-action="Index" class="@(currentController == "Students" ? "active" : null)" aria-current="@(currentController == "Students" ? "page" : null)"><span aria-hidden="true">ST</span> @T["Students"]</a>
                 <a asp-area="Admin" asp-controller="Courses" asp-action="Index" class="@(currentController == "Courses" ? "active" : null)" aria-current="@(currentController == "Courses" ? "page" : null)"><span aria-hidden="true">CO</span> @T["Courses"]</a>
                 <a asp-area="Admin" asp-controller="CoursePackages" asp-action="Index" class="@(currentController == "CoursePackages" ? "active" : null)" aria-current="@(currentController == "CoursePackages" ? "page" : null)"><span aria-hidden="true">PK</span> @T["Course packages"]</a>
+                <a asp-area="Admin" asp-controller="Quizzes" asp-action="Index" class="@(currentController == "Quizzes" ? "active" : null)" aria-current="@(currentController == "Quizzes" ? "page" : null)"><span aria-hidden="true">QZ</span> @T["Quizzes"]</a>
             </nav>
             <div class="admin-sidebar-bottom">
                 <span>@T["Signed in as administrator"]</span>
@@ -53,7 +55,7 @@
                     </form>
                 </div>
             </header>
-            <div class="admin-content">
+            <div class="admin-content site-page-transition">
                 @if (TempData["StatusMessage"] is string statusMessage)
                 {
                     <div class="alert alert-success alert-dismissible fade show" role="status">
@@ -71,6 +73,7 @@
         </main>
     </div>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/neural-network.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

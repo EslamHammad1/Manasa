@@ -1,0 +1,8 @@
+@model Manasa.ViewModels.Student.QuizResultViewModel
+@{ ViewData["Title"] = T["Quiz result"]; }
+<div class="student-page"><section class="student-welcome quiz-result-welcome @(Model.Status == Manasa.Models.QuizAttemptStatus.Expired ? "quiz-result-expired" : Model.Passed ? "quiz-result-passed" : "quiz-result-not-passed")" aria-labelledby="quiz-result-title"><span class="eyebrow">@T["QUIZ RESULT"]</span><h1 id="quiz-result-title" dir="auto">@Model.QuizTitle</h1><p>@T["Attempt {0}", Model.AttemptNumber]</p>
+@if (Model.Status == Manasa.Models.QuizAttemptStatus.Expired) { <p class="quiz-result-message" role="status">@T["This attempt expired before submission."]</p> }
+else { <p class="quiz-result-score"><strong>@Model.Earned / @Model.Maximum</strong> <span>(@Model.Percentage%)</span></p><p class="quiz-result-message" role="status">@(Model.Passed ? T["Passed"] : T["Not passed"])</p><div class="quiz-result-track" role="progressbar" aria-label="@T["Quiz result"]" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@Math.Clamp((int)Model.Percentage, 0, 100)"><span style="--quiz-result-progress: @Math.Clamp((int)Model.Percentage, 0, 100)%"></span></div> }
+<a class="btn btn-light" asp-action="History" asp-route-quizId="@Model.QuizId">@T["View attempt history"]</a></section>
+@foreach (var answer in Model.Answers) { <article class="form-panel mb-3"><h2 dir="auto">@answer.Question</h2><p>@T["Your answer"]: <span dir="auto">@(answer.SelectedAnswer ?? T["No answer"])</span></p><p>@T["Score"]: @answer.Earned / @answer.Maximum</p>@if (!string.IsNullOrWhiteSpace(answer.Explanation)) { <p dir="auto">@answer.Explanation</p> }</article> }
+</div>

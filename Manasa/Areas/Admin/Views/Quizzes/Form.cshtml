@@ -1,0 +1,13 @@
+@model QuizFormViewModel
+@{ var editing = Model.Id != 0; ViewData["Title"] = editing ? T["Edit quiz"] : T["Create quiz"]; }
+<div class="page-heading"><div><span class="eyebrow">@T["ASSESSMENTS"]</span><h1>@ViewData["Title"]</h1></div></div>
+<div class="form-panel"><form asp-action="@(editing ? "Edit" : "Create")" asp-route-id="@Model.Id" method="post">
+<div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div><input asp-for="Id" type="hidden" />
+<div class="mb-3"><label asp-for="Title" class="form-label">@T["Quiz title"]</label><input asp-for="Title" class="form-control" dir="auto"/><span asp-validation-for="Title" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="Description" class="form-label">@T["Description"]</label><textarea asp-for="Description" class="form-control" dir="auto"></textarea></div>
+<div class="mb-3"><label asp-for="CourseId" class="form-label">@T["Course"]</label><select asp-for="CourseId" asp-items="Model.Courses" class="form-select"><option value="">@T["Choose a course"]</option></select><span asp-validation-for="CourseId" class="text-danger"></span></div>
+<div class="row"><div class="col-md-4 mb-3"><label asp-for="PassingScorePercent" class="form-label">@T["Passing score (%)"]</label><input asp-for="PassingScorePercent" class="form-control"/></div><div class="col-md-4 mb-3"><label asp-for="TimeLimitMinutes" class="form-label">@T["Time limit (minutes)"]</label><input asp-for="TimeLimitMinutes" class="form-control"/><div class="form-text">@T["Leave blank for no time limit."]</div></div><div class="col-md-4 mb-3"><label asp-for="MaximumAttempts" class="form-label">@T["Maximum attempts"]</label><input asp-for="MaximumAttempts" class="form-control"/><div class="form-text">@T["Leave blank for unlimited attempts."]</div></div></div>
+<div class="form-check mb-3"><input asp-for="ShowExplanationsAfterSubmission" class="form-check-input"/><label asp-for="ShowExplanationsAfterSubmission" class="form-check-label">@T["Show explanations after submission"]</label></div>
+@if (editing) { <div class="form-check mb-4"><input asp-for="IsPublished" class="form-check-input"/><label asp-for="IsPublished" class="form-check-label">@T["Published"]</label></div> }
+<div class="form-actions"><a asp-action="Index" class="btn btn-light">@T["Cancel"]</a><button class="btn btn-primary">@T["Save changes"]</button></div>
+</form></div>

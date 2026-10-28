@@ -888,4 +888,113 @@
   <data name="Toggle navigation" xml:space="preserve">
     <value>قائمة التنقل</value>
   </data>
+  <data name="ASSESSMENTS" xml:space="preserve"><value>الاختبارات</value></data>
+  <data name="Manage course quizzes and review student results." xml:space="preserve"><value>إدارة اختبارات الدورات ومراجعة نتائج الطلاب.</value></data>
+  <data name="Create quiz" xml:space="preserve"><value>إنشاء اختبار</value></data>
+  <data name="No quizzes yet" xml:space="preserve"><value>لا توجد اختبارات بعد</value></data>
+  <data name="Create a quiz for a published course." xml:space="preserve"><value>أنشئ اختبارًا لدورة منشورة.</value></data>
+  <data name="Unpublished" xml:space="preserve"><value>غير منشور</value></data>
+  <data name="Manage questions" xml:space="preserve"><value>إدارة الأسئلة</value></data>
+  <data name="Edit quiz" xml:space="preserve"><value>تعديل الاختبار</value></data>
+  <data name="Quiz title" xml:space="preserve"><value>عنوان الاختبار</value></data>
+  <data name="Passing score (%)" xml:space="preserve"><value>درجة النجاح (٪)</value></data>
+  <data name="Time limit (minutes)" xml:space="preserve"><value>المدة (بالدقائق)</value></data>
+  <data name="Leave blank for no time limit." xml:space="preserve"><value>اتركه فارغًا لعدم تحديد مدة.</value></data>
+  <data name="Maximum attempts" xml:space="preserve"><value>الحد الأقصى للمحاولات</value></data>
+  <data name="Leave blank for unlimited attempts." xml:space="preserve"><value>اتركه فارغًا للسماح بمحاولات غير محدودة.</value></data>
+  <data name="Show explanations after submission" xml:space="preserve"><value>عرض الشرح بعد التسليم</value></data>
+  <data name="Edit question" xml:space="preserve"><value>تعديل السؤال</value></data>
+  <data name="Question type" xml:space="preserve"><value>نوع السؤال</value></data>
+  <data name="Answer options" xml:space="preserve"><value>خيارات الإجابة</value></data>
+  <data name="Enter one option per line. True/False questions use two options." xml:space="preserve"><value>أدخل كل خيار في سطر. يتطلب سؤال الصح والخطأ خيارين.</value></data>
+  <data name="Correct option number" xml:space="preserve"><value>رقم الإجابة الصحيحة</value></data>
+  <data name="Number options from top to bottom, starting at 1." xml:space="preserve"><value>رقّم الخيارات من الأعلى إلى الأسفل بدءًا من 1.</value></data>
+  <data name="Explanation (optional)" xml:space="preserve"><value>الشرح (اختياري)</value></data>
+  <data name="Save question" xml:space="preserve"><value>حفظ السؤال</value></data>
+  <data name="Published quizzes are taken offline before questions change." xml:space="preserve"><value>سيتم إلغاء نشر الاختبار قبل تعديل أسئلته.</value></data>
+  <data name="Add questions, answer choices, and correct answers." xml:space="preserve"><value>أضف الأسئلة وخيارات الإجابة وحدد الإجابة الصحيحة.</value></data>
+  <data name="Edit quiz settings" xml:space="preserve"><value>تعديل إعدادات الاختبار</value></data>
+  <data name="View results" xml:space="preserve"><value>عرض النتائج</value></data>
+  <data name="Unpublish" xml:space="preserve"><value>إلغاء النشر</value></data>
+  <data name="Publish" xml:space="preserve"><value>نشر</value></data>
+  <data name="No questions yet" xml:space="preserve"><value>لا توجد أسئلة بعد</value></data>
+  <data name="Add at least one valid question before publishing." xml:space="preserve"><value>أضف سؤالًا صالحًا واحدًا على الأقل قبل النشر.</value></data>
+  <data name="Delete this question?" xml:space="preserve"><value>هل تريد حذف هذا السؤال؟</value></data>
+  <data name="Quiz results" xml:space="preserve"><value>نتائج الاختبار</value></data>
+  <data name="Passed" xml:space="preserve"><value>ناجح</value></data>
+  <data name="Not passed" xml:space="preserve"><value>لم ينجح</value></data>
+  <data name="No attempts yet" xml:space="preserve"><value>لا توجد محاولات بعد</value></data>
+  <data name="Available quizzes" xml:space="preserve"><value>الاختبارات المتاحة</value></data>
+  <data name="Take quizzes for published courses and review your results." xml:space="preserve"><value>أجرِ اختبارات الدورات المنشورة وراجع نتائجك.</value></data>
+  <data name="No quizzes available" xml:space="preserve"><value>لا توجد اختبارات متاحة</value></data>
+  <data name="Published quizzes will appear here." xml:space="preserve"><value>ستظهر الاختبارات المنشورة هنا.</value></data>
+  <data name="Continue quiz" xml:space="preserve"><value>متابعة الاختبار</value></data>
+  <data name="Quiz details" xml:space="preserve"><value>تفاصيل الاختبار</value></data>
+  <data name="Passing score: {0}%" xml:space="preserve"><value>درجة النجاح: {0}٪</value></data>
+  <data name="No time limit" xml:space="preserve"><value>بلا مدة محددة</value></data>
+  <data name="Time limit: {0} minutes" xml:space="preserve"><value>المدة: {0} دقيقة</value></data>
+  <data name="Unlimited attempts" xml:space="preserve"><value>محاولات غير محدودة</value></data>
+  <data name="Attempts remaining: {0}" xml:space="preserve"><value>المحاولات المتبقية: {0}</value></data>
+  <data name="You have reached the attempt limit." xml:space="preserve"><value>لقد بلغت الحد الأقصى للمحاولات.</value></data>
+  <data name="View attempt history" xml:space="preserve"><value>عرض سجل المحاولات</value></data>
+  <data name="Start quiz" xml:space="preserve"><value>بدء الاختبار</value></data>
+  <data name="QUIZ IN PROGRESS" xml:space="preserve"><value>الاختبار جارٍ</value></data>
+  <data name="Submit quiz" xml:space="preserve"><value>تسليم الاختبار</value></data>
+  <data name="Quiz result" xml:space="preserve"><value>نتيجة الاختبار</value></data>
+  <data name="Attempt {0}" xml:space="preserve"><value>المحاولة {0}</value></data>
+  <data name="This attempt expired before submission." xml:space="preserve"><value>انتهت مدة هذه المحاولة قبل التسليم.</value></data>
+  <data name="Your answer" xml:space="preserve"><value>إجابتك</value></data>
+  <data name="No answer" xml:space="preserve"><value>لا توجد إجابة</value></data>
+  <data name="Attempt history" xml:space="preserve"><value>سجل المحاولات</value></data>
+  <data name="Back to quiz" xml:space="preserve"><value>العودة إلى الاختبار</value></data>
+  <data name="View result" xml:space="preserve"><value>عرض النتيجة</value></data>
+  <data name="YOUR PROGRESS" xml:space="preserve"><value>تقدمك</value></data>
+  <data name="Learning achievements" xml:space="preserve"><value>إنجازات التعلم</value></data>
+  <data name="XP points" xml:space="preserve"><value>نقاط الخبرة</value></data>
+  <data name="Current streak" xml:space="preserve"><value>سلسلتك الحالية</value></data>
+  <data name="Longest streak" xml:space="preserve"><value>أطول سلسلة</value></data>
+  <data name="Earned badges" xml:space="preserve"><value>الشارات المكتسبة</value></data>
+  <data name="Complete a quiz to earn your first badge." xml:space="preserve"><value>أكمل اختبارًا لتحصل على أول شارة.</value></data>
+  <data name="Recent quiz results" xml:space="preserve"><value>نتائج الاختبارات الأخيرة</value></data>
+  <data name="No quiz attempts yet." xml:space="preserve"><value>لم تسجل أي محاولة اختبار بعد.</value></data>
+  <data name="MultipleChoice" xml:space="preserve"><value>اختيار من متعدد</value></data>
+  <data name="TrueFalse" xml:space="preserve"><value>صح أو خطأ</value></data>
+  <data name="InProgress" xml:space="preserve"><value>قيد التقدم</value></data>
+  <data name="Submitted" xml:space="preserve"><value>تم التسليم</value></data>
+  <data name="Expired" xml:space="preserve"><value>منتهية</value></data>
+  <data name="Badge.FirstQuiz.Name" xml:space="preserve"><value>الاختبار الأول</value></data>
+  <data name="Badge.FirstQuiz.Description" xml:space="preserve"><value>سلّم أول محاولة اختبار صالحة.</value></data>
+  <data name="Badge.QuizMaster.Name" xml:space="preserve"><value>خبير الاختبارات</value></data>
+  <data name="Badge.QuizMaster.Description" xml:space="preserve"><value>اجتز اختبارات في خمس دورات مختلفة.</value></data>
+  <data name="Badge.PerfectScore.Name" xml:space="preserve"><value>الدرجة الكاملة</value></data>
+  <data name="Badge.PerfectScore.Description" xml:space="preserve"><value>احصل على الدرجة الكاملة في اختبار.</value></data>
+  <data name="Badge.LearningMilestone.Name" xml:space="preserve"><value>إنجاز تعليمي</value></data>
+  <data name="Badge.LearningMilestone.Description" xml:space="preserve"><value>اجمع 100 نقطة خبرة.</value></data>
+  <data name="Preview quiz" xml:space="preserve"><value>معاينة الاختبار</value></data>
+  <data name="QUIZ PREVIEW" xml:space="preserve"><value>معاينة الاختبار</value></data>
+  <data name="Back to questions" xml:space="preserve"><value>العودة إلى الأسئلة</value></data>
+  <data name="Correct answer" xml:space="preserve"><value>الإجابة الصحيحة</value></data>
+  <data name="This quiz needs valid questions and a published course before publication." xml:space="preserve"><value>يجب أن يحتوي الاختبار على أسئلة صالحة وأن تكون الدورة منشورة قبل نشره.</value></data>
+  <data name="Provide 2 to 20 answer options and select an existing correct option." xml:space="preserve"><value>أدخل من خيارين إلى 20 خيارًا وحدد إجابة صحيحة موجودة.</value></data>
+  <data name="Select a valid question type." xml:space="preserve"><value>اختر نوع سؤال صالحًا.</value></data>
+  <data name="True/False questions require exactly two options." xml:space="preserve"><value>تتطلب أسئلة الصح والخطأ خيارين بالضبط.</value></data>
+  <data name="Question saved. The quiz is unpublished until reviewed and published again." xml:space="preserve"><value>تم حفظ السؤال. أُلغي نشر الاختبار إلى أن تراجعه وتنشره مجددًا.</value></data>
+  <data name="Question deleted. The quiz is now unpublished." xml:space="preserve"><value>تم حذف السؤال وإلغاء نشر الاختبار.</value></data>
+  <data name="Quiz created." xml:space="preserve"><value>تم إنشاء الاختبار.</value></data>
+  <data name="Quiz updated." xml:space="preserve"><value>تم تحديث الاختبار.</value></data>
+  <data name="Quiz published." xml:space="preserve"><value>تم نشر الاختبار.</value></data>
+  <data name="Quiz unpublished." xml:space="preserve"><value>تم إلغاء نشر الاختبار.</value></data>
+  <data name="Quizzes" xml:space="preserve"><value>الاختبارات</value></data>
+  <data name="Results" xml:space="preserve"><value>النتائج</value></data>
+  <data name="Add question" xml:space="preserve"><value>إضافة سؤال</value></data>
+  <data name="Question" xml:space="preserve"><value>السؤال</value></data>
+  <data name="Points" xml:space="preserve"><value>النقاط</value></data>
+  <data name="Type" xml:space="preserve"><value>النوع</value></data>
+  <data name="Attempts" xml:space="preserve"><value>المحاولات</value></data>
+  <data name="Attempt" xml:space="preserve"><value>المحاولة</value></data>
+  <data name="Score" xml:space="preserve"><value>الدرجة</value></data>
+  <data name="Result" xml:space="preserve"><value>النتيجة</value></data>
+  <data name="Started" xml:space="preserve"><value>تاريخ البدء</value></data>
+  <data name="This quiz is unavailable or your attempt limit has been reached." xml:space="preserve"><value>هذا الاختبار غير متاح أو بلغت الحد الأقصى للمحاولات.</value></data>
+  <data name="Questions" xml:space="preserve"><value>الأسئلة</value></data>
 </root>
