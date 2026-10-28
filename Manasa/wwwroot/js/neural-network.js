@@ -17,7 +17,7 @@
     minParticles: 26,
     connectionDistance: 142,
     attractionRadius: 190,
-    attractionStrength: 0.026,
+    attractionStrength: 0.08,
     damping: 0.965,
     maxSpeed: 1.25
   };
@@ -29,6 +29,7 @@
   let animationFrame = 0;
   let lastTime = 0;
   let pointer = { x: -1000, y: -1000, active: false };
+  let initialGather = true;
   let isVisible = !document.hidden;
 
   const random = (min, max) => min + Math.random() * (max - min);
@@ -66,7 +67,7 @@
         vx: random(-0.35, 0.35),
         vy: random(-0.35, 0.35),
         phase: random(0, Math.PI * 2),
-        size: random(1.1, 2.1),
+        size: random(1.4, 2.5),
         orbit: 24 + (index % 9) * 8,
         angle: random(0, Math.PI * 2)
       };
@@ -85,16 +86,19 @@
         particle.vx += Math.sin(particle.phase) * 0.002 * delta;
         particle.vy += Math.cos(particle.phase * 0.8) * 0.002 * delta;
 
-        if (pointer.active) {
-          const dx = pointer.x - particle.x;
-          const dy = pointer.y - particle.y;
+        if (pointer.active || initialGather) {
+          const targetX = pointer.active ? pointer.x : width / 2;
+          const targetY = pointer.active ? pointer.y : height / 2;
+          const dx = targetX - particle.x;
+          const dy = targetY - particle.y;
           const distance = Math.hypot(dx, dy);
-          if (distance < config.attractionRadius && distance > 0) {
-            const falloff = 1 - distance / config.attractionRadius;
-            const targetX = pointer.x + Math.cos(particle.angle + time * 0.00018) * particle.orbit;
-            const targetY = pointer.y + Math.sin(particle.angle + time * 0.00018) * particle.orbit;
-            particle.vx += (targetX - particle.x) * config.attractionStrength * falloff * delta;
-            particle.vy += (targetY - particle.y) * config.attractionStrength * falloff * delta;
+          if ((initialGather || distance < config.attractionRadius) && distance > 0) {
+            const falloff = initialGather ? 1 : 1 - distance / config.attractionRadius;
+            const orbitX = targetX + Math.cos(particle.angle + time * 0.00018) * particle.orbit;
+            const orbitY = targetY + Math.sin(particle.angle + time * 0.00018) * particle.orbit;
+            const strength = initialGather ? config.attractionStrength * 3 : config.attractionStrength;
+            particle.vx += (orbitX - particle.x) * strength * falloff * delta;
+            particle.vy += (orbitY - particle.y) * strength * falloff * delta;
           }
         }
 
@@ -180,6 +184,7 @@
 
   function updatePointer(event) {
     if (event.pointerType === "touch" && event.type !== "pointermove") return;
+    initialGather = false;
     pointer = { x: event.clientX, y: event.clientY, active: true };
   }
 
